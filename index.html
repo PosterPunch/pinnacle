@@ -104,21 +104,44 @@
             transform: translateX(5px);
         }
         
+        /* Improved Section Titles */
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
             text-align: center;
             position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .section-title:after {
             content: '';
             display: block;
-            width: 80px;
-            height: 3px;
-            background-color: var(--tan);
-            margin: 15px auto;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--tan), var(--black));
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+        
+        .section-title span {
+            position: relative;
+            display: inline-block;
+            padding: 0 15px;
+            background-color: var(--white);
+            z-index: 1;
+        }
+        
+        .section-title:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: rgba(0,0,0,0.1);
+            z-index: 0;
         }
         
         /* Header Styles */
@@ -240,7 +263,7 @@
             color: var(--black);
         }
         
-        /* Hero Section */
+        /* Hero Section - Text Size Doubled */
         .hero {
             height: 100vh;
             position: relative;
@@ -280,19 +303,19 @@
         }
         
         .hero-title {
-            font-size: 4.5rem;
+            font-size: 6rem; /* Increased from 4.5rem */
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 20px; /* Increased from 10px */
             line-height: 1;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
         
         .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
+            font-size: 2rem; /* Increased from 1.5rem */
+            margin-bottom: 50px; /* Increased from 40px */
             font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px; /* Increased from 2px */
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
         
@@ -303,7 +326,9 @@
         }
         
         .hero-buttons .btn {
-            min-width: 180px;
+            min-width: 200px; /* Increased from 180px */
+            padding: 15px 30px; /* Increased padding */
+            font-size: 16px; /* Larger font */
         }
         
         .scroll-down {
@@ -449,6 +474,7 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
         
         .merch-card:hover {
@@ -584,7 +610,7 @@
             opacity: 0.7;
         }
         
-        /* Modal */
+        /* Talent Modal - Updated to match talent.html */
         .modal {
             display: none;
             position: fixed;
@@ -658,9 +684,10 @@
         }
         
         .talent-modal-name {
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 800;
             margin-bottom: 10px;
+            line-height: 1.1;
         }
         
         .talent-modal-category {
@@ -672,6 +699,8 @@
             font-weight: 600;
             margin-bottom: 20px;
             border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .talent-modal-stats {
@@ -681,20 +710,31 @@
             margin-bottom: 30px;
         }
         
+        .stat-item {
+            background-color: var(--beige);
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
         .stat-item h4 {
             font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 5px;
             opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .stat-item p {
-            font-size: 1.2rem;
-            font-weight: 700;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--black);
         }
         
         .talent-modal-bio {
             margin-bottom: 30px;
+            line-height: 1.8;
         }
         
         .talent-modal-socials {
@@ -711,21 +751,182 @@
             height: 40px;
             background-color: var(--beige);
             border-radius: 50%;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
         }
         
         .talent-modal-socials a:hover {
             background-color: var(--tan);
+            transform: translateY(-3px);
+        }
+        
+        /* Merch Modal - Updated to match merch.html */
+        .merch-modal {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .merch-modal-images {
+            position: relative;
+            height: 100%;
+            min-height: 500px;
+        }
+        
+        .merch-modal-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .merch-modal-image.active {
+            opacity: 1;
+        }
+        
+        .image-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+        
+        .image-nav-btn {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .image-nav-btn:hover {
+            background-color: var(--tan);
+            color: var(--black);
+        }
+        
+        .merch-modal-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+        
+        .merch-modal-category {
+            display: inline-block;
+            background-color: var(--tan);
+            color: var(--black);
+            padding: 5px 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .merch-modal-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--tan);
+            margin-bottom: 20px;
+        }
+        
+        .merch-modal-description {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .size-selector {
+            margin-bottom: 30px;
+        }
+        
+        .size-selector h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .size-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .size-option {
+            padding: 10px 15px;
+            border: 1px solid var(--black);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border-radius: 3px;
+        }
+        
+        .size-option.selected {
+            background-color: var(--black);
+            color: var(--white);
+        }
+        
+        .merch-modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--black);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .quantity-btn:hover {
+            background-color: var(--beige);
+        }
+        
+        .quantity-input {
+            width: 50px;
+            height: 40px;
+            text-align: center;
+            border: none;
+            border-left: 1px solid var(--black);
+            border-right: 1px solid var(--black);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
         }
         
         /* Responsive Styles */
         @media (max-width: 1024px) {
             .hero-title {
-                font-size: 3.5rem;
+                font-size: 5rem;
             }
             
             .hero-subtitle {
-                font-size: 1.3rem;
+                font-size: 1.8rem;
             }
             
             .about-container {
@@ -738,26 +939,28 @@
                 order: -1;
             }
             
-            .talent-modal {
+            .talent-modal,
+            .merch-modal {
                 grid-template-columns: 1fr;
             }
             
-            .talent-modal-image {
+            .talent-modal-image,
+            .merch-modal-images {
                 min-height: 300px;
             }
         }
         
         @media (max-width: 768px) {
             .section-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
             .hero-title {
-                font-size: 3rem;
+                font-size: 4rem;
             }
             
             .hero-subtitle {
-                font-size: 1.1rem;
+                font-size: 1.5rem;
             }
             
             .hero-buttons {
@@ -844,19 +1047,28 @@
                 padding: 15px;
                 width: 100%;
             }
+            
+            .merch-modal-actions {
+                flex-direction: column;
+            }
+            
+            .quantity-selector {
+                justify-content: center;
+                margin-bottom: 15px;
+            }
         }
         
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             
             .hero-subtitle {
-                font-size: 1rem;
+                font-size: 1.2rem;
             }
             
             .section-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             
             .talent-grid {
@@ -867,7 +1079,8 @@
                 margin: 20px auto;
             }
             
-            .talent-modal-content {
+            .talent-modal-content,
+            .merch-modal-content {
                 padding: 30px;
             }
             
@@ -877,6 +1090,7 @@
                 bottom: 20px;
                 right: 20px;
             }
+            
             .footer-logo {
                 height: 80px;
                 margin-bottom: 20px;
@@ -947,10 +1161,10 @@
     <!-- Talent Grid Section -->
     <section class="talent-section" id="talent">
         <div class="container">
-            <h2 class="section-title">Featured Talent</h2>
+            <h2 class="section-title"><span>Featured Talent</span></h2>
             <div class="talent-grid">
                 <!-- Salt Papi -->
-                <div class="talent-card" onclick="openTalentModal('salt-papi', 'Salt Papi', 'Boxer', '5-0', 'Record', '4', 'KOs', 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power.')">
+                <div class="talent-card" onclick="openTalentModal('salt-papi', 'Salt Papi', 'Boxer', '5-0', 'Record', '4', 'KOs', 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.')">
                     <img src="saltpin.jpg" alt="Salt Papi" class="talent-image">
                     <div class="talent-overlay">
                         <h3 class="talent-name">Salt Papi</h3>
@@ -959,7 +1173,7 @@
                 </div>
                 
                 <!-- FoxtheG -->
-                <div class="talent-card" onclick="openTalentModal('foxtheg', 'FoxtheG', 'Content Creator', '2.1M', 'Instagram', '500K', 'YouTube', 'FoxtheG creates engaging lifestyle content that resonates with young audiences worldwide.')">
+                <div class="talent-card" onclick="openTalentModal('foxtheg', 'FoxtheG', 'Content Creator', '2.1M', 'Instagram', '500K', 'YouTube', 'FoxtheG creates engaging lifestyle content that resonates with young audiences worldwide. His unique perspective and creative approach have earned him a dedicated following across multiple platforms.')">
                     <img src="foxpin.jpg" alt="FoxtheG" class="talent-image">
                     <div class="talent-overlay">
                         <h3 class="talent-name">FoxtheG</h3>
@@ -968,7 +1182,7 @@
                 </div>
                 
                 <!-- Dawood Savage -->
-                <div class="talent-card" onclick="openTalentModal('dawood-savage', 'Dawood Savage', 'Influencer', '1.8M', 'TikTok', '800K', 'Instagram', 'Dawood Savage is known for his viral comedy sketches and engaging personality.')">
+                <div class="talent-card" onclick="openTalentModal('dawood-savage', 'Dawood Savage', 'Influencer', '1.8M', 'TikTok', '800K', 'Instagram', 'Dawood Savage is known for his viral comedy sketches and engaging personality. His ability to connect with audiences through humor and authenticity has made him one of the most recognizable digital creators today.')">
                     <img src="dawoodpin.jpg" alt="Dawood Savage" class="talent-image">
                     <div class="talent-overlay">
                         <h3 class="talent-name">Dawood Savage</h3>
@@ -978,7 +1192,7 @@
             </div>
             
             <div style="text-align: center;">
-                <a href="#" class="view-all-btn">View All Talent <i class="fas fa-arrow-right"></i></a>
+                <a href="talent.html" class="view-all-btn">View All Talent <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
@@ -986,7 +1200,7 @@
     <!-- About Section -->
     <section class="about-section" id="about">
         <div class="container">
-            <h2 class="section-title">About Pinnacle</h2>
+            <h2 class="section-title"><span>About Pinnacle</span></h2>
             <div class="about-container">
                 <div class="about-content">
                     <h3>Redefining Talent Management</h3>
@@ -996,7 +1210,7 @@
                     <p>"Our mission is to elevate talent beyond the trends and build sustainable careers that transcend platforms."</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pinnacle Office">
+                    <img src="about.png" alt="Pinnacle Office">
                 </div>
             </div>
         </div>
@@ -1005,42 +1219,45 @@
     <!-- Merch Section -->
     <section class="merch-section" id="merch">
         <div class="container">
-            <h2 class="section-title">Pinnacle Merch</h2>
+            <h2 class="section-title"><span>Pinnacle Merch</span></h2>
             <div class="merch-grid">
                 <!-- Product 1 -->
-                <div class="merch-card">
+                <div class="merch-card" onclick="openMerchModal('pinnacle-logo-tee', 'Pinnacle Logo Tee', 'apparel', 45.00, 'Classic black t-shirt featuring the Pinnacle Talent Management logo in premium embroidery. Made from 100% organic cotton for maximum comfort.', ['S', 'M', 'L', 'XL', 'XXL'], ['logoteeangle.jpg', 'logoteefront.jpg', 'logoteeback.jpg'])">
                     <img src="logoteeangle.jpg" alt="Pinnacle Logo Tee" class="merch-image">
                     <div class="merch-details">
                         <h3 class="merch-title">Pinnacle Logo Tee</h3>
                         <p class="merch-price">$45.00</p>
-                        <button class="btn" onclick="addToCart('Pinnacle Logo Tee', 45)">Add to Cart</button>
+                        <button class="btn" onclick="event.stopPropagation();addToCartDirect('pinnacle-logo-tee')">Add to Cart</button>
                     </div>
                 </div>
 
-                <div class="merch-card">
+                <!-- Product 2 -->
+                <div class="merch-card" onclick="openMerchModal('pinnacle-logo-tee', 'Pinnacle Logo Tee', 'apparel', 45.00, 'Classic black t-shirt featuring the Pinnacle Talent Management logo in premium embroidery. Made from 100% organic cotton for maximum comfort.', ['S', 'M', 'L', 'XL', 'XXL'], ['logoteeangle.jpg', 'logoteefront.jpg', 'logoteeback.jpg'])">
                     <img src="logoteeangle.jpg" alt="Pinnacle Logo Tee" class="merch-image">
                     <div class="merch-details">
                         <h3 class="merch-title">Pinnacle Logo Tee</h3>
                         <p class="merch-price">$45.00</p>
-                        <button class="btn" onclick="addToCart('Pinnacle Logo Tee', 45)">Add to Cart</button>
+                        <button class="btn" onclick="event.stopPropagation();addToCartDirect('pinnacle-logo-tee')">Add to Cart</button>
                     </div>
                 </div>
 
-                <div class="merch-card">
+                <!-- Product 3 -->
+                <div class="merch-card" onclick="openMerchModal('pinnacle-logo-tee', 'Pinnacle Logo Tee', 'apparel', 45.00, 'Classic black t-shirt featuring the Pinnacle Talent Management logo in premium embroidery. Made from 100% organic cotton for maximum comfort.', ['S', 'M', 'L', 'XL', 'XXL'], ['logoteeangle.jpg', 'logoteefront.jpg', 'logoteeback.jpg'])">
                     <img src="logoteeangle.jpg" alt="Pinnacle Logo Tee" class="merch-image">
                     <div class="merch-details">
                         <h3 class="merch-title">Pinnacle Logo Tee</h3>
                         <p class="merch-price">$45.00</p>
-                        <button class="btn" onclick="addToCart('Pinnacle Logo Tee', 45)">Add to Cart</button>
+                        <button class="btn" onclick="event.stopPropagation();addToCartDirect('pinnacle-logo-tee')">Add to Cart</button>
                     </div>
                 </div>
 
-                <div class="merch-card">
+                <!-- Product 4 -->
+                <div class="merch-card" onclick="openMerchModal('pinnacle-logo-tee', 'Pinnacle Logo Tee', 'apparel', 45.00, 'Classic black t-shirt featuring the Pinnacle Talent Management logo in premium embroidery. Made from 100% organic cotton for maximum comfort.', ['S', 'M', 'L', 'XL', 'XXL'], ['logoteeangle.jpg', 'logoteefront.jpg', 'logoteeback.jpg'])">
                     <img src="logoteeangle.jpg" alt="Pinnacle Logo Tee" class="merch-image">
                     <div class="merch-details">
                         <h3 class="merch-title">Pinnacle Logo Tee</h3>
                         <p class="merch-price">$45.00</p>
-                        <button class="btn" onclick="addToCart('Pinnacle Logo Tee', 45)">Add to Cart</button>
+                        <button class="btn" onclick="event.stopPropagation();addToCartDirect('pinnacle-logo-tee')">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -1145,6 +1362,41 @@
         </div>
     </div>
 
+    <!-- Merch Modal -->
+    <div class="modal" id="merchModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="merch-modal">
+                <div class="merch-modal-images" id="merchModalImages">
+                    <!-- Images will be inserted here -->
+                </div>
+                <div class="merch-modal-content">
+                    <h2 class="merch-modal-title" id="modalMerchTitle"></h2>
+                    <span class="merch-modal-category" id="modalMerchCategory"></span>
+                    <div class="merch-modal-price" id="modalMerchPrice"></div>
+                    
+                    <div class="merch-modal-description" id="modalMerchDescription"></div>
+                    
+                    <div class="size-selector">
+                        <h4>Size</h4>
+                        <div class="size-options" id="sizeOptions">
+                            <!-- Size options will be inserted here -->
+                        </div>
+                    </div>
+                    
+                    <div class="merch-modal-actions">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" onclick="updateQuantity(-1)">-</button>
+                            <input type="number" class="quantity-input" id="quantityInput" value="1" min="1">
+                            <button class="quantity-btn" onclick="updateQuantity(1)">+</button>
+                        </div>
+                        <button class="btn" onclick="addToCart()">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Header Scroll Effect
         window.addEventListener('scroll', function() {
@@ -1219,12 +1471,12 @@
         });
     
         // Talent Modal Functions
-        function openTalentModal(id, name, category, stat1Title, stat1Value, stat2Title, stat2Value, bio) {
+        function openTalentModal(id, name, category, stat1Value, stat1Title, stat2Value, stat2Title, bio) {
             const modal = document.getElementById('talentModal');
             const talentImage = document.getElementById('modalTalentImage');
         
             // Set talent image based on ID
-            talentImage.style.backgroundImage = `url(https://source.unsplash.com/random/800x800/?${id})`;
+            talentImage.style.backgroundImage = `url(${id}.jpg)`;
         
             // Set talent info
             document.getElementById('modalTalentName').textContent = name;
@@ -1239,17 +1491,126 @@
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
+        
+        // Merch Modal Functions
+        let currentMerch = null;
+        let currentImageIndex = 0;
+        let selectedSize = null;
+        
+        function openMerchModal(id, name, category, price, description, sizes, images) {
+            currentMerch = { id, name, category, price, description, sizes, images };
+            currentImageIndex = 0;
+            selectedSize = sizes[0];
+            
+            const modal = document.getElementById('merchModal');
+            const imagesContainer = document.getElementById('merchModalImages');
+            
+            // Clear previous images
+            imagesContainer.innerHTML = '';
+            
+            // Add images
+            images.forEach((image, index) => {
+                const img = document.createElement('img');
+                img.src = image;
+                img.alt = name;
+                img.className = 'merch-modal-image' + (index === 0 ? ' active' : '');
+                imagesContainer.appendChild(img);
+            });
+            
+            // Add image navigation
+            imagesContainer.innerHTML += `
+                <div class="image-nav">
+                    <div class="image-nav-btn" onclick="event.stopPropagation();navigateImage(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="image-nav-btn" onclick="event.stopPropagation();navigateImage(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            `;
+            
+            // Set merch info
+            document.getElementById('modalMerchTitle').textContent = name;
+            document.getElementById('modalMerchCategory').textContent = formatCategory(category);
+            document.getElementById('modalMerchPrice').textContent = `$${price.toFixed(2)}`;
+            document.getElementById('modalMerchDescription').textContent = description;
+            
+            // Set size options
+            const sizeOptions = document.getElementById('sizeOptions');
+            sizeOptions.innerHTML = '';
+            
+            sizes.forEach(size => {
+                const sizeOption = document.createElement('div');
+                sizeOption.className = 'size-option' + (size === selectedSize ? ' selected' : '');
+                sizeOption.textContent = size;
+                sizeOption.setAttribute('onclick', `event.stopPropagation();selectSize('${size}')`);
+                sizeOptions.appendChild(sizeOption);
+            });
+            
+            // Reset quantity
+            document.getElementById('quantityInput').value = 1;
+            
+            // Show modal
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function navigateImage(direction) {
+            const images = document.querySelectorAll('.merch-modal-image');
+            images[currentImageIndex].classList.remove('active');
+            
+            currentImageIndex += direction;
+            
+            if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            }
+            
+            images[currentImageIndex].classList.add('active');
+        }
+        
+        function selectSize(size) {
+            selectedSize = size;
+            const sizeOptions = document.querySelectorAll('.size-option');
+            
+            sizeOptions.forEach(option => {
+                if (option.textContent === size) {
+                    option.classList.add('selected');
+                } else {
+                    option.classList.remove('selected');
+                }
+            });
+        }
+        
+        function updateQuantity(change) {
+            const input = document.getElementById('quantityInput');
+            let newValue = parseInt(input.value) + change;
+            
+            if (newValue < 1) newValue = 1;
+            
+            input.value = newValue;
+        }
+        
+        function formatCategory(category) {
+            return category.charAt(0).toUpperCase() + category.slice(1);
+        }
     
         function closeModal() {
-            const modal = document.getElementById('talentModal');
-            modal.style.display = 'none';
+            const talentModal = document.getElementById('talentModal');
+            const merchModal = document.getElementById('merchModal');
+            
+            talentModal.style.display = 'none';
+            merchModal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
     
         // Close modal when clicking outside
         window.addEventListener('click', function(event) {
-            const modal = document.getElementById('talentModal');
-            if (event.target === modal) {
+            const talentModal = document.getElementById('talentModal');
+            const merchModal = document.getElementById('merchModal');
+            
+            if (event.target === talentModal || event.target === merchModal) {
                 closeModal();
             }
         });
@@ -1257,13 +1618,26 @@
         // Shopping Cart Functionality
         let cartItems = 0;
     
-        function addToCart(productName, price) {
+        function addToCart() {
+            if (!selectedSize) {
+                alert('Please select a size before adding to cart');
+                return;
+            }
+            
+            const quantity = parseInt(document.getElementById('quantityInput').value);
+            cartItems += quantity;
+            updateCartCount();
+            
+            // In a real implementation, you would add the item to a cart array
+            alert(`${quantity} ${currentMerch.name} (Size: ${selectedSize}) added to cart!`);
+            closeModal();
+        }
+        
+        function addToCartDirect(id) {
+            // For demo purposes, we'll just add one item
             cartItems++;
             updateCartCount();
-        
-            // In a real implementation, you would add the item to a cart array
-            // and potentially show a notification
-            alert(`${productName} has been added to your cart!`);
+            alert('Item added to cart!');
         }
     
         function updateCartCount() {
@@ -1298,6 +1672,120 @@
     
         window.addEventListener('resize', handleResponsive);
         handleResponsive();
+        
+        // Shopify Buy Button Integration (placeholder - you'll need to implement this with your actual Shopify code)
+        function initShopifyBuyButtons() {
+            // This is where you would initialize Shopify's Buy Button JS
+            // Example (you'll need to replace with your actual code):
+            /*
+            var client = ShopifyBuy.buildClient({
+                domain: 'your-store.myshopify.com',
+                storefrontAccessToken: 'your-storefront-access-token'
+            });
+            
+            ShopifyBuy.UI.onReady(client).then(function(ui) {
+                ui.createComponent('product', {
+                    id: 'your-product-id',
+                    node: document.getElementById('product-component'),
+                    moneyFormat: '%24%7B%7Bamount%7D%7D',
+                    options: {
+                        "product": {
+                            "styles": {
+                                "product": {
+                                    "@media (min-width: 601px)": {
+                                        "max-width": "100%",
+                                        "margin-left": "0",
+                                        "margin-bottom": "50px"
+                                    }
+                                },
+                                "button": {
+                                    "background-color": "#000000",
+                                    ":hover": {
+                                        "background-color": "#D2B48C"
+                                    },
+                                    ":focus": {
+                                        "background-color": "#D2B48C"
+                                    }
+                                }
+                            },
+                            "contents": {
+                                "img": false,
+                                "button": false,
+                                "buttonWithQuantity": true
+                            },
+                            "text": {
+                                "button": "Add to cart"
+                            }
+                        },
+                        "cart": {
+                            "styles": {
+                                "button": {
+                                    "background-color": "#000000",
+                                    ":hover": {
+                                        "background-color": "#D2B48C"
+                                    },
+                                    ":focus": {
+                                        "background-color": "#D2B48C"
+                                    }
+                                }
+                            },
+                            "text": {
+                                "total": "Subtotal",
+                                "button": "Checkout"
+                            }
+                        },
+                        "modalProduct": {
+                            "contents": {
+                                "img": false,
+                                "imgWithCarousel": true,
+                                "button": false,
+                                "buttonWithQuantity": true
+                            },
+                            "styles": {
+                                "product": {
+                                    "@media (min-width: 601px)": {
+                                        "max-width": "100%",
+                                        "margin-left": "0px",
+                                        "margin-bottom": "0px"
+                                    }
+                                },
+                                "button": {
+                                    "background-color": "#000000",
+                                    ":hover": {
+                                        "background-color": "#D2B48C"
+                                    },
+                                    ":focus": {
+                                        "background-color": "#D2B48C"
+                                    }
+                                }
+                            },
+                            "text": {
+                                "button": "Add to cart"
+                            }
+                        },
+                        "toggle": {
+                            "styles": {
+                                "toggle": {
+                                    "background-color": "#000000",
+                                    ":hover": {
+                                        "background-color": "#D2B48C"
+                                    },
+                                    ":focus": {
+                                        "background-color": "#D2B48C"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+            */
+        }
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initShopifyBuyButtons();
+        });
     </script>
 </body>
 </html>
