@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pinnacle Talent Management | Elevating the Next Generation of Talent</title>
+    <title>Talent | Pinnacle Talent Management</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -81,29 +81,6 @@
             color: var(--white);
         }
         
-        .view-all-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 30px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-        
-        .view-all-btn:hover {
-            color: var(--tan);
-        }
-        
-        .view-all-btn i {
-            transition: transform 0.3s ease;
-        }
-        
-        .view-all-btn:hover i {
-            transform: translateX(5px);
-        }
-        
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
@@ -150,7 +127,11 @@
             height: 50px;
             transition: transform 0.3s ease;
         }
-
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
         nav ul {
             display: flex;
         }
@@ -239,100 +220,45 @@
             color: var(--black);
         }
         
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            overflow: hidden;
-            margin-top: 80px;
-        }
-        
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-        
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
-            z-index: -1;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            padding: 0 20px;
-        }
-        
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            font-weight: 300;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        
-        .hero-buttons .btn {
-            min-width: 180px;
-        }
-        
-        .scroll-down {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0) translateX(-50%);
-            }
-            40% {
-                transform: translateY(-20px) translateX(-50%);
-            }
-            60% {
-                transform: translateY(-10px) translateX(-50%);
-            }
-        }
-        
         /* Talent Grid Section */
         .talent-section {
-            padding: 100px 0;
+            padding: 150px 0 100px;
             background-color: var(--beige);
+        }
+        
+        .talent-categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 8px 20px;
+            background-color: transparent;
+            border: 2px solid var(--black);
+            color: var(--black);
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            font-size: 12px;
+            border-radius: 20px;
+        }
+        
+        .category-btn.active,
+        .category-btn:hover {
+            background-color: var(--black);
+            color: var(--white);
         }
         
         .talent-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 50px;
+            margin-top: 20px;
         }
         
         .talent-card {
@@ -386,198 +312,6 @@
         .talent-category {
             font-size: 0.9rem;
             opacity: 0.8;
-        }
-        
-        /* About Section */
-        .about-section {
-            padding: 100px 0;
-            background-color: var(--beige);
-        }
-        
-        .about-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .about-image {
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .about-content h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        
-        .about-content p {
-            margin-bottom: 20px;
-        }
-        
-        /* Merch Section */
-        .merch-section {
-            padding: 100px 0;
-            background-color: var(--white);
-        }
-        
-        .merch-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .merch-card {
-            background-color: var(--white);
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .merch-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .merch-image {
-            height: 300px;
-            width: 100%;
-            object-fit: cover;
-        }
-        
-        .merch-details {
-            padding: 20px;
-        }
-        
-        .merch-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        
-        .merch-price {
-            font-weight: 700;
-            color: var(--tan);
-            margin-bottom: 15px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--black);
-            color: var(--white);
-            padding: 60px 0 30px;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-logo {
-            height: 50px;
-            margin-bottom: 20px;
-            filter: brightness(0) invert(1);
-        }
-        
-        .footer-about p {
-            margin-bottom: 20px;
-            opacity: 0.7;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--tan);
-            color: var(--black);
-        }
-        
-        .social-links a i {
-            transition: transform 0.3s ease;
-        }
-        
-        .social-links a:hover i {
-            transform: scale(1.2);
-        }
-        
-        .footer-links h4 {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links ul li a {
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-        
-        .footer-links ul li a:hover {
-            opacity: 1;
-        }
-        
-        .footer-newsletter p {
-            opacity: 0.7;
-            margin-bottom: 20px;
-        }
-        
-        .newsletter-form {
-            display: flex;
-        }
-        
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .newsletter-form button {
-            padding: 0 20px;
-            background-color: var(--tan);
-            color: var(--black);
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            opacity: 0.7;
         }
         
         /* Modal */
@@ -714,22 +448,114 @@
             background-color: var(--tan);
         }
         
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            height: 50px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+            opacity: 0.7;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--tan);
+            color: var(--black);
+        }
+        
+        .social-links a i {
+            transition: transform 0.3s ease;
+        }
+        
+        .social-links a:hover i {
+            transform: scale(1.2);
+        }
+        
+        .footer-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            opacity: 1;
+        }
+        
+        .footer-newsletter p {
+            opacity: 0.7;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .newsletter-form button {
+            padding: 0 20px;
+            background-color: var(--tan);
+            color: var(--black);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
         /* Responsive Styles */
         @media (max-width: 1024px) {
-            .hero-title {
-                font-size: 3rem;
-            }
-            
-            .about-container {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .about-image {
-                height: 400px;
-                order: -1;
-            }
-            
             .talent-modal {
                 grid-template-columns: 1fr;
             }
@@ -742,19 +568,6 @@
         @media (max-width: 768px) {
             .section-title {
                 font-size: 2rem;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .hero-buttons .btn {
-                width: 100%;
             }
             
             nav ul {
@@ -786,31 +599,19 @@
             .talent-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
+            
+            .talent-modal-content {
+                padding: 30px;
+            }
         }
         
         @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-            
             .section-title {
                 font-size: 1.8rem;
             }
             
             .talent-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .modal-content {
-                margin: 20px auto;
-            }
-            
-            .talent-modal-content {
-                padding: 30px;
             }
             
             .back-to-top {
@@ -826,13 +627,13 @@
     <!-- Header -->
     <header id="header">
         <div class="container header-container">
-            <a href="#home" class="logo">
+            <a href="index.html" class="logo">
                 <img src="pinnaclelogo.png" alt="Pinnacle Talent Management" class="logo">
             </a>
             
             <nav>
                 <ul id="navMenu">
-                    <li><a href="pin.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="talent.html">Talent</a></li>
                     <li><a href="merch.html">Merch</a></li>
                     <li>
@@ -855,133 +656,21 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <video autoplay muted loop class="hero-video">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-dancing-under-neon-lights-1230-large.mp4" type="video/mp4">
-        </video>
-        <div class="hero-overlay"></div>
-        
-        <div class="hero-content">
-            <h1 class="hero-title">Elevating the Next Generation of Talent</h1>
-            <p class="hero-subtitle">Representing the most influential creators, athletes, and visionaries of our time</p>
-            <div class="hero-buttons">
-                <a href="#talent" class="btn">Meet Our Talent</a>
-                <a href="#merch" class="btn btn-outline">Shop Merch</a>
-            </div>
-        </div>
-        
-        <a href="#talent" class="scroll-down">
-            <i class="fas fa-chevron-down" style="color: white; font-size: 1.5rem;"></i>
-        </a>
-    </section>
-
     <!-- Talent Grid Section -->
-    <section class="talent-section" id="talent">
+    <section class="talent-section">
         <div class="container">
-            <h2 class="section-title">Featured Talent</h2>
-            <div class="talent-grid">
-                <!-- Salt Papi -->
-                <div class="talent-card" onclick="openTalentModal('salt-papi', 'Salt Papi', 'Boxer', '5-0', 'Record', '4', 'KOs', 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power.')">
-                    <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Salt Papi" class="talent-image">
-                    <div class="talent-overlay">
-                        <h3 class="talent-name">Salt Papi</h3>
-                        <p class="talent-category">Boxer</p>
-                    </div>
-                </div>
-                
-                <!-- FoxtheG -->
-                <div class="talent-card" onclick="openTalentModal('foxtheg', 'FoxtheG', 'Content Creator', '2.1M', 'Instagram', '500K', 'YouTube', 'FoxtheG creates engaging lifestyle content that resonates with young audiences worldwide.')">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="FoxtheG" class="talent-image">
-                    <div class="talent-overlay">
-                        <h3 class="talent-name">FoxtheG</h3>
-                        <p class="talent-category">Content Creator</p>
-                    </div>
-                </div>
-                
-                <!-- Dawood Savage -->
-                <div class="talent-card" onclick="openTalentModal('dawood-savage', 'Dawood Savage', 'Influencer', '1.8M', 'TikTok', '800K', 'Instagram', 'Dawood Savage is known for his viral comedy sketches and engaging personality.')">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dawood Savage" class="talent-image">
-                    <div class="talent-overlay">
-                        <h3 class="talent-name">Dawood Savage</h3>
-                        <p class="talent-category">Influencer</p>
-                    </div>
-                </div>
+            <h2 class="section-title">Our Talent Roster</h2>
+            
+            <div class="talent-categories">
+                <button class="category-btn active" data-category="all">All Talent</button>
+                <button class="category-btn" data-category="athletes">Athletes</button>
+                <button class="category-btn" data-category="creators">Content Creators</button>
+                <button class="category-btn" data-category="influencers">Influencers</button>
+                <button class="category-btn" data-category="musicians">Musicians</button>
             </div>
             
-            <div style="text-align: center;">
-                <a href="#" class="view-all-btn">View All Talent <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section" id="about">
-        <div class="container">
-            <h2 class="section-title">About Pinnacle</h2>
-            <div class="about-container">
-                <div class="about-content">
-                    <h3>Redefining Talent Management</h3>
-                    <p>Founded in 2025, Pinnacle Talent Management was born from a vision to bridge the gap between traditional talent representation and the rapidly evolving digital landscape.</p>
-                    <p>We recognized that the entertainment industry was changing, and the creators, athletes, and influencers of tomorrow needed a new kind of representation—one that understood both the creative and business sides of building a lasting brand.</p>
-                    <p>Today, we represent some of the most influential figures across social media, sports, and entertainment, helping them maximize their potential through strategic partnerships, brand development, and innovative content strategies.</p>
-                    <p>"Our mission is to elevate talent beyond the trends and build sustainable careers that transcend platforms."</p>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pinnacle Office">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Merch Section -->
-    <section class="merch-section" id="merch">
-        <div class="container">
-            <h2 class="section-title">Pinnacle Merch</h2>
-            <div class="merch-grid">
-                <!-- Product 1 -->
-                <div class="merch-card">
-                    <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pinnacle Logo Tee" class="merch-image">
-                    <div class="merch-details">
-                        <h3 class="merch-title">Pinnacle Logo Tee</h3>
-                        <p class="merch-price">$45.00</p>
-                        <button class="btn" onclick="addToCart('Pinnacle Logo Tee', 45)">Add to Cart</button>
-                    </div>
-                </div>
-                
-                <!-- Product 2 -->
-                <div class="merch-card">
-                    <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Champion Hoodie" class="merch-image">
-                    <div class="merch-details">
-                        <h3 class="merch-title">Champion Hoodie</h3>
-                        <p class="merch-price">$85.00</p>
-                        <button class="btn" onclick="addToCart('Champion Hoodie', 85)">Add to Cart</button>
-                    </div>
-                </div>
-                
-                <!-- Product 3 -->
-                <div class="merch-card">
-                    <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Training Cap" class="merch-image">
-                    <div class="merch-details">
-                        <h3 class="merch-title">Training Cap</h3>
-                        <p class="merch-price">$35.00</p>
-                        <button class="btn" onclick="addToCart('Training Cap', 35)">Add to Cart</button>
-                    </div>
-                </div>
-                
-                <!-- Product 4 -->
-                <div class="merch-card">
-                    <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Limited Edition Box Set" class="merch-image">
-                    <div class="merch-details">
-                        <h3 class="merch-title">Limited Edition Box Set</h3>
-                        <p class="merch-price">$120.00</p>
-                        <button class="btn" onclick="addToCart('Limited Edition Box Set', 120)">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center;">
-                <a href="#" class="view-all-btn">View Full Shop <i class="fas fa-arrow-right"></i></a>
+            <div class="talent-grid" id="talentGrid">
+                <!-- Talent cards will be dynamically inserted here -->
             </div>
         </div>
     </section>
@@ -1004,7 +693,7 @@
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="pin.html">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="talent.html">Talent</a></li>
                         <li><a href="merch.html">Merch</a></li>
                     </ul>
@@ -1081,98 +770,293 @@
     </div>
 
     <script>
-        // Header Scroll Effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        // Talent Data
+        const talentData = [
+            {
+                id: 'salt-papi',
+                name: 'Salt Papi',
+                category: 'athletes',
+                image: '#',
+                stats: [
+                    { title: 'Record', value: '5-0' },
+                    { title: 'KOs', value: '4' },
+                    { title: 'Weight Class', value: 'Welterweight' },
+                    { title: 'Nationality', value: 'UK' }
+                ],
+                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
+            },
+            {
+                id: 'fox',
+                name: 'FoxTheG',
+                category: 'athletes',
+                image: '#',
+                stats: [
+                    { title: 'Record', value: '5-0' },
+                    { title: 'KOs', value: '4' },
+                    { title: 'Weight Class', value: 'Welterweight' },
+                    { title: 'Nationality', value: 'UK' }
+                ],
+                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
+            },
+            {
+                id: 'dawood-savage',
+                name: 'Dawood Savage',
+                category: 'athletes',
+                image: '#',
+                stats: [
+                    { title: 'Record', value: '5-0' },
+                    { title: 'KOs', value: '4' },
+                    { title: 'Weight Class', value: 'Welterweight' },
+                    { title: 'Nationality', value: 'UK' }
+                ],
+                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
+            },
+            {
+                id: 'pully',
+                name: 'FoxTheG',
+                category: 'athletes',
+                image: '#',
+                stats: [
+                    { title: 'Record', value: '5-0' },
+                    { title: 'KOs', value: '4' },
+                    { title: 'Weight Class', value: 'Welterweight' },
+                    { title: 'Nationality', value: 'UK' }
+                ],
+                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
+            },
+            {
+                id: 'salt-papi',
+                name: 'Salt Papi',
+                category: 'athletes',
+                image: '#',
+                stats: [
+                    { title: 'Record', value: '5-0' },
+                    { title: 'KOs', value: '4' },
+                    { title: 'Weight Class', value: 'Welterweight' },
+                    { title: 'Nationality', value: 'UK' }
+                ],
+                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
+            },
+            {
+                id: 'fox',
+                name: 'FoxTheG',
+                category: 'athletes',
+                image: '#',
+                stats: [
+                    { title: 'Record', value: '5-0' },
+                    { title: 'KOs', value: '4' },
+                    { title: 'Weight Class', value: 'Welterweight' },
+                    { title: 'Nationality', value: 'UK' }
+                ],
+                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
+            },
+            {
+                id: 'salt-papi',
+                name: 'Salt Papi',
+                category: 'athletes',
+                image: '#',
+                stats: [
+                    { title: 'Record', value: '5-0' },
+                    { title: 'KOs', value: '4' },
+                    { title: 'Weight Class', value: 'Welterweight' },
+                    { title: 'Nationality', value: 'UK' }
+                ],
+                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
+            },
+            {
+                id: 'fox',
+                name: 'FoxTheG',
+                category: 'athletes',
+                image: '#',
+                stats: [
+                    { title: 'Record', value: '5-0' },
+                    { title: 'KOs', value: '4' },
+                    { title: 'Weight Class', value: 'Welterweight' },
+                    { title: 'Nationality', value: 'UK' }
+                ],
+                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
+            },
+            {
+                id: 'salt-papi',
+                name: 'Salt Papi',
+                category: 'athletes',
+                image: '#',
+                stats: [
+                    { title: 'Record', value: '5-0' },
+                    { title: 'KOs', value: '4' },
+                    { title: 'Weight Class', value: 'Welterweight' },
+                    { title: 'Nationality', value: 'UK' }
+                ],
+                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
             }
+
+        ];
+
+        // Initialize the page with all talent
+        document.addEventListener('DOMContentLoaded', function() {
+            renderTalentGrid(talentData);
+            setupCategoryFilters();
             
-            // Back to top button visibility
-            const backToTop = document.getElementById('backToTop');
-            if (window.scrollY > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-        
-        // Smooth Scrolling for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            // Header Scroll Effect
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                // Back to top button visibility
+                const backToTop = document.getElementById('backToTop');
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            
+            // Back to top functionality
+            document.getElementById('backToTop').addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navMenu = document.getElementById('navMenu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('show');
+                mobileMenuBtn.innerHTML = navMenu.classList.contains('show') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        navMenu.classList.remove('show');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+            });
+            
+            // Newsletter Form Submission
+            const newsletterForm = document.querySelector('.newsletter-form');
+            newsletterForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+                const emailInput = this.querySelector('input[type="email"]');
+                alert(`Thank you for subscribing with ${emailInput.value}!`);
+                emailInput.value = '';
             });
-        });
-        
-        // Back to top functionality
-        document.getElementById('backToTop').addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            navMenu.classList.toggle('show');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('show') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    navMenu.classList.remove('show');
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                }
-            });
-        });
-        
-        // Talent Modal Functions
-        function openTalentModal(id, name, category, stat1Title, stat1Value, stat2Title, stat2Value, bio) {
-            const modal = document.getElementById('talentModal');
-            const talentImage = document.getElementById('modalTalentImage');
             
-            // Set talent image based on ID
-            talentImage.style.backgroundImage = `url(https://source.unsplash.com/random/800x800/?${id})`;
+            // Responsive adjustments
+            function handleResponsive() {
+                if (window.innerWidth > 768) {
+                    navMenu.style.display = 'flex';
+                } else {
+                    navMenu.style.display = 'none';
+                }
+            }
+            
+            window.addEventListener('resize', handleResponsive);
+            handleResponsive();
+        });
+
+        // Render talent grid
+        function renderTalentGrid(talents) {
+            const talentGrid = document.getElementById('talentGrid');
+            talentGrid.innerHTML = '';
+            
+            talents.forEach(talent => {
+                const talentCard = document.createElement('div');
+                talentCard.className = 'talent-card';
+                talentCard.setAttribute('onclick', `openTalentModal('${talent.id}', '${talent.name}', '${talent.category}', 
+                    '${talent.stats[0].value}', '${talent.stats[0].title}', 
+                    '${talent.stats[1].value}', '${talent.stats[1].title}', 
+                    '${talent.bio}')`);
+                
+                talentCard.innerHTML = `
+                    <img src="${talent.image}" alt="${talent.name}" class="talent-image">
+                    <div class="talent-overlay">
+                        <h3 class="talent-name">${talent.name}</h3>
+                        <p class="talent-category">${formatCategory(talent.category)}</p>
+                    </div>
+                `;
+                
+                talentGrid.appendChild(talentCard);
+            });
+        }
+
+        // Format category for display
+        function formatCategory(category) {
+            return category.split('-').map(word => 
+                word.charAt(0).toUpperCase() + word.slice(1)
+            ).join(' ');
+        }
+
+        // Setup category filters
+        function setupCategoryFilters() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active button
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter talent
+                    const category = this.dataset.category;
+                    if (category === 'all') {
+                        renderTalentGrid(talentData);
+                    } else {
+                        const filteredTalent = talentData.filter(talent => talent.category === category);
+                        renderTalentGrid(filteredTalent);
+                    }
+                });
+            });
+        }
+
+        // Open talent modal
+        function openTalentModal(id, name, category, stat1Value, stat1Title, stat2Value, stat2Title, bio) {
+            const modal = document.getElementById('talentModal');
+            const talent = talentData.find(t => t.id === id);
+            
+            // Set talent image
+            document.getElementById('modalTalentImage').style.backgroundImage = `url(${talent.image})`;
             
             // Set talent info
             document.getElementById('modalTalentName').textContent = name;
-            document.getElementById('modalTalentCategory').textContent = category;
+            document.getElementById('modalTalentCategory').textContent = formatCategory(category);
             document.getElementById('stat1Title').textContent = stat1Title;
             document.getElementById('stat1Value').textContent = stat1Value;
             document.getElementById('stat2Title').textContent = stat2Title;
             document.getElementById('stat2Value').textContent = stat2Value;
+            
+            // Set additional stats if they exist
+            if (talent.stats[2]) {
+                document.getElementById('stat3Title').textContent = talent.stats[2].title;
+                document.getElementById('stat3Value').textContent = talent.stats[2].value;
+                document.getElementById('stat4Title').textContent = talent.stats[3].title;
+                document.getElementById('stat4Value').textContent = talent.stats[3].value;
+            }
+            
             document.getElementById('modalTalentBio').textContent = bio;
             
             // Show modal
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
-        
+
+        // Close modal
         function closeModal() {
             const modal = document.getElementById('talentModal');
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
-        
+
         // Close modal when clicking outside
         window.addEventListener('click', function(event) {
             const modal = document.getElementById('talentModal');
@@ -1180,51 +1064,6 @@
                 closeModal();
             }
         });
-        
-        // Shopping Cart Functionality
-        let cartItems = 0;
-        
-        function addToCart(productName, price) {
-            cartItems++;
-            updateCartCount();
-            
-            // In a real implementation, you would add the item to a cart array
-            // and potentially show a notification
-            alert(`${productName} has been added to your cart!`);
-        }
-        
-        function updateCartCount() {
-            const cartCount = document.querySelector('.cart-count');
-            cartCount.textContent = cartItems;
-            
-            // Show/hide cart count
-            if (cartItems > 0) {
-                cartCount.style.display = 'flex';
-            } else {
-                cartCount.style.display = 'none';
-            }
-        }
-        
-        // Newsletter Form Submission
-        const newsletterForm = document.querySelector('.newsletter-form');
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const emailInput = this.querySelector('input[type="email"]');
-            alert(`Thank you for subscribing with ${emailInput.value}!`);
-            emailInput.value = '';
-        });
-        
-        // Responsive adjustments
-        function handleResponsive() {
-            if (window.innerWidth > 768) {
-                navMenu.style.display = 'flex';
-            } else {
-                navMenu.style.display = 'none';
-            }
-        }
-        
-        window.addEventListener('resize', handleResponsive);
-        handleResponsive();
     </script>
 </body>
 </html>
