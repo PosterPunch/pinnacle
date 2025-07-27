@@ -811,6 +811,12 @@
             .footer-newsletter {
                 grid-column: 1;
             }
+
+            .footer-logo {
+                height: 80px;
+                margin-bottom: 20px;
+                filter: brightness(0) invert(1);
+            }
             
             .footer-links {
                 display: inline-block;
@@ -870,6 +876,11 @@
                 height: 40px;
                 bottom: 20px;
                 right: 20px;
+            }
+            .footer-logo {
+                height: 80px;
+                margin-bottom: 20px;
+                filter: brightness(0) invert(1);
             }
             
             .footer-links {
@@ -1143,7 +1154,7 @@
             } else {
                 header.classList.remove('scrolled');
             }
-            
+        
             // Back to top button visibility
             const backToTop = document.getElementById('backToTop');
             if (window.scrollY > 300) {
@@ -1152,15 +1163,15 @@
                 backToTop.classList.remove('visible');
             }
         });
-        
+    
         // Smooth Scrolling for Anchor Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
+            
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
+            
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
@@ -1170,7 +1181,7 @@
                 }
             });
         });
-        
+    
         // Back to top functionality
         document.getElementById('backToTop').addEventListener('click', function() {
             window.scrollTo({
@@ -1178,16 +1189,16 @@
                 behavior: 'smooth'
             });
         });
-        
-        // Mobile Menu Toggle
+    
+        // Mobile Menu Toggle - Fixed Version
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navMenu = document.getElementById('navMenu');
-        
+    
         mobileMenuBtn.addEventListener('click', function() {
             navMenu.classList.toggle('show');
             mobileMenuBtn.innerHTML = navMenu.classList.contains('show') ? 
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-            
+        
             // Prevent body scrolling when menu is open
             if (navMenu.classList.contains('show')) {
                 document.body.style.overflow = 'hidden';
@@ -1195,9 +1206,9 @@
                 document.body.style.overflow = 'auto';
             }
         });
-        
+    
         // Close mobile menu when clicking on a link
-        document.querySelectorAll('nav ul li a').forEach(link => {
+        document.querySelectorAll('#navMenu li a').forEach(link => {
             link.addEventListener('click', function() {
                 if (window.innerWidth <= 768) {
                     navMenu.classList.remove('show');
@@ -1206,15 +1217,15 @@
                 }
             });
         });
-        
+    
         // Talent Modal Functions
         function openTalentModal(id, name, category, stat1Title, stat1Value, stat2Title, stat2Value, bio) {
             const modal = document.getElementById('talentModal');
             const talentImage = document.getElementById('modalTalentImage');
-            
+        
             // Set talent image based on ID
             talentImage.style.backgroundImage = `url(https://source.unsplash.com/random/800x800/?${id})`;
-            
+        
             // Set talent info
             document.getElementById('modalTalentName').textContent = name;
             document.getElementById('modalTalentCategory').textContent = category;
@@ -1223,18 +1234,18 @@
             document.getElementById('stat2Title').textContent = stat2Title;
             document.getElementById('stat2Value').textContent = stat2Value;
             document.getElementById('modalTalentBio').textContent = bio;
-            
+        
             // Show modal
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
-        
+    
         function closeModal() {
             const modal = document.getElementById('talentModal');
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
-        
+    
         // Close modal when clicking outside
         window.addEventListener('click', function(event) {
             const modal = document.getElementById('talentModal');
@@ -1242,23 +1253,23 @@
                 closeModal();
             }
         });
-        
+    
         // Shopping Cart Functionality
         let cartItems = 0;
-        
+    
         function addToCart(productName, price) {
             cartItems++;
             updateCartCount();
-            
+        
             // In a real implementation, you would add the item to a cart array
             // and potentially show a notification
             alert(`${productName} has been added to your cart!`);
         }
-        
+    
         function updateCartCount() {
             const cartCount = document.querySelector('.cart-count');
             cartCount.textContent = cartItems;
-            
+        
             // Show/hide cart count
             if (cartItems > 0) {
                 cartCount.style.display = 'flex';
@@ -1266,7 +1277,7 @@
                 cartCount.style.display = 'none';
             }
         }
-        
+    
         // Newsletter Form Submission
         const newsletterForm = document.querySelector('.newsletter-form');
         newsletterForm.addEventListener('submit', function(e) {
@@ -1275,7 +1286,7 @@
             alert(`Thank you for subscribing with ${emailInput.value}!`);
             emailInput.value = '';
         });
-        
+    
         // Responsive adjustments
         function handleResponsive() {
             if (window.innerWidth > 768) {
@@ -1284,7 +1295,7 @@
                 navMenu.style.display = 'none';
             }
         }
-        
+    
         window.addEventListener('resize', handleResponsive);
         handleResponsive();
     </script>
