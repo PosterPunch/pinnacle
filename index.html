@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pinnacle Talent Management | Elevating the Next Generation of Talent</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         /* Reset & Base Styles */
@@ -43,6 +43,7 @@
         img {
             max-width: 100%;
             height: auto;
+            display: block;
         }
         
         .container {
@@ -63,11 +64,14 @@
             letter-spacing: 1px;
             transition: all 0.3s ease;
             font-size: 14px;
+            border-radius: 30px;
         }
         
         .btn:hover {
             background-color: var(--tan);
             color: var(--black);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .btn-outline {
@@ -90,10 +94,27 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
         }
         
         .view-all-btn:hover {
             color: var(--tan);
+        }
+        
+        .view-all-btn:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--tan);
+            transition: width 0.3s ease;
+        }
+        
+        .view-all-btn:hover:after {
+            width: 100%;
         }
         
         .view-all-btn i {
@@ -104,32 +125,23 @@
             transform: translateX(5px);
         }
         
-        /* Improved Section Titles */
+        /* Modern Section Titles */
         .section-title {
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 800;
             margin-bottom: 3rem;
             text-align: center;
             position: relative;
             text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(to right, var(--tan), var(--black));
-            margin: 20px auto;
-            border-radius: 2px;
+            letter-spacing: 3px;
+            color: var(--black);
         }
         
         .section-title span {
             position: relative;
             display: inline-block;
-            padding: 0 15px;
-            background-color: var(--white);
+            padding: 0 20px;
+            background: var(--white);
             z-index: 1;
         }
         
@@ -139,9 +151,21 @@
             top: 50%;
             left: 0;
             right: 0;
-            height: 1px;
-            background-color: rgba(0,0,0,0.1);
+            height: 3px;
+            background: var(--tan);
             z-index: 0;
+            transform: translateY(-50%);
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--gray);
+            font-weight: 400;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         /* Header Styles */
@@ -150,17 +174,16 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 20px 0;
+            padding: 15px 0;
             background-color: var(--white);
             z-index: 1000;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
         
         header.scrolled {
             padding: 10px 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(5px);
+            background-color: var(--white);
         }
         
         .header-container {
@@ -170,16 +193,22 @@
         }
         
         .logo {
-            height: 50px;
+            height: 45px;
             transition: transform 0.3s ease;
         }
 
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
         nav ul {
             display: flex;
+            align-items: center;
         }
         
         nav ul li {
             margin-left: 30px;
+            position: relative;
         }
         
         nav ul li a {
@@ -189,6 +218,7 @@
             letter-spacing: 1px;
             transition: color 0.3s ease;
             position: relative;
+            display: inline-block;
         }
         
         nav ul li a:after {
@@ -198,7 +228,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--tan);
+            background: var(--tan);
             transition: width 0.3s ease;
         }
         
@@ -208,6 +238,9 @@
         
         .cart-icon {
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .cart-count {
@@ -231,6 +264,11 @@
             font-size: 1.5rem;
             cursor: pointer;
             z-index: 1001;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-btn:hover {
+            color: var(--tan);
         }
         
         /* Back to Top Button */
@@ -251,6 +289,7 @@
             visibility: hidden;
             transition: all 0.3s ease;
             z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         .back-to-top.visible {
@@ -259,13 +298,15 @@
         }
         
         .back-to-top:hover {
-            background-color: var(--tan);
+            background: var(--tan);
             color: var(--black);
+            transform: translateY(-3px);
         }
         
-        /* Hero Section - Text Size Doubled */
+        /* Hero Section */
         .hero {
             height: 100vh;
+            min-height: 700px;
             position: relative;
             display: flex;
             align-items: center;
@@ -300,22 +341,35 @@
         .hero-content {
             max-width: 800px;
             padding: 0 20px;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .hero-title {
-            font-size: 6rem; /* Increased from 4.5rem */
-            font-weight: 800;
-            margin-bottom: 20px; /* Increased from 10px */
+            font-size: 6rem;
+            font-weight: 900;
+            margin-bottom: 20px;
             line-height: 1;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
         }
         
         .hero-subtitle {
-            font-size: 2rem; /* Increased from 1.5rem */
-            margin-bottom: 50px; /* Increased from 40px */
+            font-size: 2rem;
+            margin-bottom: 50px;
             font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 3px; /* Increased from 2px */
+            letter-spacing: 3px;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
         
@@ -326,9 +380,9 @@
         }
         
         .hero-buttons .btn {
-            min-width: 200px; /* Increased from 180px */
-            padding: 15px 30px; /* Increased padding */
-            font-size: 16px; /* Larger font */
+            min-width: 200px;
+            padding: 15px 30px;
+            font-size: 16px;
         }
         
         .scroll-down {
@@ -337,6 +391,8 @@
             left: 50%;
             transform: translateX(-50%);
             animation: bounce 2s infinite;
+            color: var(--white);
+            font-size: 1.5rem;
         }
         
         @keyframes bounce {
@@ -369,14 +425,14 @@
             overflow: hidden;
             height: 400px;
             cursor: pointer;
-            border-radius: 5px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
         }
         
         .talent-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
         
         .talent-image {
@@ -420,7 +476,9 @@
         /* About Section */
         .about-section {
             padding: 100px 0;
-            background-color: var(--beige);
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
         }
         
         .about-container {
@@ -428,6 +486,8 @@
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
         
         .about-image {
@@ -438,6 +498,7 @@
             position: relative;
             border-radius: 10px;
             overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         
         .about-image img {
@@ -447,68 +508,47 @@
         }
         
         .about-content h3 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 20px;
+            color: var(--black);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about-content h3:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--tan);
+            border-radius: 2px;
         }
         
         .about-content p {
             margin-bottom: 20px;
+            color: var(--gray);
+            line-height: 1.8;
         }
         
         /* Merch Section */
         .merch-section {
             padding: 100px 0;
-            background-color: var(--white);
+            background-color: var(--beige);
         }
         
-        .merch-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
+        /* Shopify Collection Container */
+        .shopify-collection {
             margin-top: 50px;
-        }
-        
-        .merch-card {
-            background-color: var(--white);
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .merch-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .merch-image {
-            height: 300px;
-            width: 100%;
-            object-fit: cover;
-        }
-        
-        .merch-details {
-            padding: 20px;
-        }
-        
-        .merch-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        
-        .merch-price {
-            font-weight: 700;
-            color: var(--tan);
-            margin-bottom: 15px;
         }
         
         /* Footer */
         footer {
             background-color: var(--black);
             color: var(--white);
-            padding: 60px 0 30px;
+            padding: 80px 0 30px;
+            position: relative;
         }
         
         .footer-container {
@@ -519,7 +559,7 @@
         }
         
         .footer-logo {
-            height: 80px;
+            height: 60px;
             margin-bottom: 20px;
             filter: brightness(0) invert(1);
         }
@@ -527,6 +567,7 @@
         .footer-about p {
             margin-bottom: 20px;
             opacity: 0.7;
+            line-height: 1.8;
         }
         
         .social-links {
@@ -546,44 +587,73 @@
         }
         
         .social-links a:hover {
-            background-color: var(--tan);
+            background: var(--tan);
             color: var(--black);
-        }
-        
-        .social-links a i {
-            transition: transform 0.3s ease;
-        }
-        
-        .social-links a:hover i {
-            transform: scale(1.2);
+            transform: translateY(-3px);
         }
         
         .footer-links h4 {
             font-size: 1.1rem;
             margin-bottom: 20px;
-            font-weight: 600;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-links h4:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--tan);
         }
         
         .footer-links ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .footer-links ul li a {
             opacity: 0.7;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .footer-links ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--tan);
+            transition: width 0.3s ease;
         }
         
         .footer-links ul li a:hover {
             opacity: 1;
+            color: var(--tan);
+        }
+        
+        .footer-links ul li a:hover:after {
+            width: 100%;
         }
         
         .footer-newsletter p {
             opacity: 0.7;
             margin-bottom: 20px;
+            line-height: 1.8;
         }
         
         .newsletter-form {
             display: flex;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         .newsletter-form input {
@@ -591,15 +661,21 @@
             padding: 12px 15px;
             border: none;
             font-family: 'Montserrat', sans-serif;
+            background-color: rgba(255,255,255,0.9);
         }
         
         .newsletter-form button {
             padding: 0 20px;
-            background-color: var(--tan);
+            background: var(--tan);
             color: var(--black);
             border: none;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            opacity: 0.9;
         }
         
         .footer-bottom {
@@ -610,7 +686,7 @@
             opacity: 0.7;
         }
         
-        /* Talent Modal - Updated to match talent.html */
+        /* Talent Modal */
         .modal {
             display: none;
             position: fixed;
@@ -631,6 +707,7 @@
             animation: modalFadeIn 0.3s ease;
             border-radius: 10px;
             overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
         
         @keyframes modalFadeIn {
@@ -663,10 +740,11 @@
         }
         
         .close-modal:hover {
-            background-color: var(--tan);
+            background: var(--tan);
             color: var(--black);
         }
         
+        /* Talent Modal */
         .talent-modal {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -688,15 +766,16 @@
             font-weight: 800;
             margin-bottom: 10px;
             line-height: 1.1;
+            color: var(--black);
         }
         
         .talent-modal-category {
             display: inline-block;
-            background-color: var(--tan);
+            background: var(--tan);
             color: var(--black);
             padding: 5px 15px;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 20px;
             border-radius: 20px;
             text-transform: uppercase;
@@ -715,6 +794,7 @@
             padding: 15px;
             border-radius: 5px;
             text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         
         .stat-item h4 {
@@ -735,6 +815,7 @@
         .talent-modal-bio {
             margin-bottom: 30px;
             line-height: 1.8;
+            color: var(--gray);
         }
         
         .talent-modal-socials {
@@ -755,168 +836,62 @@
         }
         
         .talent-modal-socials a:hover {
-            background-color: var(--tan);
+            background: var(--tan);
             transform: translateY(-3px);
         }
         
-        /* Merch Modal - Updated to match merch.html */
-        .merch-modal {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        /* Mobile Menu Styles */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 350px;
+            height: 100vh;
+            background-color: var(--white);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 80px 30px 30px;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            overflow-y: auto;
         }
         
-        .merch-modal-images {
-            position: relative;
-            height: 100%;
-            min-height: 500px;
+        .mobile-nav.show {
+            right: 0;
         }
         
-        .merch-modal-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
+        .mobile-nav ul {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mobile-nav ul li {
+            margin: 0;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .mobile-nav ul li a {
+            font-size: 16px;
+            display: block;
+        }
+        
+        .mobile-nav-overlay {
+            position: fixed;
             top: 0;
             left: 0;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        
-        .merch-modal-image.active {
-            opacity: 1;
-        }
-        
-        .image-nav {
-            position: absolute;
-            top: 50%;
             width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
-            transform: translateY(-50%);
-            z-index: 2;
-        }
-        
-        .image-nav-btn {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
             transition: all 0.3s ease;
         }
         
-        .image-nav-btn:hover {
-            background-color: var(--tan);
-            color: var(--black);
-        }
-        
-        .merch-modal-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            line-height: 1.1;
-        }
-        
-        .merch-modal-category {
-            display: inline-block;
-            background-color: var(--tan);
-            color: var(--black);
-            padding: 5px 15px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .merch-modal-price {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--tan);
-            margin-bottom: 20px;
-        }
-        
-        .merch-modal-description {
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-        
-        .size-selector {
-            margin-bottom: 30px;
-        }
-        
-        .size-selector h4 {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            opacity: 0.7;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .size-options {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .size-option {
-            padding: 10px 15px;
-            border: 1px solid var(--black);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            border-radius: 3px;
-        }
-        
-        .size-option.selected {
-            background-color: var(--black);
-            color: var(--white);
-        }
-        
-        .merch-modal-actions {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-        }
-        
-        .quantity-selector {
-            display: flex;
-            align-items: center;
-            border: 1px solid var(--black);
-            border-radius: 3px;
-            overflow: hidden;
-        }
-        
-        .quantity-btn {
-            width: 40px;
-            height: 40px;
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: background-color 0.3s ease;
-        }
-        
-        .quantity-btn:hover {
-            background-color: var(--beige);
-        }
-        
-        .quantity-input {
-            width: 50px;
-            height: 40px;
-            text-align: center;
-            border: none;
-            border-left: 1px solid var(--black);
-            border-right: 1px solid var(--black);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
+        .mobile-nav-overlay.show {
+            opacity: 1;
+            visibility: visible;
         }
         
         /* Responsive Styles */
@@ -939,20 +914,18 @@
                 order: -1;
             }
             
-            .talent-modal,
-            .merch-modal {
+            .talent-modal {
                 grid-template-columns: 1fr;
             }
             
-            .talent-modal-image,
-            .merch-modal-images {
+            .talent-modal-image {
                 min-height: 300px;
             }
         }
         
         @media (max-width: 768px) {
             .section-title {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .hero-title {
@@ -974,26 +947,6 @@
             
             nav ul {
                 display: none;
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: var(--white);
-                flex-direction: column;
-                padding: 20px 0;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-                z-index: 1000;
-            }
-            
-            nav ul.show {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 0;
-                text-align: center;
-                padding: 15px 0;
-                border-bottom: 1px solid rgba(0,0,0,0.1);
             }
             
             .mobile-menu-btn {
@@ -1016,17 +969,19 @@
             }
 
             .footer-logo {
-                height: 80px;
-                margin-bottom: 20px;
-                filter: brightness(0) invert(1);
+                height: 60px;
+                margin: 0 auto 20px;
             }
             
             .footer-links {
-                display: inline-block;
-                width: 48%;
-                vertical-align: top;
-                text-align: center;
+                width: 100%;
                 margin-bottom: 30px;
+                text-align: center;
+            }
+            
+            .footer-links h4:after {
+                left: 50%;
+                transform: translateX(-50%);
             }
             
             .social-links {
@@ -1035,10 +990,12 @@
             
             .newsletter-form {
                 flex-direction: column;
+                max-width: 300px;
+                margin: 0 auto;
             }
             
             .newsletter-form input {
-                text-align: left;
+                text-align: center;
                 padding: 15px;
                 margin-bottom: 10px;
             }
@@ -1046,15 +1003,6 @@
             .newsletter-form button {
                 padding: 15px;
                 width: 100%;
-            }
-            
-            .merch-modal-actions {
-                flex-direction: column;
-            }
-            
-            .quantity-selector {
-                justify-content: center;
-                margin-bottom: 15px;
             }
         }
         
@@ -1068,7 +1016,7 @@
             }
             
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .talent-grid {
@@ -1077,10 +1025,10 @@
             
             .modal-content {
                 margin: 20px auto;
+                width: 95%;
             }
             
-            .talent-modal-content,
-            .merch-modal-content {
+            .talent-modal-content {
                 padding: 30px;
             }
             
@@ -1092,14 +1040,16 @@
             }
             
             .footer-logo {
-                height: 80px;
-                margin-bottom: 20px;
-                filter: brightness(0) invert(1);
+                height: 50px;
             }
             
             .footer-links {
                 width: 100%;
                 margin-bottom: 20px;
+            }
+            
+            .mobile-nav {
+                width: 90%;
             }
         }
     </style>
@@ -1112,7 +1062,7 @@
                 <img src="pinnaclelogo.png" alt="Pinnacle Talent Management" class="logo">
             </a>
             
-            <nav>
+            <nav class="desktop-nav">
                 <ul id="navMenu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="talent.html">Talent</a></li>
@@ -1131,6 +1081,22 @@
             </div>
         </div>
     </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="talent.html">Talent</a></li>
+            <li><a href="merch.html">Merch</a></li>
+            <li>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
     <!-- Back to Top Button -->
     <div class="back-to-top" id="backToTop">
@@ -1154,7 +1120,7 @@
         </div>
         
         <a href="#talent" class="scroll-down">
-            <i class="fas fa-chevron-down" style="color: white; font-size: 1.5rem;"></i>
+            <i class="fas fa-chevron-down"></i>
         </a>
     </section>
 
@@ -1162,6 +1128,8 @@
     <section class="talent-section" id="talent">
         <div class="container">
             <h2 class="section-title"><span>Featured Talent</span></h2>
+            <p class="section-subtitle">Discover the exceptional talent we represent across sports, entertainment, and digital media</p>
+            
             <div class="talent-grid">
                 <!-- Salt Papi -->
                 <div class="talent-card" onclick="openTalentModal('salt-papi', 'Salt Papi', 'Boxer', '5-0', 'Record', '4', 'KOs', 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.')">
@@ -1201,6 +1169,8 @@
     <section class="about-section" id="about">
         <div class="container">
             <h2 class="section-title"><span>About Pinnacle</span></h2>
+            <p class="section-subtitle">Redefining talent management for the digital age</p>
+            
             <div class="about-container">
                 <div class="about-content">
                     <h3>Redefining Talent Management</h3>
@@ -1220,49 +1190,14 @@
     <section class="merch-section" id="merch">
         <div class="container">
             <h2 class="section-title"><span>Pinnacle Merch</span></h2>
-            <div class="merch-grid">
-                <!-- Product 1 -->
-                <div class="merch-card" onclick="openMerchModal('pinnacle-logo-tee', 'Pinnacle Logo Tee', 'apparel', 45.00, 'Classic black t-shirt featuring the Pinnacle Talent Management logo in premium embroidery. Made from 100% organic cotton for maximum comfort.', ['S', 'M', 'L', 'XL', 'XXL'], ['logoteeangle.jpg', 'logoteefront.jpg', 'logoteeback.jpg'])">
-                    <img src="logoteeangle.jpg" alt="Pinnacle Logo Tee" class="merch-image">
-                    <div class="merch-details">
-                        <h3 class="merch-title">Pinnacle Logo Tee</h3>
-                        <p class="merch-price">$45.00</p>
-                        <button class="btn" onclick="event.stopPropagation();addToCartDirect('pinnacle-logo-tee')">Add to Cart</button>
-                    </div>
-                </div>
-
-                <!-- Product 2 -->
-                <div class="merch-card" onclick="openMerchModal('pinnacle-logo-tee', 'Pinnacle Logo Tee', 'apparel', 45.00, 'Classic black t-shirt featuring the Pinnacle Talent Management logo in premium embroidery. Made from 100% organic cotton for maximum comfort.', ['S', 'M', 'L', 'XL', 'XXL'], ['logoteeangle.jpg', 'logoteefront.jpg', 'logoteeback.jpg'])">
-                    <img src="logoteeangle.jpg" alt="Pinnacle Logo Tee" class="merch-image">
-                    <div class="merch-details">
-                        <h3 class="merch-title">Pinnacle Logo Tee</h3>
-                        <p class="merch-price">$45.00</p>
-                        <button class="btn" onclick="event.stopPropagation();addToCartDirect('pinnacle-logo-tee')">Add to Cart</button>
-                    </div>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="merch-card" onclick="openMerchModal('pinnacle-logo-tee', 'Pinnacle Logo Tee', 'apparel', 45.00, 'Classic black t-shirt featuring the Pinnacle Talent Management logo in premium embroidery. Made from 100% organic cotton for maximum comfort.', ['S', 'M', 'L', 'XL', 'XXL'], ['logoteeangle.jpg', 'logoteefront.jpg', 'logoteeback.jpg'])">
-                    <img src="logoteeangle.jpg" alt="Pinnacle Logo Tee" class="merch-image">
-                    <div class="merch-details">
-                        <h3 class="merch-title">Pinnacle Logo Tee</h3>
-                        <p class="merch-price">$45.00</p>
-                        <button class="btn" onclick="event.stopPropagation();addToCartDirect('pinnacle-logo-tee')">Add to Cart</button>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="merch-card" onclick="openMerchModal('pinnacle-logo-tee', 'Pinnacle Logo Tee', 'apparel', 45.00, 'Classic black t-shirt featuring the Pinnacle Talent Management logo in premium embroidery. Made from 100% organic cotton for maximum comfort.', ['S', 'M', 'L', 'XL', 'XXL'], ['logoteeangle.jpg', 'logoteefront.jpg', 'logoteeback.jpg'])">
-                    <img src="logoteeangle.jpg" alt="Pinnacle Logo Tee" class="merch-image">
-                    <div class="merch-details">
-                        <h3 class="merch-title">Pinnacle Logo Tee</h3>
-                        <p class="merch-price">$45.00</p>
-                        <button class="btn" onclick="event.stopPropagation();addToCartDirect('pinnacle-logo-tee')">Add to Cart</button>
-                    </div>
-                </div>
+            <p class="section-subtitle">Official merchandise from your favorite talents</p>
+            
+            <!-- Shopify Collection Component -->
+            <div class="shopify-collection">
+                <div id='collection-component-1753660773536'></div>
             </div>
             
-            <div style="text-align: center;">
+            <div style="text-align: center; margin-top: 30px;">
                 <a href="merch.html" class="view-all-btn">View Full Shop <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
@@ -1306,7 +1241,7 @@
                     <h4>Stay Updated</h4>
                     <p>Subscribe to our newsletter for the latest talent signings, merch drops, and announcements.</p>
                     <form class="newsletter-form">
-                        <input type="email" placeholder="Your email address">
+                        <input type="email" placeholder="Your email address" required>
                         <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
@@ -1362,42 +1297,42 @@
         </div>
     </div>
 
-    <!-- Merch Modal -->
-    <div class="modal" id="merchModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <div class="merch-modal">
-                <div class="merch-modal-images" id="merchModalImages">
-                    <!-- Images will be inserted here -->
-                </div>
-                <div class="merch-modal-content">
-                    <h2 class="merch-modal-title" id="modalMerchTitle"></h2>
-                    <span class="merch-modal-category" id="modalMerchCategory"></span>
-                    <div class="merch-modal-price" id="modalMerchPrice"></div>
-                    
-                    <div class="merch-modal-description" id="modalMerchDescription"></div>
-                    
-                    <div class="size-selector">
-                        <h4>Size</h4>
-                        <div class="size-options" id="sizeOptions">
-                            <!-- Size options will be inserted here -->
-                        </div>
-                    </div>
-                    
-                    <div class="merch-modal-actions">
-                        <div class="quantity-selector">
-                            <button class="quantity-btn" onclick="updateQuantity(-1)">-</button>
-                            <input type="number" class="quantity-input" id="quantityInput" value="1" min="1">
-                            <button class="quantity-btn" onclick="updateQuantity(1)">+</button>
-                        </div>
-                        <button class="btn" onclick="addToCart()">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
+        // Mobile Menu Functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileNav.classList.toggle('show');
+            mobileNavOverlay.classList.toggle('show');
+            document.body.style.overflow = mobileNav.classList.contains('show') ? 'hidden' : 'auto';
+            
+            // Change icon
+            if (mobileNav.classList.contains('show')) {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
+        mobileNavOverlay.addEventListener('click', function() {
+            mobileNav.classList.remove('show');
+            mobileNavOverlay.classList.remove('show');
+            document.body.style.overflow = 'auto';
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('show');
+                mobileNavOverlay.classList.remove('show');
+                document.body.style.overflow = 'auto';
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
         // Header Scroll Effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
@@ -1442,34 +1377,6 @@
             });
         });
     
-        // Mobile Menu Toggle - Fixed Version
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-    
-        mobileMenuBtn.addEventListener('click', function() {
-            navMenu.classList.toggle('show');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('show') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        
-            // Prevent body scrolling when menu is open
-            if (navMenu.classList.contains('show')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = 'auto';
-            }
-        });
-    
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('#navMenu li a').forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    navMenu.classList.remove('show');
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        });
-    
         // Talent Modal Functions
         function openTalentModal(id, name, category, stat1Value, stat1Title, stat2Value, stat2Title, bio) {
             const modal = document.getElementById('talentModal');
@@ -1491,154 +1398,24 @@
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
-        
-        // Merch Modal Functions
-        let currentMerch = null;
-        let currentImageIndex = 0;
-        let selectedSize = null;
-        
-        function openMerchModal(id, name, category, price, description, sizes, images) {
-            currentMerch = { id, name, category, price, description, sizes, images };
-            currentImageIndex = 0;
-            selectedSize = sizes[0];
-            
-            const modal = document.getElementById('merchModal');
-            const imagesContainer = document.getElementById('merchModalImages');
-            
-            // Clear previous images
-            imagesContainer.innerHTML = '';
-            
-            // Add images
-            images.forEach((image, index) => {
-                const img = document.createElement('img');
-                img.src = image;
-                img.alt = name;
-                img.className = 'merch-modal-image' + (index === 0 ? ' active' : '');
-                imagesContainer.appendChild(img);
-            });
-            
-            // Add image navigation
-            imagesContainer.innerHTML += `
-                <div class="image-nav">
-                    <div class="image-nav-btn" onclick="event.stopPropagation();navigateImage(-1)">
-                        <i class="fas fa-chevron-left"></i>
-                    </div>
-                    <div class="image-nav-btn" onclick="event.stopPropagation();navigateImage(1)">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </div>
-            `;
-            
-            // Set merch info
-            document.getElementById('modalMerchTitle').textContent = name;
-            document.getElementById('modalMerchCategory').textContent = formatCategory(category);
-            document.getElementById('modalMerchPrice').textContent = `$${price.toFixed(2)}`;
-            document.getElementById('modalMerchDescription').textContent = description;
-            
-            // Set size options
-            const sizeOptions = document.getElementById('sizeOptions');
-            sizeOptions.innerHTML = '';
-            
-            sizes.forEach(size => {
-                const sizeOption = document.createElement('div');
-                sizeOption.className = 'size-option' + (size === selectedSize ? ' selected' : '');
-                sizeOption.textContent = size;
-                sizeOption.setAttribute('onclick', `event.stopPropagation();selectSize('${size}')`);
-                sizeOptions.appendChild(sizeOption);
-            });
-            
-            // Reset quantity
-            document.getElementById('quantityInput').value = 1;
-            
-            // Show modal
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function navigateImage(direction) {
-            const images = document.querySelectorAll('.merch-modal-image');
-            images[currentImageIndex].classList.remove('active');
-            
-            currentImageIndex += direction;
-            
-            if (currentImageIndex >= images.length) {
-                currentImageIndex = 0;
-            } else if (currentImageIndex < 0) {
-                currentImageIndex = images.length - 1;
-            }
-            
-            images[currentImageIndex].classList.add('active');
-        }
-        
-        function selectSize(size) {
-            selectedSize = size;
-            const sizeOptions = document.querySelectorAll('.size-option');
-            
-            sizeOptions.forEach(option => {
-                if (option.textContent === size) {
-                    option.classList.add('selected');
-                } else {
-                    option.classList.remove('selected');
-                }
-            });
-        }
-        
-        function updateQuantity(change) {
-            const input = document.getElementById('quantityInput');
-            let newValue = parseInt(input.value) + change;
-            
-            if (newValue < 1) newValue = 1;
-            
-            input.value = newValue;
-        }
-        
-        function formatCategory(category) {
-            return category.charAt(0).toUpperCase() + category.slice(1);
-        }
     
         function closeModal() {
             const talentModal = document.getElementById('talentModal');
-            const merchModal = document.getElementById('merchModal');
-            
             talentModal.style.display = 'none';
-            merchModal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
     
         // Close modal when clicking outside
         window.addEventListener('click', function(event) {
             const talentModal = document.getElementById('talentModal');
-            const merchModal = document.getElementById('merchModal');
             
-            if (event.target === talentModal || event.target === merchModal) {
+            if (event.target === talentModal) {
                 closeModal();
             }
         });
     
         // Shopping Cart Functionality
         let cartItems = 0;
-    
-        function addToCart() {
-            if (!selectedSize) {
-                alert('Please select a size before adding to cart');
-                return;
-            }
-            
-            const quantity = parseInt(document.getElementById('quantityInput').value);
-            cartItems += quantity;
-            updateCartCount();
-            
-            // In a real implementation, you would add the item to a cart array
-            alert(`${quantity} ${currentMerch.name} (Size: ${selectedSize}) added to cart!`);
-            closeModal();
-        }
-        
-        function addToCartDirect(id) {
-            // For demo purposes, we'll just add one item
-            cartItems++;
-            updateCartCount();
-            alert('Item added to cart!');
-        }
     
         function updateCartCount() {
             const cartCount = document.querySelector('.cart-count');
@@ -1660,132 +1437,144 @@
             alert(`Thank you for subscribing with ${emailInput.value}!`);
             emailInput.value = '';
         });
-    
+        
         // Responsive adjustments
         function handleResponsive() {
             if (window.innerWidth > 768) {
-                navMenu.style.display = 'flex';
+                document.querySelector('.desktop-nav').style.display = 'flex';
             } else {
-                navMenu.style.display = 'none';
+                document.querySelector('.desktop-nav').style.display = 'none';
             }
         }
     
         window.addEventListener('resize', handleResponsive);
         handleResponsive();
-        
-        // Shopify Buy Button Integration (placeholder - you'll need to implement this with your actual Shopify code)
-        function initShopifyBuyButtons() {
-            // This is where you would initialize Shopify's Buy Button JS
-            // Example (you'll need to replace with your actual code):
-            /*
-            var client = ShopifyBuy.buildClient({
-                domain: 'your-store.myshopify.com',
-                storefrontAccessToken: 'your-storefront-access-token'
-            });
-            
-            ShopifyBuy.UI.onReady(client).then(function(ui) {
-                ui.createComponent('product', {
-                    id: 'your-product-id',
-                    node: document.getElementById('product-component'),
-                    moneyFormat: '%24%7B%7Bamount%7D%7D',
-                    options: {
-                        "product": {
-                            "styles": {
-                                "product": {
-                                    "@media (min-width: 601px)": {
-                                        "max-width": "100%",
-                                        "margin-left": "0",
-                                        "margin-bottom": "50px"
-                                    }
-                                },
-                                "button": {
-                                    "background-color": "#000000",
-                                    ":hover": {
-                                        "background-color": "#D2B48C"
-                                    },
-                                    ":focus": {
-                                        "background-color": "#D2B48C"
-                                    }
-                                }
-                            },
-                            "contents": {
-                                "img": false,
-                                "button": false,
-                                "buttonWithQuantity": true
-                            },
-                            "text": {
-                                "button": "Add to cart"
-                            }
-                        },
-                        "cart": {
-                            "styles": {
-                                "button": {
-                                    "background-color": "#000000",
-                                    ":hover": {
-                                        "background-color": "#D2B48C"
-                                    },
-                                    ":focus": {
-                                        "background-color": "#D2B48C"
-                                    }
-                                }
-                            },
-                            "text": {
-                                "total": "Subtotal",
-                                "button": "Checkout"
-                            }
-                        },
-                        "modalProduct": {
-                            "contents": {
-                                "img": false,
-                                "imgWithCarousel": true,
-                                "button": false,
-                                "buttonWithQuantity": true
-                            },
-                            "styles": {
-                                "product": {
-                                    "@media (min-width: 601px)": {
-                                        "max-width": "100%",
-                                        "margin-left": "0px",
-                                        "margin-bottom": "0px"
-                                    }
-                                },
-                                "button": {
-                                    "background-color": "#000000",
-                                    ":hover": {
-                                        "background-color": "#D2B48C"
-                                    },
-                                    ":focus": {
-                                        "background-color": "#D2B48C"
-                                    }
-                                }
-                            },
-                            "text": {
-                                "button": "Add to cart"
-                            }
-                        },
-                        "toggle": {
-                            "styles": {
-                                "toggle": {
-                                    "background-color": "#000000",
-                                    ":hover": {
-                                        "background-color": "#D2B48C"
-                                    },
-                                    ":focus": {
-                                        "background-color": "#D2B48C"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
-            });
-            */
+    </script>
+
+    <!-- Shopify Buy Button Script -->
+    <script type="text/javascript">
+    /*<![CDATA[*/
+    (function () {
+      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+      if (window.ShopifyBuy) {
+        if (window.ShopifyBuy.UI) {
+          ShopifyBuyInit();
+        } else {
+          loadScript();
         }
-        
-        // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            initShopifyBuyButtons();
+      } else {
+        loadScript();
+      }
+      function loadScript() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = scriptURL;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+        script.onload = ShopifyBuyInit;
+      }
+      function ShopifyBuyInit() {
+        var client = ShopifyBuy.buildClient({
+          domain: 'h0qsnd-jj.myshopify.com',
+          storefrontAccessToken: 'ce3acf6c2904aa2708822cea1fceabcc',
         });
+        ShopifyBuy.UI.onReady(client).then(function (ui) {
+          ui.createComponent('collection', {
+            id: '640765296824',
+            node: document.getElementById('collection-component-1753660773536'),
+            moneyFormat: '%24%7B%7Bamount%7D%7D',
+            options: {
+              "product": {
+                "styles": {
+                  "product": {
+                    "@media (min-width: 601px)": {
+                      "max-width": "calc(25% - 20px)",
+                      "margin-left": "20px",
+                      "margin-bottom": "50px",
+                      "width": "calc(25% - 20px)"
+                    },
+                    "img": {
+                      "height": "calc(100% - 15px)",
+                      "position": "absolute",
+                      "left": "0",
+                      "right": "0",
+                      "top": "0"
+                    },
+                    "imgWrapper": {
+                      "padding-top": "calc(75% + 15px)",
+                      "position": "relative",
+                      "height": "0"
+                    }
+                  },
+                  "button": {
+                    "border-radius": "5px",
+                    "padding-left": "28px",
+                    "padding-right": "28px"
+                  }
+                },
+                "contents": {
+                  "button": false,
+                  "buttonWithQuantity": true
+                },
+                "text": {
+                  "button": "Add to cart"
+                }
+              },
+              "productSet": {
+                "styles": {
+                  "products": {
+                    "@media (min-width: 601px)": {
+                      "margin-left": "-20px"
+                    }
+                  }
+                }
+              },
+              "modalProduct": {
+                "contents": {
+                  "img": false,
+                  "imgWithCarousel": true,
+                  "button": false,
+                  "buttonWithQuantity": true
+                },
+                "styles": {
+                  "product": {
+                    "@media (min-width: 601px)": {
+                      "max-width": "100%",
+                      "margin-left": "0px",
+                      "margin-bottom": "0px"
+                    }
+                  },
+                  "button": {
+                    "border-radius": "5px",
+                    "padding-left": "28px",
+                    "padding-right": "28px"
+                  }
+                },
+                "text": {
+                  "button": "Add to cart"
+                }
+              },
+              "option": {},
+              "cart": {
+                "styles": {
+                  "button": {
+                    "border-radius": "5px"
+                  }
+                },
+                "text": {
+                  "total": "Subtotal",
+                  "button": "Checkout"
+                },
+                "contents": {
+                  "note": true
+                }
+              },
+              "toggle": {}
+            },
+          });
+        });
+      }
+    })();
+    /*]]>*/
     </script>
 </body>
 </html>
