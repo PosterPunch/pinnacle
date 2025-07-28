@@ -71,7 +71,6 @@
             background-color: var(--tan);
             color: var(--black);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .btn-outline {
@@ -137,24 +136,13 @@
             color: var(--black);
         }
         
-        .section-title span {
-            position: relative;
-            display: inline-block;
-            padding: 0 20px;
-            background: var(--white);
-            z-index: 1;
-        }
-        
-        .section-title:before {
+        .section-title:after {
             content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 3px;
+            display: block;
+            width: 80px;
+            height: 4px;
             background: var(--tan);
-            z-index: 0;
-            transform: translateY(-50%);
+            margin: 15px auto 0;
         }
         
         .section-subtitle {
@@ -289,7 +277,6 @@
             visibility: hidden;
             transition: all 0.3s ease;
             z-index: 999;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         .back-to-top.visible {
@@ -342,6 +329,7 @@
             max-width: 800px;
             padding: 0 20px;
             animation: fadeInUp 0.8s ease;
+            width: 100%;
         }
         
         @keyframes fadeInUp {
@@ -358,10 +346,11 @@
         .hero-title {
             font-size: 6rem;
             font-weight: 900;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             line-height: 1;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             letter-spacing: 2px;
+            width: 100%;
         }
         
         .hero-subtitle {
@@ -371,12 +360,14 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            width: 100%;
         }
         
         .hero-buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
+            width: 100%;
         }
         
         .hero-buttons .btn {
@@ -426,13 +417,11 @@
             height: 400px;
             cursor: pointer;
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.4s ease;
         }
         
         .talent-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
         
         .talent-image {
@@ -498,7 +487,6 @@
             position: relative;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         
         .about-image img {
@@ -559,7 +547,7 @@
         }
         
         .footer-logo {
-            height: 60px;
+            height: 90px;
             margin-bottom: 20px;
             filter: brightness(0) invert(1);
         }
@@ -653,7 +641,6 @@
             display: flex;
             border-radius: 30px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         .newsletter-form input {
@@ -707,7 +694,6 @@
             animation: modalFadeIn 0.3s ease;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
         
         @keyframes modalFadeIn {
@@ -794,7 +780,6 @@
             padding: 15px;
             border-radius: 5px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         
         .stat-item h4 {
@@ -852,7 +837,6 @@
             z-index: 1000;
             transition: right 0.3s ease;
             padding: 80px 30px 30px;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
             overflow-y: auto;
         }
         
@@ -969,7 +953,7 @@
             }
 
             .footer-logo {
-                height: 60px;
+                height: 90px;
                 margin: 0 auto 20px;
             }
             
@@ -989,20 +973,7 @@
             }
             
             .newsletter-form {
-                flex-direction: column;
-                max-width: 300px;
-                margin: 0 auto;
-            }
-            
-            .newsletter-form input {
-                text-align: center;
-                padding: 15px;
-                margin-bottom: 10px;
-            }
-            
-            .newsletter-form button {
-                padding: 15px;
-                width: 100%;
+                max-width: 100%;
             }
         }
         
@@ -1040,7 +1011,7 @@
             }
             
             .footer-logo {
-                height: 50px;
+                height: 80px;
             }
             
             .footer-links {
@@ -1050,6 +1021,19 @@
             
             .mobile-nav {
                 width: 90%;
+            }
+            
+            .newsletter-form {
+                flex-direction: row;
+            }
+            
+            .newsletter-form input {
+                text-align: left;
+                padding: 12px 15px;
+            }
+            
+            .newsletter-form button {
+                padding: 0 20px;
             }
         }
     </style>
@@ -1127,12 +1111,12 @@
     <!-- Talent Grid Section -->
     <section class="talent-section" id="talent">
         <div class="container">
-            <h2 class="section-title"><span>Featured Talent</span></h2>
+            <h2 class="section-title">FEATURED TALENT</h2>
             <p class="section-subtitle">Discover the exceptional talent we represent across sports, entertainment, and digital media</p>
             
             <div class="talent-grid">
                 <!-- Salt Papi -->
-                <div class="talent-card" onclick="openTalentModal('salt-papi', 'Salt Papi', 'Boxer', '5-0', 'Record', '4', 'KOs', 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.')">
+                <div class="talent-card" onclick="openTalentModal('saltpin', 'Salt Papi', 'Boxer', '5-0', 'Record', '4', 'KOs', '1.8M', 'Instagram', '500K', 'YouTube', 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.')">
                     <img src="saltpin.jpg" alt="Salt Papi" class="talent-image">
                     <div class="talent-overlay">
                         <h3 class="talent-name">Salt Papi</h3>
@@ -1141,16 +1125,16 @@
                 </div>
                 
                 <!-- FoxtheG -->
-                <div class="talent-card" onclick="openTalentModal('foxtheg', 'FoxtheG', 'Content Creator', '2.1M', 'Instagram', '500K', 'YouTube', 'FoxtheG creates engaging lifestyle content that resonates with young audiences worldwide. His unique perspective and creative approach have earned him a dedicated following across multiple platforms.')">
-                    <img src="foxpin.jpg" alt="FoxtheG" class="talent-image">
+                <div class="talent-card" onclick="openTalentModal('foxpin', 'FoxTheG', 'Content Creator', '2.1M', 'Instagram', '500K', 'YouTube', '1.2M', 'TikTok', '300K', 'Twitter', 'FoxTheG creates engaging lifestyle content that resonates with young audiences worldwide. His unique perspective and creative approach have earned him a dedicated following across multiple platforms.')">
+                    <img src="foxpin.jpg" alt="FoxTheG" class="talent-image">
                     <div class="talent-overlay">
-                        <h3 class="talent-name">FoxtheG</h3>
+                        <h3 class="talent-name">FoxTheG</h3>
                         <p class="talent-category">Content Creator</p>
                     </div>
                 </div>
                 
                 <!-- Dawood Savage -->
-                <div class="talent-card" onclick="openTalentModal('dawood-savage', 'Dawood Savage', 'Influencer', '1.8M', 'TikTok', '800K', 'Instagram', 'Dawood Savage is known for his viral comedy sketches and engaging personality. His ability to connect with audiences through humor and authenticity has made him one of the most recognizable digital creators today.')">
+                <div class="talent-card" onclick="openTalentModal('dawoodpin', 'Dawood Savage', 'Influencer', '1.8M', 'TikTok', '800K', 'Instagram', '1.5M', 'YouTube', '400K', 'Twitter', 'Dawood Savage is known for his viral comedy sketches and engaging personality. His ability to connect with audiences through humor and authenticity has made him one of the most recognizable digital creators today.')">
                     <img src="dawoodpin.jpg" alt="Dawood Savage" class="talent-image">
                     <div class="talent-overlay">
                         <h3 class="talent-name">Dawood Savage</h3>
@@ -1168,7 +1152,7 @@
     <!-- About Section -->
     <section class="about-section" id="about">
         <div class="container">
-            <h2 class="section-title"><span>About Pinnacle</span></h2>
+            <h2 class="section-title">ABOUT PINNACLE</h2>
             <p class="section-subtitle">Redefining talent management for the digital age</p>
             
             <div class="about-container">
@@ -1189,12 +1173,12 @@
     <!-- Merch Section -->
     <section class="merch-section" id="merch">
         <div class="container">
-            <h2 class="section-title"><span>Pinnacle Merch</span></h2>
+            <h2 class="section-title">PINNACLE MERCH</h2>
             <p class="section-subtitle">Official merchandise from your favorite talents</p>
             
             <!-- Shopify Collection Component -->
             <div class="shopify-collection">
-                <div id='collection-component-1753660773536'></div>
+                <div id='product-component-1753723513454'></div>
             </div>
             
             <div style="text-align: center; margin-top: 30px;">
@@ -1285,13 +1269,13 @@
                     <div class="talent-modal-bio" id="modalTalentBio"></div>
                     
                     <div class="talent-modal-socials">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" id="instagramLink"><i class="fab fa-instagram"></i></a>
+                        <a href="#" id="tiktokLink"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" id="youtubeLink"><i class="fab fa-youtube"></i></a>
+                        <a href="#" id="twitterLink"><i class="fab fa-twitter"></i></a>
                     </div>
                     
-                    <button class="btn">Book Talent</button>
+                    <button class="btn" id="bookTalentBtn">Book Talent</button>
                 </div>
             </div>
         </div>
@@ -1378,7 +1362,7 @@
         });
     
         // Talent Modal Functions
-        function openTalentModal(id, name, category, stat1Value, stat1Title, stat2Value, stat2Title, bio) {
+        function openTalentModal(id, name, category, stat1Value, stat1Title, stat2Value, stat2Title, stat3Value, stat3Title, stat4Value, stat4Title, bio) {
             const modal = document.getElementById('talentModal');
             const talentImage = document.getElementById('modalTalentImage');
         
@@ -1392,7 +1376,17 @@
             document.getElementById('stat1Value').textContent = stat1Value;
             document.getElementById('stat2Title').textContent = stat2Title;
             document.getElementById('stat2Value').textContent = stat2Value;
+            document.getElementById('stat3Title').textContent = stat3Title;
+            document.getElementById('stat3Value').textContent = stat3Value;
+            document.getElementById('stat4Title').textContent = stat4Title;
+            document.getElementById('stat4Value').textContent = stat4Value;
             document.getElementById('modalTalentBio').textContent = bio;
+            
+            // Set book talent button
+            const bookBtn = document.getElementById('bookTalentBtn');
+            bookBtn.onclick = function() {
+                window.location.href = `mailto:pinnacletalentmanagement1@gmail.com?subject=Request to book ${name}`;
+            };
         
             // Show modal
             modal.style.display = 'block';
@@ -1478,103 +1472,273 @@
           storefrontAccessToken: 'ce3acf6c2904aa2708822cea1fceabcc',
         });
         ShopifyBuy.UI.onReady(client).then(function (ui) {
-          ui.createComponent('collection', {
-            id: '640765296824',
-            node: document.getElementById('collection-component-1753660773536'),
+          ui.createComponent('product', {
+            id: '10032938057912',
+            node: document.getElementById('product-component-1753723513454'),
             moneyFormat: '%24%7B%7Bamount%7D%7D',
             options: {
-              "product": {
-                "styles": {
-                  "product": {
-                    "@media (min-width: 601px)": {
-                      "max-width": "calc(25% - 20px)",
-                      "margin-left": "20px",
-                      "margin-bottom": "50px",
-                      "width": "calc(25% - 20px)"
-                    },
-                    "img": {
-                      "height": "calc(100% - 15px)",
-                      "position": "absolute",
-                      "left": "0",
-                      "right": "0",
-                      "top": "0"
-                    },
-                    "imgWrapper": {
-                      "padding-top": "calc(75% + 15px)",
-                      "position": "relative",
-                      "height": "0"
-                    }
-                  },
-                  "button": {
-                    "border-radius": "5px",
-                    "padding-left": "28px",
-                    "padding-right": "28px"
-                  }
-                },
-                "contents": {
-                  "button": false,
-                  "buttonWithQuantity": true
-                },
-                "text": {
-                  "button": "Add to cart"
-                }
-              },
-              "productSet": {
-                "styles": {
-                  "products": {
-                    "@media (min-width: 601px)": {
-                      "margin-left": "-20px"
-                    }
-                  }
-                }
-              },
-              "modalProduct": {
-                "contents": {
-                  "img": false,
-                  "imgWithCarousel": true,
-                  "button": false,
-                  "buttonWithQuantity": true
-                },
-                "styles": {
-                  "product": {
-                    "@media (min-width: 601px)": {
-                      "max-width": "100%",
-                      "margin-left": "0px",
-                      "margin-bottom": "0px"
-                    }
-                  },
-                  "button": {
-                    "border-radius": "5px",
-                    "padding-left": "28px",
-                    "padding-right": "28px"
-                  }
-                },
-                "text": {
-                  "button": "Add to cart"
-                }
-              },
-              "option": {},
-              "cart": {
-                "styles": {
-                  "button": {
-                    "border-radius": "5px"
-                  }
-                },
-                "text": {
-                  "total": "Subtotal",
-                  "button": "Checkout"
-                },
-                "contents": {
-                  "note": true
-                }
-              },
-              "toggle": {}
-            },
-          });
-        });
+  "product": {
+    "styles": {
+      "product": {
+        "@media (min-width: 601px)": {
+          "max-width": "100%",
+          "margin-left": "0",
+          "margin-bottom": "50px"
+        },
+        "text-align": "left"
+      },
+      "title": {
+        "font-size": "34px"
+      },
+      "button": {
+        "font-family": "Montserrat, sans-serif",
+        "font-weight": "bold",
+        ":hover": {
+          "background-color": "#000000"
+        },
+        "background-color": "#000000",
+        ":focus": {
+          "background-color": "#000000"
+        },
+        "border-radius": "5px"
+      },
+      "price": {
+        "font-weight": "bold",
+        "font-size": "26px",
+        "color": "#d2b48c"
+      },
+      "compareAt": {
+        "font-weight": "bold",
+        "font-size": "22.099999999999998px",
+        "color": "#d2b48c"
+      },
+      "unitPrice": {
+        "font-weight": "bold",
+        "font-size": "22.099999999999998px",
+        "color": "#d2b48c"
+      },
+      "description": {
+        "font-size": "15px"
       }
-    })();
-    /*]]>*/
-    </script>
+    },
+    "layout": "horizontal",
+    "contents": {
+      "img": false,
+      "imgWithCarousel": true,
+      "description": true
+    },
+    "width": "100%",
+    "text": {
+      "button": "Add to cart"
+    },
+    "googleFonts": [
+      "Montserrat"
+    ]
+  },
+  "productSet": {
+    "styles": {
+      "products": {
+        "@media (min-width: 601px)": {
+          "margin-left": "-20px"
+        }
+      }
+    }
+  },
+  "modalProduct": {
+    "contents": {
+      "img": false,
+      "imgWithCarousel": true,
+      "button": false,
+      "buttonWithQuantity": true
+    },
+    "styles": {
+      "product": {
+        "@media (min-width: 601px)": {
+          "max-width": "100%",
+          "margin-left": "0px",
+          "margin-bottom": "0px"
+        }
+      },
+      "button": {
+        "font-family": "Montserrat, sans-serif",
+        "font-weight": "bold",
+        ":hover": {
+          "background-color": "#000000"
+        },
+        "background-color": "#000000",
+        ":focus": {
+          "background-color": "#000000"
+        },
+        "border-radius": "5px"
+      },
+      "title": {
+        "font-family": "Helvetica Neue, sans-serif",
+        "font-weight": "bold",
+        "font-size": "26px",
+        "color": "#4c4c4c"
+      },
+      "price": {
+        "font-family": "Helvetica Neue, sans-serif",
+        "font-weight": "normal",
+        "font-size": "18px",
+        "color": "#4c4c4c"
+      },
+      "compareAt": {
+        "font-family": "Helvetica Neue, sans-serif",
+        "font-weight": "normal",
+        "font-size": "15.299999999999999px",
+        "color": "#4c4c4c"
+      },
+      "unitPrice": {
+        "font-family": "Helvetica Neue, sans-serif",
+        "font-weight": "normal",
+        "font-size": "15.299999999999999px",
+        "color": "#4c4c4c"
+      },
+      "description": {
+        "font-family": "Helvetica Neue, sans-serif",
+        "font-weight": "normal",
+        "font-size": "14px",
+        "color": "#4c4c4c"
+      }
+    },
+    "googleFonts": [
+      "Montserrat"
+    ],
+    "text": {
+      "button": "Add to cart"
+    }
+  },
+  "option": {},
+  "cart": {
+    "styles": {
+      "button": {
+        "font-family": "Montserrat, sans-serif",
+        "font-weight": "bold",
+        ":hover": {
+          "background-color": "#000000"
+        },
+        "background-color": "#000000",
+        ":focus": {
+          "background-color": "#000000"
+        },
+        "border-radius": "5px"
+      },
+      "title": {
+        "color": "#000000"
+      },
+      "header": {
+        "color": "#000000"
+      },
+      "lineItems": {
+        "color": "#000000"
+      },
+      "subtotalText": {
+        "color": "#000000"
+      },
+      "subtotal": {
+        "color": "#000000"
+      },
+      "notice": {
+        "color": "#000000"
+      },
+      "currency": {
+        "color": "#000000"
+      },
+      "close": {
+        "color": "#000000",
+        ":hover": {
+          "color": "#000000"
+        }
+      },
+      "empty": {
+        "color": "#000000"
+      },
+      "noteDescription": {
+        "color": "#000000"
+      },
+      "discountText": {
+        "color": "#000000"
+      },
+      "discountIcon": {
+        "fill": "#000000"
+      },
+      "discountAmount": {
+        "color": "#000000"
+      }
+    },
+    "text": {
+      "total": "Subtotal",
+      "button": "Checkout"
+    },
+    "contents": {
+      "note": true
+    },
+    "googleFonts": [
+      "Montserrat"
+    ]
+  },
+  "toggle": {
+    "styles": {
+      "toggle": {
+        "font-family": "Montserrat, sans-serif",
+        "font-weight": "bold",
+        "background-color": "#000000",
+        ":hover": {
+          "background-color": "#000000"
+        },
+        ":focus": {
+          "background-color": "#000000"
+        }
+      }
+    },
+    "googleFonts": [
+      "Montserrat"
+    ]
+  },
+  "lineItem": {
+    "styles": {
+      "variantTitle": {
+        "color": "#000000"
+      },
+      "title": {
+        "color": "#000000"
+      },
+      "price": {
+        "color": "#000000"
+      },
+      "fullPrice": {
+        "color": "#000000"
+      },
+      "discount": {
+        "color": "#000000"
+      },
+      "discountIcon": {
+        "fill": "#000000"
+      },
+      "quantity": {
+        "color": "#000000"
+      },
+      "quantityIncrement": {
+        "color": "#000000",
+        "border-color": "#000000"
+      },
+      "quantityDecrement": {
+        "color": "#000000",
+        "border-color": "#000000"
+      },
+      "quantityInput": {
+        "color": "#000000",
+        "border-color": "#000000"
+      }
+    }
+  }
+},
+      });
+    });
+  }
+})();
+/*]]>*/
+</script>
 </body>
 </html>
