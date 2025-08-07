@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookie Policy | Pinnacle Talent Management</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         /* Reset & Base Styles */
@@ -43,6 +43,7 @@
         img {
             max-width: 100%;
             height: auto;
+            display: block;
         }
         
         .container {
@@ -51,93 +52,22 @@
             margin: 0 auto;
         }
         
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--black);
-            color: var(--white);
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
-        
-        .btn:hover {
-            background-color: var(--tan);
-            color: var(--black);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--black);
-            color: var(--black);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--black);
-            color: var(--white);
-        }
-        
-        .view-all-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 30px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-        
-        .view-all-btn:hover {
-            color: var(--tan);
-        }
-        
-        .view-all-btn i {
-            transition: transform 0.3s ease;
-        }
-        
-        .view-all-btn:hover i {
-            transform: translateX(5px);
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            text-align: center;
-            position: relative;
-        }
-        
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 3px;
-            background-color: var(--tan);
-            margin: 15px auto;
-        }
-        
-        /* Header Styles */
+        /* Header Styles - Copied from index */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 20px 0;
+            padding: 15px 0;
             background-color: var(--white);
             z-index: 1000;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
         
         header.scrolled {
             padding: 10px 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(5px);
+            background-color: var(--white);
         }
         
         .header-container {
@@ -147,16 +77,18 @@
         }
         
         .logo {
-            height: 50px;
-            transition: transform 0.3s ease;
+            height: 45px;
+            /* Removed hover transform effect */
         }
         
         nav ul {
             display: flex;
+            align-items: center;
         }
         
         nav ul li {
             margin-left: 30px;
+            position: relative;
         }
         
         nav ul li a {
@@ -166,6 +98,7 @@
             letter-spacing: 1px;
             transition: color 0.3s ease;
             position: relative;
+            display: inline-block;
         }
         
         nav ul li a:after {
@@ -175,7 +108,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--tan);
+            background: var(--tan);
             transition: width 0.3s ease;
         }
         
@@ -185,6 +118,9 @@
         
         .cart-icon {
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .cart-count {
@@ -207,9 +143,15 @@
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s ease;
         }
         
-        /* Back to Top Button */
+        .mobile-menu-btn:hover {
+            color: var(--tan);
+        }
+        
+        /* Back to Top Button - Copied from index */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -235,11 +177,12 @@
         }
         
         .back-to-top:hover {
-            background-color: var(--tan);
+            background: var(--tan);
             color: var(--black);
+            transform: translateY(-3px);
         }
-        
-        /* Terms Content */
+
+        /* Cookie Policy Content Styles (original) */
         .terms-section {
             padding: 150px 0 100px;
         }
@@ -271,6 +214,7 @@
         
         .terms-content p {
             margin-bottom: 15px;
+            color: var(--gray);
         }
         
         .terms-content ul {
@@ -282,6 +226,7 @@
             margin-bottom: 10px;
             position: relative;
             padding-left: 20px;
+            color: var(--gray);
         }
         
         .terms-content li:before {
@@ -295,16 +240,17 @@
             border-radius: 50%;
         }
 
-        /* Bold text for cookie types */
         .terms-content li b {
             font-weight: 700;
+            color: var(--black);
         }
-        
-        /* Footer */
+
+        /* Footer Styles - Copied from index */
         footer {
             background-color: var(--black);
             color: var(--white);
-            padding: 60px 0 30px;
+            padding: 80px 0 30px;
+            position: relative;
         }
         
         .footer-container {
@@ -315,7 +261,6 @@
         }
         
         .footer-logo {
-            height: 50px;
             margin-bottom: 20px;
             filter: brightness(0) invert(1);
         }
@@ -323,6 +268,7 @@
         .footer-about p {
             margin-bottom: 20px;
             opacity: 0.7;
+            line-height: 1.8;
         }
         
         .social-links {
@@ -342,44 +288,72 @@
         }
         
         .social-links a:hover {
-            background-color: var(--tan);
+            background: var(--tan);
             color: var(--black);
-        }
-        
-        .social-links a i {
-            transition: transform 0.3s ease;
-        }
-        
-        .social-links a:hover i {
-            transform: scale(1.2);
+            transform: translateY(-3px);
         }
         
         .footer-links h4 {
             font-size: 1.1rem;
             margin-bottom: 20px;
-            font-weight: 600;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-links h4:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--tan);
         }
         
         .footer-links ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .footer-links ul li a {
             opacity: 0.7;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .footer-links ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--tan);
+            transition: width 0.3s ease;
         }
         
         .footer-links ul li a:hover {
             opacity: 1;
+            color: var(--tan);
+        }
+        
+        .footer-links ul li a:hover:after {
+            width: 100%;
         }
         
         .footer-newsletter p {
             opacity: 0.7;
             margin-bottom: 20px;
+            line-height: 1.8;
         }
         
         .newsletter-form {
             display: flex;
+            border-radius: 30px;
+            overflow: hidden;
         }
         
         .newsletter-form input {
@@ -387,15 +361,21 @@
             padding: 12px 15px;
             border: none;
             font-family: 'Montserrat', sans-serif;
+            background-color: rgba(255,255,255,0.9);
         }
         
         .newsletter-form button {
             padding: 0 20px;
-            background-color: var(--tan);
+            background: var(--tan);
             color: var(--black);
             border: none;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            opacity: 0.9;
         }
         
         .footer-bottom {
@@ -405,53 +385,89 @@
             font-size: 0.9rem;
             opacity: 0.7;
         }
-        
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            .terms-section {
-                padding: 120px 0 80px;
-            }
+
+        /* Mobile Navigation - Copied from index */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 350px;
+            height: 100vh;
+            background-color: var(--white);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 80px 30px 30px;
+            overflow-y: auto;
         }
         
+        .mobile-nav.show {
+            right: 0;
+        }
+        
+        .mobile-nav ul {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mobile-nav ul li {
+            margin: 0;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .mobile-nav ul li a {
+            font-size: 16px;
+            display: block;
+        }
+        
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-nav-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            .section-title, .terms-title {
-                font-size: 2rem;
-            }
-            
             nav ul {
                 display: none;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: var(--white);
-                flex-direction: column;
-                padding: 20px 0;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            }
-            
-            nav ul.show {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 0;
-                text-align: center;
-                padding: 15px 0;
             }
             
             .mobile-menu-btn {
                 display: block;
             }
+
+            /* Footer Mobile Styles */
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-links h4:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
         }
         
         @media (max-width: 480px) {
             .terms-title {
-                font-size: 1.8rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             
             .back-to-top {
@@ -460,18 +476,22 @@
                 bottom: 20px;
                 right: 20px;
             }
+            
+            .mobile-nav {
+                width: 90%;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header - Copied from index -->
     <header id="header">
         <div class="container header-container">
             <a href="index.html" class="logo">
                 <img src="pinnaclelogo.png" alt="Pinnacle Talent Management" class="logo">
             </a>
             
-            <nav>
+            <nav class="desktop-nav">
                 <ul id="navMenu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="talent.html">Talent</a></li>
@@ -491,12 +511,28 @@
         </div>
     </header>
 
-    <!-- Back to Top Button -->
+    <!-- Mobile Navigation - Copied from index -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="talent.html">Talent</a></li>
+            <li><a href="merch.html">Merch</a></li>
+            <li>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Back to Top Button - Copied from index -->
     <div class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- Terms Section -->
+    <!-- Cookie Policy Content (original) -->
     <section class="terms-section">
         <div class="container terms-container">
             <h1 class="terms-title">Cookie Policy</h1>
@@ -519,12 +555,11 @@
 
                 <h2>4. Consent</h2>
                 <p>By using our site, you consent to the use of cookies as described in this policy.</p>
-
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - Copied from index -->
     <footer>
         <div class="container">
             <div class="footer-container">
@@ -562,7 +597,7 @@
                     <h4>Stay Updated</h4>
                     <p>Subscribe to our newsletter for the latest talent signings, merch drops, and announcements.</p>
                     <form class="newsletter-form">
-                        <input type="email" placeholder="Your email address">
+                        <input type="email" placeholder="Your email address" required>
                         <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
@@ -575,6 +610,42 @@
     </footer>
 
     <script>
+        // JavaScript copied from index page
+        // Mobile Menu Functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileNav.classList.toggle('show');
+            mobileNavOverlay.classList.toggle('show');
+            document.body.style.overflow = mobileNav.classList.contains('show') ? 'hidden' : 'auto';
+            
+            // Change icon
+            if (mobileNav.classList.contains('show')) {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
+        mobileNavOverlay.addEventListener('click', function() {
+            mobileNav.classList.remove('show');
+            mobileNavOverlay.classList.remove('show');
+            document.body.style.overflow = 'auto';
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('show');
+                mobileNavOverlay.classList.remove('show');
+                document.body.style.overflow = 'auto';
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
         // Header Scroll Effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
@@ -583,7 +654,7 @@
             } else {
                 header.classList.remove('scrolled');
             }
-            
+        
             // Back to top button visibility
             const backToTop = document.getElementById('backToTop');
             if (window.scrollY > 300) {
@@ -592,15 +663,15 @@
                 backToTop.classList.remove('visible');
             }
         });
-        
+    
         // Smooth Scrolling for Anchor Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
+            
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
+            
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
@@ -610,7 +681,7 @@
                 }
             });
         });
-        
+    
         // Back to top functionality
         document.getElementById('backToTop').addEventListener('click', function() {
             window.scrollTo({
@@ -618,43 +689,14 @@
                 behavior: 'smooth'
             });
         });
-        
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            navMenu.classList.toggle('show');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('show') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    navMenu.classList.remove('show');
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                }
-            });
-        });
-        
+    
         // Shopping Cart Functionality
         let cartItems = 0;
-        
-        function addToCart(productName, price) {
-            cartItems++;
-            updateCartCount();
-            
-            // In a real implementation, you would add the item to a cart array
-            // and potentially show a notification
-            alert(`${productName} has been added to your cart!`);
-        }
-        
+    
         function updateCartCount() {
             const cartCount = document.querySelector('.cart-count');
             cartCount.textContent = cartItems;
-            
+        
             // Show/hide cart count
             if (cartItems > 0) {
                 cartCount.style.display = 'flex';
@@ -662,7 +704,7 @@
                 cartCount.style.display = 'none';
             }
         }
-        
+    
         // Newsletter Form Submission
         const newsletterForm = document.querySelector('.newsletter-form');
         newsletterForm.addEventListener('submit', function(e) {
@@ -675,12 +717,12 @@
         // Responsive adjustments
         function handleResponsive() {
             if (window.innerWidth > 768) {
-                navMenu.style.display = 'flex';
+                document.querySelector('.desktop-nav').style.display = 'flex';
             } else {
-                navMenu.style.display = 'none';
+                document.querySelector('.desktop-nav').style.display = 'none';
             }
         }
-        
+    
         window.addEventListener('resize', handleResponsive);
         handleResponsive();
     </script>
