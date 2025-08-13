@@ -78,7 +78,6 @@
         
         .logo {
             height: 45px;
-            /* Removed hover transform effect */
         }
         
         nav ul {
@@ -114,29 +113,6 @@
         
         nav ul li a:hover:after {
             width: 100%;
-        }
-        
-        .cart-icon {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background-color: var(--tan);
-            color: var(--black);
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            font-weight: 700;
         }
         
         .mobile-menu-btn {
@@ -377,15 +353,27 @@
         .newsletter-form button:hover {
             opacity: 0.9;
         }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            opacity: 0.7;
+
+        /* Form Messages */
+        .form-message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
         }
 
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        .form-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+        
         /* Mobile Navigation - Copied from index */
         .mobile-nav {
             position: fixed;
@@ -484,7 +472,7 @@
     </style>
 </head>
 <body>
-    <!-- Header - Copied from index -->
+    <!-- Header - Updated without cart -->
     <header id="header">
         <div class="container header-container">
             <a href="index.html" class="logo">
@@ -496,12 +484,6 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="talent.html">Talent</a></li>
                     <li><a href="merch.html">Merch</a></li>
-                    <li>
-                        <a href="cart.html" class="cart-icon">
-                            <i class="fas fa-shopping-bag"></i>
-                            <span class="cart-count">0</span>
-                        </a>
-                    </li>
                 </ul>
             </nav>
             
@@ -511,28 +493,22 @@
         </div>
     </header>
 
-    <!-- Mobile Navigation - Copied from index -->
+    <!-- Mobile Navigation - Updated without cart -->
     <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
     <nav class="mobile-nav" id="mobileNav">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="talent.html">Talent</a></li>
             <li><a href="merch.html">Merch</a></li>
-            <li>
-                <a href="cart.html" class="cart-icon">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span class="cart-count">0</span>
-                </a>
-            </li>
         </ul>
     </nav>
 
-    <!-- Back to Top Button - Copied from index -->
+    <!-- Back to Top Button -->
     <div class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- Cookie Policy Content (original) -->
+    <!-- Cookie Policy Content -->
     <section class="terms-section">
         <div class="container terms-container">
             <h1 class="terms-title">Cookie Policy</h1>
@@ -545,7 +521,7 @@
 
                 <h2>2. Types of Cookies We Use</h2>
                 <ul>
-                    <li><b>Essential Cookies</b>: Required for basic site functions (e.g., shopping cart).</li>
+                    <li><b>Essential Cookies</b>: Required for basic site functions.</li>
                     <li><b>Analytics Cookies</b>: Help us understand how visitors interact with the site (e.g., via Google Analytics).</li>
                     <li><b>Marketing Cookies</b>: May be used to serve relevant ads or track engagement across platforms.</li>
                 </ul>
@@ -559,7 +535,7 @@
         </div>
     </section>
 
-    <!-- Footer - Copied from index -->
+    <!-- Footer - Updated with Formspree form -->
     <footer>
         <div class="container">
             <div class="footer-container">
@@ -596,10 +572,11 @@
                 <div class="footer-newsletter">
                     <h4>Stay Updated</h4>
                     <p>Subscribe to our newsletter for the latest talent signings, merch drops, and announcements.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email address" required>
+                    <form class="newsletter-form" action="https://formspree.io/f/xyzkqeao" method="POST">
+                        <input type="email" name="email" placeholder="Your email address" required>
                         <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
+                    <div class="form-message" id="newsletterMessage"></div>
                 </div>
             </div>
             
@@ -610,7 +587,6 @@
     </footer>
 
     <script>
-        // JavaScript copied from index page
         // Mobile Menu Functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileNav = document.getElementById('mobileNav');
@@ -690,28 +666,43 @@
             });
         });
     
-        // Shopping Cart Functionality
-        let cartItems = 0;
-    
-        function updateCartCount() {
-            const cartCount = document.querySelector('.cart-count');
-            cartCount.textContent = cartItems;
-        
-            // Show/hide cart count
-            if (cartItems > 0) {
-                cartCount.style.display = 'flex';
-            } else {
-                cartCount.style.display = 'none';
-            }
-        }
-    
-        // Newsletter Form Submission
-        const newsletterForm = document.querySelector('.newsletter-form');
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const emailInput = this.querySelector('input[type="email"]');
-            alert(`Thank you for subscribing with ${emailInput.value}!`);
-            emailInput.value = '';
+        // Newsletter Form Submission with Formspree
+        const newsletterForms = document.querySelectorAll('.newsletter-form');
+        newsletterForms.forEach(form => {
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                const emailInput = this.querySelector('input[type="email"]');
+                const messageElement = document.getElementById('newsletterMessage');
+                
+                try {
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        messageElement.textContent = 'Thank you for subscribing!';
+                        messageElement.className = 'form-message success';
+                        emailInput.value = '';
+                        
+                        // Hide message after 5 seconds
+                        setTimeout(() => {
+                            messageElement.className = 'form-message';
+                            messageElement.textContent = '';
+                        }, 5000);
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                } catch (error) {
+                    messageElement.textContent = 'There was a problem with your submission. Please try again.';
+                    messageElement.className = 'form-message error';
+                    console.error('Error:', error);
+                }
+            });
         });
         
         // Responsive adjustments

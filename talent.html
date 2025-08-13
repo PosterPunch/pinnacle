@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talent | Pinnacle Talent Management</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         /* Reset & Base Styles */
@@ -43,6 +43,7 @@
         img {
             max-width: 100%;
             height: auto;
+            display: block;
         }
         
         .container {
@@ -97,24 +98,23 @@
             background-color: var(--tan);
             margin: 15px auto;
         }
-        
+
         /* Header Styles */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 20px 0;
+            padding: 15px 0;
             background-color: var(--white);
             z-index: 1000;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
         
         header.scrolled {
             padding: 10px 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(5px);
+            background-color: var(--white);
         }
         
         .header-container {
@@ -124,20 +124,17 @@
         }
         
         .logo {
-            height: 50px;
-            transition: transform 0.3s ease;
-        }
-        
-        .logo:hover {
-            transform: scale(1.05);
+            height: 45px;
         }
         
         nav ul {
             display: flex;
+            align-items: center;
         }
         
         nav ul li {
             margin-left: 30px;
+            position: relative;
         }
         
         nav ul li a {
@@ -147,6 +144,7 @@
             letter-spacing: 1px;
             transition: color 0.3s ease;
             position: relative;
+            display: inline-block;
         }
         
         nav ul li a:after {
@@ -156,7 +154,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--tan);
+            background: var(--tan);
             transition: width 0.3s ease;
         }
         
@@ -164,32 +162,18 @@
             width: 100%;
         }
         
-        .cart-icon {
-            position: relative;
-        }
-        
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background-color: var(--tan);
-            color: var(--black);
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            font-weight: 700;
-        }
-        
         .mobile-menu-btn {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s ease;
         }
         
+        .mobile-menu-btn:hover {
+            color: var(--tan);
+        }
+
         /* Back to Top Button */
         .back-to-top {
             position: fixed;
@@ -216,42 +200,15 @@
         }
         
         .back-to-top:hover {
-            background-color: var(--tan);
+            background: var(--tan);
             color: var(--black);
+            transform: translateY(-3px);
         }
         
         /* Talent Grid Section */
         .talent-section {
             padding: 150px 0 100px;
             background-color: var(--beige);
-        }
-        
-        .talent-categories {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .category-btn {
-            padding: 8px 20px;
-            background-color: transparent;
-            border: 2px solid var(--black);
-            color: var(--black);
-            cursor: pointer;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            font-size: 12px;
-            border-radius: 20px;
-        }
-        
-        .category-btn.active,
-        .category-btn:hover {
-            background-color: var(--black);
-            color: var(--white);
         }
         
         .talent-grid {
@@ -447,12 +404,13 @@
         .talent-modal-socials a:hover {
             background-color: var(--tan);
         }
-        
-        /* Footer */
+
+        /* Footer Styles */
         footer {
             background-color: var(--black);
             color: var(--white);
-            padding: 60px 0 30px;
+            padding: 80px 0 30px;
+            position: relative;
         }
         
         .footer-container {
@@ -463,7 +421,6 @@
         }
         
         .footer-logo {
-            height: 50px;
             margin-bottom: 20px;
             filter: brightness(0) invert(1);
         }
@@ -471,6 +428,7 @@
         .footer-about p {
             margin-bottom: 20px;
             opacity: 0.7;
+            line-height: 1.8;
         }
         
         .social-links {
@@ -490,35 +448,60 @@
         }
         
         .social-links a:hover {
-            background-color: var(--tan);
+            background: var(--tan);
             color: var(--black);
-        }
-        
-        .social-links a i {
-            transition: transform 0.3s ease;
-        }
-        
-        .social-links a:hover i {
-            transform: scale(1.2);
+            transform: translateY(-3px);
         }
         
         .footer-links h4 {
             font-size: 1.1rem;
             margin-bottom: 20px;
-            font-weight: 600;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-links h4:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--tan);
         }
         
         .footer-links ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .footer-links ul li a {
             opacity: 0.7;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .footer-links ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--tan);
+            transition: width 0.3s ease;
         }
         
         .footer-links ul li a:hover {
             opacity: 1;
+            color: var(--tan);
+        }
+        
+        .footer-links ul li a:hover:after {
+            width: 100%;
         }
         
         .footer-newsletter p {
@@ -546,14 +529,83 @@
             font-weight: 600;
         }
         
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            opacity: 0.7;
+        .newsletter-form button:hover {
+            opacity: 0.9;
+        }
+
+        /* Form Messages */
+        .form-message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        .form-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            display: block;
         }
         
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 350px;
+            height: 100vh;
+            background-color: var(--white);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 80px 30px 30px;
+            overflow-y: auto;
+        }
+        
+        .mobile-nav.show {
+            right: 0;
+        }
+        
+        .mobile-nav ul {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mobile-nav ul li {
+            margin: 0;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .mobile-nav ul li a {
+            font-size: 16px;
+            display: block;
+        }
+        
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-nav-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
         /* Responsive Styles */
         @media (max-width: 1024px) {
             .talent-modal {
@@ -564,36 +616,18 @@
                 min-height: 300px;
             }
         }
-        
+
         @media (max-width: 768px) {
-            .section-title {
-                font-size: 2rem;
-            }
-            
             nav ul {
                 display: none;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: var(--white);
-                flex-direction: column;
-                padding: 20px 0;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            }
-            
-            nav ul.show {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 0;
-                text-align: center;
-                padding: 15px 0;
             }
             
             .mobile-menu-btn {
                 display: block;
+            }
+
+            .section-title {
+                font-size: 2rem;
             }
             
             .talent-grid {
@@ -602,6 +636,21 @@
             
             .talent-modal-content {
                 padding: 30px;
+            }
+
+            /* Footer Mobile Styles */
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-links h4:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-links {
+                justify-content: center;
             }
         }
         
@@ -620,28 +669,26 @@
                 bottom: 20px;
                 right: 20px;
             }
+            
+            .mobile-nav {
+                width: 90%;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header - Updated without cart -->
     <header id="header">
         <div class="container header-container">
             <a href="index.html" class="logo">
                 <img src="pinnaclelogo.png" alt="Pinnacle Talent Management" class="logo">
             </a>
             
-            <nav>
+            <nav class="desktop-nav">
                 <ul id="navMenu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="talent.html">Talent</a></li>
                     <li><a href="merch.html">Merch</a></li>
-                    <li>
-                        <a href="cart.html" class="cart-icon">
-                            <i class="fas fa-shopping-bag"></i>
-                            <span class="cart-count">0</span>
-                        </a>
-                    </li>
                 </ul>
             </nav>
             
@@ -650,6 +697,16 @@
             </div>
         </div>
     </header>
+
+    <!-- Mobile Navigation - Updated without cart -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="talent.html">Talent</a></li>
+            <li><a href="merch.html">Merch</a></li>
+        </ul>
+    </nav>
 
     <!-- Back to Top Button -->
     <div class="back-to-top" id="backToTop">
@@ -661,21 +718,13 @@
         <div class="container">
             <h2 class="section-title">Our Talent Roster</h2>
             
-            <div class="talent-categories">
-                <button class="category-btn active" data-category="all">All Talent</button>
-                <button class="category-btn" data-category="athletes">Athletes</button>
-                <button class="category-btn" data-category="creators">Content Creators</button>
-                <button class="category-btn" data-category="influencers">Influencers</button>
-                <button class="category-btn" data-category="musicians">Musicians</button>
-            </div>
-            
             <div class="talent-grid" id="talentGrid">
                 <!-- Talent cards will be dynamically inserted here -->
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - Updated with Formspree form -->
     <footer>
         <div class="container">
             <div class="footer-container">
@@ -712,10 +761,11 @@
                 <div class="footer-newsletter">
                     <h4>Stay Updated</h4>
                     <p>Subscribe to our newsletter for the latest talent signings, merch drops, and announcements.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email address">
+                    <form class="newsletter-form" action="https://formspree.io/f/xyzkqeao" method="POST">
+                        <input type="email" name="email" placeholder="Your email address" required>
                         <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
+                    <div class="form-message" id="newsletterMessage"></div>
                 </div>
             </div>
             
@@ -889,13 +939,46 @@
                 ],
                 bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
             }
-
         ];
 
         // Initialize the page with all talent
         document.addEventListener('DOMContentLoaded', function() {
             renderTalentGrid(talentData);
-            setupCategoryFilters();
+            
+            // Mobile Menu Functionality
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileNav.classList.toggle('show');
+                mobileNavOverlay.classList.toggle('show');
+                document.body.style.overflow = mobileNav.classList.contains('show') ? 'hidden' : 'auto';
+                
+                // Change icon
+                if (mobileNav.classList.contains('show')) {
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+                } else {
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+            
+            mobileNavOverlay.addEventListener('click', function() {
+                mobileNav.classList.remove('show');
+                mobileNavOverlay.classList.remove('show');
+                document.body.style.overflow = 'auto';
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.mobile-nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileNav.classList.remove('show');
+                    mobileNavOverlay.classList.remove('show');
+                    document.body.style.overflow = 'auto';
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
             
             // Header Scroll Effect
             window.addEventListener('scroll', function() {
@@ -905,7 +988,7 @@
                 } else {
                     header.classList.remove('scrolled');
                 }
-                
+            
                 // Back to top button visibility
                 const backToTop = document.getElementById('backToTop');
                 if (window.scrollY > 300) {
@@ -914,7 +997,25 @@
                     backToTop.classList.remove('visible');
                 }
             });
-            
+        
+            // Smooth Scrolling for Anchor Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        
             // Back to top functionality
             document.getElementById('backToTop').addEventListener('click', function() {
                 window.scrollTo({
@@ -922,45 +1023,55 @@
                     behavior: 'smooth'
                 });
             });
-            
-            // Mobile Menu Toggle
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const navMenu = document.getElementById('navMenu');
-            
-            mobileMenuBtn.addEventListener('click', function() {
-                navMenu.classList.toggle('show');
-                mobileMenuBtn.innerHTML = navMenu.classList.contains('show') ? 
-                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-            });
-            
-            // Close mobile menu when clicking on a link
-            document.querySelectorAll('nav ul li a').forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) {
-                        navMenu.classList.remove('show');
-                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        
+            // Newsletter Form Submission with Formspree
+            const newsletterForms = document.querySelectorAll('.newsletter-form');
+            newsletterForms.forEach(form => {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const formData = new FormData(this);
+                    const emailInput = this.querySelector('input[type="email"]');
+                    const messageElement = document.getElementById('newsletterMessage');
+                    
+                    try {
+                        const response = await fetch(this.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+                        
+                        if (response.ok) {
+                            messageElement.textContent = 'Thank you for subscribing!';
+                            messageElement.className = 'form-message success';
+                            emailInput.value = '';
+                            
+                            // Hide message after 5 seconds
+                            setTimeout(() => {
+                                messageElement.className = 'form-message';
+                                messageElement.textContent = '';
+                            }, 5000);
+                        } else {
+                            throw new Error('Network response was not ok');
+                        }
+                    } catch (error) {
+                        messageElement.textContent = 'There was a problem with your submission. Please try again.';
+                        messageElement.className = 'form-message error';
+                        console.error('Error:', error);
                     }
                 });
-            });
-            
-            // Newsletter Form Submission
-            const newsletterForm = document.querySelector('.newsletter-form');
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const emailInput = this.querySelector('input[type="email"]');
-                alert(`Thank you for subscribing with ${emailInput.value}!`);
-                emailInput.value = '';
             });
             
             // Responsive adjustments
             function handleResponsive() {
                 if (window.innerWidth > 768) {
-                    navMenu.style.display = 'flex';
+                    document.querySelector('.desktop-nav').style.display = 'flex';
                 } else {
-                    navMenu.style.display = 'none';
+                    document.querySelector('.desktop-nav').style.display = 'none';
                 }
             }
-            
+        
             window.addEventListener('resize', handleResponsive);
             handleResponsive();
         });
@@ -995,28 +1106,6 @@
             return category.split('-').map(word => 
                 word.charAt(0).toUpperCase() + word.slice(1)
             ).join(' ');
-        }
-
-        // Setup category filters
-        function setupCategoryFilters() {
-            const categoryBtns = document.querySelectorAll('.category-btn');
-            
-            categoryBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Update active button
-                    categoryBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Filter talent
-                    const category = this.dataset.category;
-                    if (category === 'all') {
-                        renderTalentGrid(talentData);
-                    } else {
-                        const filteredTalent = talentData.filter(talent => talent.category === category);
-                        renderTalentGrid(filteredTalent);
-                    }
-                });
-            });
         }
 
         // Open talent modal
