@@ -733,9 +733,7 @@
                     <p>Elevating the next generation of talent through innovative management and strategic brand partnerships.</p>
                     <div class="social-links">
                         <a href="https://www.instagram.com/pinnacle_talentmanagement/" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
                         <a href="https://x.com/Pinnacle_mgmt"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
@@ -806,138 +804,180 @@
                     
                     <div class="talent-modal-bio" id="modalTalentBio"></div>
                     
-                    <div class="talent-modal-socials">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    <div class="talent-modal-socials" id="modalTalentSocials">
+                        <!-- Social links will be dynamically inserted here -->
                     </div>
                     
-                    <button class="btn">Book Talent</button>
+                    <button class="btn" onclick="sendBookingRequest()">Book Talent</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Talent Data
+        // Talent Data with updated information
         const talentData = [
             {
                 id: 'salt-papi',
                 name: 'Salt Papi',
-                category: 'athletes',
+                category: 'Boxer',
                 image: 'saltpin.jpg',
                 stats: [
-                    { title: 'Record', value: '5-0' },
-                    { title: 'KOs', value: '4' },
-                    { title: 'Weight Class', value: 'Welterweight' },
-                    { title: 'Nationality', value: 'UK' }
+                    { title: 'Record', value: '4-2 (4 KOs)' },
+                    { title: 'Weight Class', value: 'Middleweight' },
+                    { title: 'Nationality', value: 'Philippines/UK' },
+                    { title: 'Instagram', value: '@theofficialsaltpapi' }
                 ],
-                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
+                bio: 'Salt Papi is a rising star in the boxing world with knockout power and an entertaining fighting style. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.',
+                socials: [
+                    { platform: 'instagram', url: 'https://www.instagram.com/theofficialsaltpapi?igsh=MTczMHg1cXdvN2kyYg==' },
+                    { platform: 'tiktok', url: 'https://www.tiktok.com/@theofficialsaltpapi?_t=8jodUovyVDF&_r=1' },
+                    { platform: 'youtube', url: 'https://www.youtube.com/@theofficialsaltpapi?si=Xw4QlOHRTzvKbCgD' },
+                    { platform: 'twitter', url: 'https://www.twitter.com/therealsaltpapi' }
+                ]
             },
             {
                 id: 'fox',
                 name: 'FoxTheG',
-                category: 'athletes',
+                category: 'Boxer',
                 image: 'foxpin.jpg',
                 stats: [
-                    { title: 'Record', value: '5-0' },
-                    { title: 'KOs', value: '4' },
-                    { title: 'Weight Class', value: 'Welterweight' },
-                    { title: 'Nationality', value: 'UK' }
+                    { title: 'Record', value: '2-0 (1 KO)' },
+                    { title: 'Weight Class', value: 'Lightweight' },
+                    { title: 'Nationality', value: 'US' },
+                    { title: 'Instagram', value: '@foxtheg_' }
                 ],
-                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
+                bio: 'FoxTheG is a formidable boxer with an undefeated record. His technical skills and strategic approach to fights make him a rising star in the boxing world.',
+                socials: [
+                    { platform: 'instagram', url: 'https://www.instagram.com/foxtheg_/?hl=en' },
+                    { platform: 'youtube', url: 'https://www.youtube.com/channel/UCM4gjTBQyxonStfw1pIDk1Q' },
+                    { platform: 'twitter', url: 'https://x.com/foxtownley?lang=en' },
+                    { platform: 'tiktok', url: 'https://www.tiktok.com/@foxtheg' }
+                ]
             },
             {
                 id: 'dawood-savage',
                 name: 'Dawood Savage',
-                category: 'athletes',
+                category: 'Content Creator',
                 image: 'dawoodpin.jpg',
                 stats: [
-                    { title: 'Record', value: '5-0' },
-                    { title: 'KOs', value: '4' },
-                    { title: 'Weight Class', value: 'Welterweight' },
-                    { title: 'Nationality', value: 'UK' }
+                    { title: 'YouTube Followers', value: '1.1M+' },
+                    { title: 'YouTube Views', value: '196M+' },
+                    { title: 'Nationality', value: 'Turkey' },
+                    { title: 'Instagram', value: '@dawoodsavager' }
                 ],
-                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
+                bio: 'Dawood Savage is a massively popular content creator known for his engaging videos that have amassed hundreds of millions of views across platforms.',
+                socials: [
+                    { platform: 'twitter', url: 'https://twitter.com/dawoodsavage' },
+                    { platform: 'instagram', url: 'https://www.instagram.com/dawoodsavager/' },
+                    { platform: 'tiktok', url: 'https://www.tiktok.com/@dawoodsavagee' },
+                    { platform: 'youtube', url: 'https://www.youtube.com/@dawoodsavager' }
+                ]
             },
             {
                 id: 'pully',
                 name: 'Pully Arif',
-                category: 'athletes',
+                category: 'Boxer',
                 image: 'pullypin.jpg',
                 stats: [
-                    { title: 'Record', value: '5-0' },
-                    { title: 'KOs', value: '4' },
-                    { title: 'Weight Class', value: 'Welterweight' },
-                    { title: 'Nationality', value: 'UK' }
+                    { title: 'Record', value: '0-3 (0 KOs)' },
+                    { title: 'Weight Class', value: 'Lightweight' },
+                    { title: 'Nationality', value: 'UK' },
+                    { title: 'Instagram', value: '@pullyarif' }
                 ],
-                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
+                bio: 'Pully Arif is a determined boxer looking to turn his career around with improved performances in upcoming fights.',
+                socials: [
+                    { platform: 'instagram', url: 'https://www.instagram.com/pullyarif/?hl=en' },
+                    { platform: 'twitter', url: 'https://x.com/pullyarif1?lang=en' },
+                    { platform: 'tiktok', url: 'https://www.tiktok.com/@pullyarif?lang=en' }
+                ]
             },
             {
                 id: 'ginty',
                 name: 'Ginty',
-                category: 'athletes',
+                category: 'Boxer',
                 image: 'gintypin.jpg',
                 stats: [
-                    { title: 'Record', value: '5-0' },
-                    { title: 'KOs', value: '4' },
-                    { title: 'Weight Class', value: 'Welterweight' },
-                    { title: 'Nationality', value: 'UK' }
+                    { title: 'Record', value: '2-2 (0 KOs)' },
+                    { title: 'Weight Class', value: 'Cruiserweight' },
+                    { title: 'Nationality', value: 'UK' },
+                    { title: 'Instagram', value: '@itsginty01' }
                 ],
-                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
+                bio: 'Ginty is a cruiserweight boxer known for his resilience and determination in the ring.',
+                socials: [
+                    { platform: 'instagram', url: 'https://www.instagram.com/itsginty01/' },
+                    { platform: 'twitter', url: 'https://x.com/itsginty01?lang=en' },
+                    { platform: 'tiktok', url: 'https://www.tiktok.com/@itsginty01?lang=en' },
+                    { platform: 'youtube', url: 'https://www.youtube.com/@ginty01' }
+                ]
             },
             {
                 id: 'charlessy',
                 name: 'Charlessy',
-                category: 'athletes',
+                category: 'Content Creator',
                 image: 'charlessypin.jpg',
                 stats: [
-                    { title: 'Record', value: '5-0' },
-                    { title: 'KOs', value: '4' },
-                    { title: 'Weight Class', value: 'Welterweight' },
-                    { title: 'Nationality', value: 'UK' }
+                    { title: 'Instagram Followers', value: '214K' },
+                    { title: 'TikTok Followers', value: '434K' },
+                    { title: 'Nationality', value: 'UK' },
+                    { title: 'Instagram', value: '@thecharlessy' }
                 ],
-                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
+                bio: 'Charlessy is a popular content creator with a substantial following across multiple social media platforms.',
+                socials: [
+                    { platform: 'instagram', url: 'https://www.instagram.com/thecharlessy/?hl=en' },
+                    { platform: 'youtube', url: 'https://www.youtube.com/@thecharlessy' },
+                    { platform: 'tiktok', url: 'https://www.tiktok.com/@thecharlessy' }
+                ]
             },
             {
                 id: 'lil-belsy',
                 name: 'Little Bellsy',
-                category: 'athletes',
+                category: 'Boxer',
                 image: 'bellsypin.jpg',
                 stats: [
-                    { title: 'Record', value: '5-0' },
-                    { title: 'KOs', value: '4' },
-                    { title: 'Weight Class', value: 'Welterweight' },
-                    { title: 'Nationality', value: 'UK' }
+                    { title: 'Record', value: '2-1 (0 KOs)' },
+                    { title: 'Weight Class', value: 'Featherweight' },
+                    { title: 'Nationality', value: 'Australia' },
+                    { title: 'Instagram', value: '@littlebellsy' }
                 ],
-                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
+                bio: 'Little Bellsy is a featherweight boxer from Australia known for her speed and technique in the ring.',
+                socials: [
+                    { platform: 'instagram', url: 'https://www.instagram.com/littlebellsy/' },
+                    { platform: 'tiktok', url: 'https://www.tiktok.com/@littlebellsy' }
+                ]
             },
             {
                 id: 'luke-nevin',
                 name: 'Luke Nevin',
-                category: 'athletes',
+                category: 'Boxer',
                 image: 'lukepin.jpg',
                 stats: [
-                    { title: 'Record', value: '5-0' },
-                    { title: 'KOs', value: '4' },
-                    { title: 'Weight Class', value: 'Welterweight' },
-                    { title: 'Nationality', value: 'UK' }
+                    { title: 'BKFC Record', value: '3-2' },
+                    { title: 'Weight Class', value: 'Middleweight' },
+                    { title: 'Nationality', value: 'UK' },
+                    { title: 'Instagram', value: '@lnevin' }
                 ],
-                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
+                bio: 'Luke Nevin is a bare-knuckle boxer competing in the middleweight division with a respectable record.',
+                socials: [
+                    { platform: 'instagram', url: 'https://www.instagram.com/lnevin/?hl=en' },
+                    { platform: 'tiktok', url: 'https://www.tiktok.com/@luke.nevin' }
+                ]
             },
             {
                 id: 'jordan-gayle',
                 name: 'Jordan Gayle',
-                category: 'athletes',
+                category: 'Content Creator',
                 image: 'jordanpin.jpg',
                 stats: [
-                    { title: 'Record', value: '5-0' },
-                    { title: 'KOs', value: '4' },
-                    { title: 'Weight Class', value: 'Welterweight' },
-                    { title: 'Nationality', value: 'UK' }
+                    { title: 'Instagram Followers', value: '67K' },
+                    { title: 'Nationality', value: 'UK' },
+                    { title: 'Instagram', value: '@jordanrmgayle' }
                 ],
-                bio: 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.'
+                bio: 'Jordan Gayle is a content creator with a growing following on Instagram and TikTok.',
+                socials: [
+                    { platform: 'instagram', url: 'https://www.instagram.com/jordanrmgayle/?hl=en' },
+                    { platform: 'tiktok', url: 'https://www.tiktok.com/@jordanrmgayle' }
+                ]
             }
         ];
 
@@ -1084,16 +1124,13 @@
             talents.forEach(talent => {
                 const talentCard = document.createElement('div');
                 talentCard.className = 'talent-card';
-                talentCard.setAttribute('onclick', `openTalentModal('${talent.id}', '${talent.name}', '${talent.category}', 
-                    '${talent.stats[0].value}', '${talent.stats[0].title}', 
-                    '${talent.stats[1].value}', '${talent.stats[1].title}', 
-                    '${talent.bio}')`);
+                talentCard.setAttribute('onclick', `openTalentModal('${talent.id}')`);
                 
                 talentCard.innerHTML = `
                     <img src="${talent.image}" alt="${talent.name}" class="talent-image">
                     <div class="talent-overlay">
                         <h3 class="talent-name">${talent.name}</h3>
-                        <p class="talent-category">${formatCategory(talent.category)}</p>
+                        <p class="talent-category">${talent.category}</p>
                     </div>
                 `;
                 
@@ -1101,42 +1138,65 @@
             });
         }
 
-        // Format category for display
-        function formatCategory(category) {
-            return category.split('-').map(word => 
-                word.charAt(0).toUpperCase() + word.slice(1)
-            ).join(' ');
-        }
-
         // Open talent modal
-        function openTalentModal(id, name, category, stat1Value, stat1Title, stat2Value, stat2Title, bio) {
+        function openTalentModal(id) {
             const modal = document.getElementById('talentModal');
             const talent = talentData.find(t => t.id === id);
+            
+            if (!talent) return;
             
             // Set talent image
             document.getElementById('modalTalentImage').style.backgroundImage = `url(${talent.image})`;
             
             // Set talent info
-            document.getElementById('modalTalentName').textContent = name;
-            document.getElementById('modalTalentCategory').textContent = formatCategory(category);
-            document.getElementById('stat1Title').textContent = stat1Title;
-            document.getElementById('stat1Value').textContent = stat1Value;
-            document.getElementById('stat2Title').textContent = stat2Title;
-            document.getElementById('stat2Value').textContent = stat2Value;
+            document.getElementById('modalTalentName').textContent = talent.name;
+            document.getElementById('modalTalentCategory').textContent = talent.category;
             
-            // Set additional stats if they exist
-            if (talent.stats[2]) {
-                document.getElementById('stat3Title').textContent = talent.stats[2].title;
-                document.getElementById('stat3Value').textContent = talent.stats[2].value;
-                document.getElementById('stat4Title').textContent = talent.stats[3].title;
-                document.getElementById('stat4Value').textContent = talent.stats[3].value;
+            // Set stats
+            talent.stats.forEach((stat, index) => {
+                if (index < 4) { // We only have 4 stat slots
+                    document.getElementById(`stat${index+1}Title`).textContent = stat.title;
+                    document.getElementById(`stat${index+1}Value`).textContent = stat.value;
+                }
+            });
+            
+            // Hide unused stats
+            for (let i = talent.stats.length; i < 4; i++) {
+                document.getElementById(`stat${i+1}Title`).textContent = '';
+                document.getElementById(`stat${i+1}Value`).textContent = '';
             }
             
-            document.getElementById('modalTalentBio').textContent = bio;
+            document.getElementById('modalTalentBio').textContent = talent.bio;
+            
+            // Set social links
+            const socialsContainer = document.getElementById('modalTalentSocials');
+            socialsContainer.innerHTML = '';
+            
+            talent.socials.forEach(social => {
+                const iconClass = getSocialIconClass(social.platform);
+                if (iconClass) {
+                    const link = document.createElement('a');
+                    link.href = social.url;
+                    link.target = '_blank';
+                    link.innerHTML = `<i class="fab fa-${iconClass}"></i>`;
+                    socialsContainer.appendChild(link);
+                }
+            });
             
             // Show modal
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
+        }
+
+        // Get social icon class based on platform
+        function getSocialIconClass(platform) {
+            switch(platform) {
+                case 'instagram': return 'instagram';
+                case 'twitter': return 'twitter';
+                case 'youtube': return 'youtube';
+                case 'tiktok': return 'tiktok';
+                default: return null;
+            }
         }
 
         // Close modal
@@ -1144,6 +1204,30 @@
             const modal = document.getElementById('talentModal');
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
+        }
+
+        // Send booking request - works on mobile and desktop
+        function sendBookingRequest() {
+            const talentName = document.getElementById('modalTalentName').textContent;
+            const email = 'contact.posterpunch@gmail.com';
+            const subject = encodeURIComponent(`Booking Inquiry: ${talentName}`);
+            const body = encodeURIComponent(
+                `Dear Pinnacle Talent Management,\n\n` +
+                `I would like to inquire about booking ${talentName} for an event.\n\n` +
+                `Event Details:\n` +
+                `- Date: \n` +
+                `- Location: \n` +
+                `- Type: \n` +
+                `- Budget: \n\n` +
+                `Please provide information about availability and terms.\n\n` +
+                `Best regards,\n` +
+                `[Your Name]`
+            );
+            
+            // Create a temporary link to handle the mailto on mobile
+            const mailtoLink = document.createElement('a');
+            mailtoLink.href = `mailto:${email}?subject=${subject}&body=${body}`;
+            mailtoLink.click();
         }
 
         // Close modal when clicking outside
