@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merchandise | Pinnacle Talent Management</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
-        /* Reset & Base Styles */
         :root {
-            --beige: #E5E5E5;
-            --tan: #D2B48C;
-            --black: #000000;
+            --primary: #000000;
+            --secondary: #D2B48C;
+            --accent: #C5A16F;
+            --light: #F8F5F0;
+            --dark: #1A1A1A;
+            --gray: #5A5A5A;
             --white: #FFFFFF;
-            --gray: #333333;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
         }
         
         * {
@@ -23,17 +27,28 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: 'Montserrat', sans-serif;
-            color: var(--black);
+            color: var(--dark);
             background-color: var(--white);
             overflow-x: hidden;
             line-height: 1.6;
         }
         
+        h1, h2, h3, h4, h5 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
         a {
             text-decoration: none;
             color: inherit;
+            transition: var(--transition);
         }
         
         ul {
@@ -52,77 +67,73 @@
             margin: 0 auto;
         }
         
+        .section-padding {
+            padding: 100px 0;
+        }
+        
         .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--black);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 32px;
+            background-color: var(--primary);
             color: var(--white);
             border: none;
             cursor: pointer;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
+            letter-spacing: 1.5px;
+            transition: var(--transition);
             font-size: 14px;
-            border-radius: 30px;
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .btn:hover:before {
+            left: 0;
         }
         
         .btn:hover {
-            background-color: var(--tan);
-            color: var(--black);
-            transform: translateY(-2px);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
-        .view-all-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 30px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            position: relative;
-            padding-bottom: 5px;
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--primary);
         }
         
-        .view-all-btn:hover {
-            color: var(--tan);
+        .btn-secondary:before {
+            background: var(--primary);
         }
         
-        .view-all-btn:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--tan);
-            transition: width 0.3s ease;
+        .btn-secondary:hover {
+            color: var(--secondary);
         }
         
-        .view-all-btn:hover:after {
-            width: 100%;
-        }
-        
-        .view-all-btn i {
-            transition: transform 0.3s ease;
-        }
-        
-        .view-all-btn:hover i {
-            transform: translateX(5px);
-        }
-        
-        /* Modern Section Titles */
         .section-title {
-            font-size: 2.8rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
             text-align: center;
             position: relative;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--black);
+            color: var(--primary);
         }
         
         .section-title:after {
@@ -130,8 +141,9 @@
             display: block;
             width: 80px;
             height: 4px;
-            background: var(--tan);
-            margin: 15px auto 0;
+            background: var(--secondary);
+            margin: 20px auto 0;
+            border-radius: 2px;
         }
         
         .section-subtitle {
@@ -143,24 +155,26 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.8;
         }
         
-        /* Header Styles */
+        /* Header */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 15px 0;
-            background-color: var(--white);
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         
         header.scrolled {
-            padding: 10px 0;
-            background-color: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
         }
         
         .header-container {
@@ -170,7 +184,12 @@
         }
         
         .logo {
-            height: 45px;
+            height: 50px;
+            transition: var(--transition);
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
         }
         
         nav ul {
@@ -179,7 +198,7 @@
         }
         
         nav ul li {
-            margin-left: 30px;
+            margin-left: 35px;
             position: relative;
         }
         
@@ -188,20 +207,20 @@
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: color 0.3s ease;
             position: relative;
             display: inline-block;
+            padding: 5px 0;
         }
         
         nav ul li a:after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--tan);
-            transition: width 0.3s ease;
+            background: var(--secondary);
+            transition: var(--transition);
         }
         
         nav ul li a:hover:after {
@@ -213,13 +232,21 @@
             font-size: 1.5rem;
             cursor: pointer;
             z-index: 1001;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            background: var(--primary);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
         }
         
         .mobile-menu-btn:hover {
-            color: var(--tan);
+            background: var(--secondary);
+            color: var(--primary);
         }
-
+        
         /* Back to Top Button */
         .back-to-top {
             position: fixed;
@@ -227,7 +254,7 @@
             right: 30px;
             width: 50px;
             height: 50px;
-            background-color: var(--black);
+            background-color: var(--primary);
             color: var(--white);
             border-radius: 50%;
             display: flex;
@@ -236,8 +263,9 @@
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .back-to-top.visible {
@@ -246,26 +274,107 @@
         }
         
         .back-to-top:hover {
-            background: var(--tan);
-            color: var(--black);
+            background: var(--secondary);
+            color: var(--primary);
             transform: translateY(-3px);
         }
         
-        /* Merch Section */
+        /* Merch Section - Updated for Coming Soon */
         .merch-section {
-            padding: 100px 0;
-            background-color: var(--beige);
+            padding: 150px 0 100px;
+            background-color: var(--light);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
         }
         
-        /* Shopify Collection Container */
-        .shopify-collection {
-            margin-top: 50px;
-            width: 100%;
+        .coming-soon-container {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(210, 180, 140, 0.2);
         }
         
-        /* Footer Styles */
+        .coming-soon-icon {
+            font-size: 5rem;
+            color: var(--secondary);
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .coming-soon-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        
+        .coming-soon-text {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+        
+        .coming-soon-divider {
+            width: 100px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 30px auto;
+            border-radius: 2px;
+        }
+        
+        .notify-form {
+            display: flex;
+            max-width: 450px;
+            margin: 30px auto 0;
+            background: var(--light);
+            border-radius: 50px;
+            overflow: hidden;
+            border: 1px solid rgba(210, 180, 140, 0.3);
+        }
+        
+        .notify-form input {
+            flex: 1;
+            padding: 16px 25px;
+            border: none;
+            background: transparent;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .notify-form button {
+            padding: 0 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .notify-form button:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+        
+        /* Footer */
         footer {
-            background-color: var(--black);
+            background-color: var(--dark);
             color: var(--white);
             padding: 80px 0 30px;
             position: relative;
@@ -281,6 +390,7 @@
         .footer-logo {
             margin-bottom: 20px;
             filter: brightness(0) invert(1);
+            height: 50px;
         }
         
         .footer-about p {
@@ -302,12 +412,12 @@
             height: 40px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
         
         .social-links a:hover {
-            background: var(--tan);
-            color: var(--black);
+            background: var(--secondary);
+            color: var(--primary);
             transform: translateY(-3px);
         }
         
@@ -328,7 +438,7 @@
             left: 0;
             width: 40px;
             height: 2px;
-            background: var(--tan);
+            background: var(--secondary);
         }
         
         .footer-links ul li {
@@ -337,7 +447,7 @@
         
         .footer-links ul li a {
             opacity: 0.7;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             display: inline-block;
             position: relative;
         }
@@ -349,13 +459,13 @@
             left: 0;
             width: 0;
             height: 1px;
-            background: var(--tan);
-            transition: width 0.3s ease;
+            background: var(--secondary);
+            transition: var(--transition);
         }
         
         .footer-links ul li a:hover {
             opacity: 1;
-            color: var(--tan);
+            color: var(--secondary);
         }
         
         .footer-links ul li a:hover:after {
@@ -369,28 +479,46 @@
         
         .newsletter-form {
             display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            overflow: hidden;
         }
         
         .newsletter-form input {
             flex: 1;
-            padding: 12px 15px;
+            padding: 15px 20px;
             border: none;
+            background: transparent;
+            color: var(--white);
             font-family: 'Montserrat', sans-serif;
         }
         
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
         .newsletter-form button {
-            padding: 0 20px;
-            background-color: var(--tan);
-            color: var(--black);
+            padding: 0 25px;
+            background-color: var(--secondary);
+            color: var(--primary);
             border: none;
             cursor: pointer;
             font-weight: 600;
+            transition: var(--transition);
         }
         
         .newsletter-form button:hover {
-            opacity: 0.9;
+            background: var(--accent);
         }
-
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
         /* Form Messages */
         .form-message {
             margin-top: 15px;
@@ -422,8 +550,9 @@
             background-color: var(--white);
             z-index: 1000;
             transition: right 0.3s ease;
-            padding: 80px 30px 30px;
+            padding: 100px 30px 30px;
             overflow-y: auto;
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
         }
         
         .mobile-nav.show {
@@ -442,8 +571,9 @@
         }
         
         .mobile-nav ul li a {
-            font-size: 16px;
+            font-size: 18px;
             display: block;
+            font-weight: 600;
         }
         
         .mobile-nav-overlay {
@@ -465,17 +595,44 @@
         }
 
         /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .section-title {
+                font-size: 3rem;
+            }
+            .coming-soon-title {
+                font-size: 3rem;
+            }
+        }
+        
         @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
             nav ul {
                 display: none;
             }
             
             .mobile-menu-btn {
-                display: block;
+                display: flex;
             }
 
-            .section-title {
-                font-size: 2rem;
+            .coming-soon-title {
+                font-size: 2.5rem;
+            }
+            
+            .coming-soon-container {
+                padding: 40px 20px;
+            }
+            
+            .notify-form {
+                flex-direction: column;
+                border-radius: var(--radius);
+                max-width: 100%;
+            }
+            
+            .notify-form button {
+                padding: 15px;
             }
 
             /* Footer Mobile Styles */
@@ -496,24 +653,27 @@
         
         @media (max-width: 480px) {
             .section-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
+            }
+            .coming-soon-title {
+                font-size: 2rem;
             }
             
             .back-to-top {
-                width: 40px;
-                height: 40px;
+                width: 45px;
+                height: 45px;
                 bottom: 20px;
                 right: 20px;
             }
             
             .mobile-nav {
-                width: 90%;
+                width: 85%;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header - Updated with full navigation -->
     <header id="header">
         <div class="container header-container">
             <a href="index.html" class="logo">
@@ -534,7 +694,7 @@
         </div>
     </header>
 
-    <!-- Mobile Navigation -->
+    <!-- Mobile Navigation - Updated with full navigation -->
     <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
     <nav class="mobile-nav" id="mobileNav">
         <ul>
@@ -549,20 +709,31 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- Merch Section -->
+    <!-- Merch Section - Coming Soon -->
     <section class="merch-section">
         <div class="container">
-            <h2 class="section-title">PINNACLE MERCH</h2>
-            
-            <!-- Shopify Collection Component -->
-            <div class="shopify-collection">
-                <div id='product-component-1755115613865'></div>
-            </div>   
-
+            <div class="coming-soon-container">
+                <div class="coming-soon-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <h2 class="coming-soon-title">MERCH COMING SOON</h2>
+                <div class="coming-soon-divider"></div>
+                <p class="coming-soon-text">
+                    We're working on something special! Our official merchandise collection is currently in development. 
+                    Be the first to know when it drops.
+                </p>
+                
+                <!-- Simple notify form (uses same Formspree endpoint) -->
+                <form class="notify-form" action="https://formspree.io/f/xyzkqeao" method="POST">
+                    <input type="email" name="email" placeholder="Enter your email for updates" required>
+                    <button type="submit">NOTIFY ME</button>
+                </form>
+                <div class="form-message" id="notifyMessage"></div>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - Updated with full navigation -->
     <footer>
         <div class="container">
             <div class="footer-container">
@@ -571,7 +742,7 @@
                     <p>Elevating the next generation of talent through innovative management and strategic brand partnerships.</p>
                     <div class="social-links">
                         <a href="https://www.instagram.com/pinnacle_talentmanagement/" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://x.com/Pinnacle_mgmt"><i class="fab fa-twitter"></i></a>
+                        <a href="https://x.com/Pinnacle_mgmt" target="_blank"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
@@ -589,7 +760,6 @@
                     <ul>
                         <li><a href="terms.html">Terms of Service</a></li>
                         <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="cookie.html">Cookie Policy</a></li>
                         <li><a href="shipping.html">Shipping & Returns</a></li>
                     </ul>
                 </div>
@@ -606,306 +776,10 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Pinnacle Talent Management. All Rights Reserved.</p>
+                <p>&copy; 2026 Pinnacle Talent Management. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-
-    <!-- Shopify Buy Button JS -->
-    <script type="text/javascript">
-    /*<![CDATA[*/
-    (function () {
-      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-      if (window.ShopifyBuy) {
-        if (window.ShopifyBuy.UI) {
-          ShopifyBuyInit();
-        } else {
-          loadScript();
-        }
-      } else {
-        loadScript();
-      }
-      function loadScript() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = scriptURL;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-        script.onload = ShopifyBuyInit;
-      }
-      function ShopifyBuyInit() {
-        var client = ShopifyBuy.buildClient({
-          domain: 'h0qsnd-jj.myshopify.com',
-          storefrontAccessToken: 'ce3acf6c2904aa2708822cea1fceabcc',
-        });
-        ShopifyBuy.UI.onReady(client).then(function (ui) {
-          ui.createComponent('product', {
-            id: '10032938057912',
-            node: document.getElementById('product-component-1755115613865'),
-            moneyFormat: '%24%7B%7Bamount%7D%7D',
-            options: {
-              "product": {
-                "styles": {
-                  "product": {
-                    "@media (min-width: 601px)": {
-                      "max-width": "100%",
-                      "margin-left": "0",
-                      "margin-bottom": "50px"
-                    },
-                    "text-align": "left"
-                  },
-                  "title": {
-                    "font-size": "26px"
-                  },
-                  "button": {
-                    "font-family": "Montserrat, sans-serif",
-                    "font-weight": "bold",
-                    ":hover": {
-                      "background-color": "#000000"
-                    },
-                    "background-color": "#000000",
-                    ":focus": {
-                      "background-color": "#000000"
-                    },
-                    "border-radius": "5px"
-                  },
-                  "price": {
-                    "font-weight": "bold",
-                    "font-size": "18px",
-                    "color": "#d2b48c"
-                  },
-                  "compareAt": {
-                    "font-weight": "bold",
-                    "font-size": "15.299999999999999px",
-                    "color": "#d2b48c"
-                  },
-                  "unitPrice": {
-                    "font-weight": "bold",
-                    "font-size": "15.299999999999999px",
-                    "color": "#d2b48c"
-                  },
-                  "description": {
-                    "font-size": "15px"
-                  }
-                },
-                "layout": "horizontal",
-                "contents": {
-                  "img": false,
-                  "imgWithCarousel": true,
-                  "description": true
-                },
-                "width": "100%",
-                "text": {
-                  "button": "Add to cart"
-                },
-                "googleFonts": [
-                  "Montserrat"
-                ]
-              },
-              "productSet": {
-                "styles": {
-                  "products": {
-                    "@media (min-width: 601px)": {
-                      "margin-left": "-20px"
-                    }
-                  }
-                }
-              },
-              "modalProduct": {
-                "contents": {
-                  "img": false,
-                  "imgWithCarousel": true,
-                  "button": false,
-                  "buttonWithQuantity": true
-                },
-                "styles": {
-                  "product": {
-                    "@media (min-width: 601px)": {
-                      "max-width": "100%",
-                      "margin-left": "0px",
-                      "margin-bottom": "0px"
-                    }
-                  },
-                  "button": {
-                    "font-family": "Montserrat, sans-serif",
-                    "font-weight": "bold",
-                    ":hover": {
-                      "background-color": "#000000"
-                    },
-                    "background-color": "#000000",
-                    ":focus": {
-                      "background-color": "#000000"
-                    },
-                    "border-radius": "5px"
-                  },
-                  "title": {
-                    "font-family": "Helvetica Neue, sans-serif",
-                    "font-weight": "bold",
-                    "font-size": "26px",
-                    "color": "#4c4c4c"
-                  },
-                  "price": {
-                    "font-family": "Helvetica Neue, sans-serif",
-                    "font-weight": "normal",
-                    "font-size": "18px",
-                    "color": "#4c4c4c"
-                  },
-                  "compareAt": {
-                    "font-family": "Helvetica Neue, sans-serif",
-                    "font-weight": "normal",
-                    "font-size": "15.299999999999999px",
-                    "color": "#4c4c4c"
-                  },
-                  "unitPrice": {
-                    "font-family": "Helvetica Neue, sans-serif",
-                    "font-weight": "normal",
-                    "font-size": "15.299999999999999px",
-                    "color": "#4c4c4c"
-                  },
-                  "description": {
-                    "font-family": "Helvetica Neue, sans-serif",
-                    "font-weight": "normal",
-                    "font-size": "14px",
-                    "color": "#4c4c4c"
-                  }
-                },
-                "googleFonts": [
-                  "Montserrat"
-                ],
-                "text": {
-                  "button": "Add to cart"
-                }
-              },
-              "option": {},
-              "cart": {
-                "styles": {
-                  "button": {
-                    "font-family": "Montserrat, sans-serif",
-                    "font-weight": "bold",
-                    ":hover": {
-                      "background-color": "#000000"
-                    },
-                    "background-color": "#000000",
-                    ":focus": {
-                      "background-color": "#000000"
-                    },
-                    "border-radius": "5px"
-                  },
-                  "title": {
-                    "color": "#000000"
-                  },
-                  "header": {
-                    "color": "#000000"
-                  },
-                  "lineItems": {
-                    "color": "#000000"
-                  },
-                  "subtotalText": {
-                    "color": "#000000"
-                  },
-                  "subtotal": {
-                    "color": "#000000"
-                  },
-                  "notice": {
-                    "color": "#000000"
-                  },
-                  "currency": {
-                    "color": "#000000"
-                  },
-                  "close": {
-                    "color": "#000000",
-                    ":hover": {
-                      "color": "#000000"
-                    }
-                  },
-                  "empty": {
-                    "color": "#000000"
-                  },
-                  "noteDescription": {
-                    "color": "#000000"
-                  },
-                  "discountText": {
-                    "color": "#000000"
-                  },
-                  "discountIcon": {
-                    "fill": "#000000"
-                  },
-                  "discountAmount": {
-                    "color": "#000000"
-                  }
-                },
-                "text": {
-                  "total": "Subtotal",
-                  "button": "Checkout"
-                },
-                "contents": {
-                  "note": true
-                },
-                "googleFonts": [
-                  "Montserrat"
-                ]
-              },
-              "toggle": {
-                "styles": {
-                  "toggle": {
-                    "font-family": "Montserrat, sans-serif",
-                    "font-weight": "bold",
-                    "background-color": "#000000",
-                    ":hover": {
-                      "background-color": "#000000"
-                    },
-                    ":focus": {
-                      "background-color": "#000000"
-                    }
-                  }
-                },
-                "googleFonts": [
-                  "Montserrat"
-                ]
-              },
-              "lineItem": {
-                "styles": {
-                  "variantTitle": {
-                    "color": "#000000"
-                  },
-                  "title": {
-                    "color": "#000000"
-                  },
-                  "price": {
-                    "color": "#000000"
-                  },
-                  "fullPrice": {
-                    "color": "#000000"
-                  },
-                  "discount": {
-                    "color": "#000000"
-                  },
-                  "discountIcon": {
-                    "fill": "#000000"
-                  },
-                  "quantity": {
-                    "color": "#000000"
-                  },
-                  "quantityIncrement": {
-                    "color": "#000000",
-                    "border-color": "#000000"
-                  },
-                  "quantityDecrement": {
-                    "color": "#000000",
-                    "border-color": "#000000"
-                  },
-                  "quantityInput": {
-                    "color": "#000000",
-                    "border-color": "#000000"
-                  }
-                }
-              }
-            },
-          });
-        });
-      }
-    })();
-    /*]]>*/
-    </script>
 
     <script>
         // Initialize the page
@@ -963,24 +837,6 @@
                 }
             });
         
-            // Smooth Scrolling for Anchor Links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        
             // Back to top functionality
             document.getElementById('backToTop').addEventListener('click', function() {
                 window.scrollTo({
@@ -989,44 +845,57 @@
                 });
             });
         
-            // Newsletter Form Submission with Formspree
-            const newsletterForms = document.querySelectorAll('.newsletter-form');
-            newsletterForms.forEach(form => {
-                form.addEventListener('submit', async function(e) {
-                    e.preventDefault();
-                    const formData = new FormData(this);
-                    const emailInput = this.querySelector('input[type="email"]');
-                    const messageElement = document.getElementById('newsletterMessage');
-                    
-                    try {
-                        const response = await fetch(this.action, {
-                            method: 'POST',
-                            body: formData,
-                            headers: {
-                                'Accept': 'application/json'
-                            }
-                        });
-                        
-                        if (response.ok) {
-                            messageElement.textContent = 'Thank you for subscribing!';
-                            messageElement.className = 'form-message success';
-                            emailInput.value = '';
-                            
-                            // Hide message after 5 seconds
-                            setTimeout(() => {
-                                messageElement.className = 'form-message';
-                                messageElement.textContent = '';
-                            }, 5000);
-                        } else {
-                            throw new Error('Network response was not ok');
+            // Unified Form Submission Handler (for both main and notify forms)
+            async function handleFormSubmit(form, messageElementId) {
+                const formData = new FormData(form);
+                const emailInput = form.querySelector('input[type="email"]');
+                const messageElement = document.getElementById(messageElementId);
+                
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
                         }
-                    } catch (error) {
-                        messageElement.textContent = 'There was a problem with your submission. Please try again.';
-                        messageElement.className = 'form-message error';
-                        console.error('Error:', error);
+                    });
+                    
+                    if (response.ok) {
+                        messageElement.textContent = 'Thank you for subscribing!';
+                        messageElement.className = 'form-message success';
+                        if (emailInput) emailInput.value = '';
+                        
+                        setTimeout(() => {
+                            messageElement.className = 'form-message';
+                            messageElement.textContent = '';
+                        }, 5000);
+                    } else {
+                        throw new Error('Network response was not ok');
                     }
+                } catch (error) {
+                    messageElement.textContent = 'There was a problem. Please try again.';
+                    messageElement.className = 'form-message error';
+                    console.error('Error:', error);
+                }
+            }
+
+            // Attach to newsletter form
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    handleFormSubmit(this, 'newsletterMessage');
                 });
-            });
+            }
+
+            // Attach to notify form (coming soon section)
+            const notifyForm = document.querySelector('.notify-form');
+            if (notifyForm) {
+                notifyForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    handleFormSubmit(this, 'notifyMessage');
+                });
+            }
             
             // Responsive adjustments
             function handleResponsive() {

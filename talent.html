@@ -482,6 +482,7 @@
             display: flex;
             gap: 15px;
             margin-bottom: 30px;
+            flex-wrap: wrap;
         }
         
         .talent-modal-socials a {
@@ -878,7 +879,6 @@
                     <ul>
                         <li><a href="terms.html">Terms of Service</a></li>
                         <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="cookie.html">Cookie Policy</a></li>
                         <li><a href="shipping.html">Shipping & Returns</a></li>
                     </ul>
                 </div>
@@ -895,7 +895,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Pinnacle Talent Management. All Rights Reserved.</p>
+                <p>&copy; 2026 Pinnacle Talent Management. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -942,135 +942,139 @@
     </div>
 
     <script>
-        // Talent Data with updated information
+        // Talent Data with updated information from the provided list (14 talents)
         const talentData = [
             {
                 id: 'salt-papi',
                 name: 'Salt Papi',
-                category: 'Boxer',
+                category: 'Boxer / Content Creator',
                 image: 'saltpin.jpg',
                 stats: [
-                    { title: 'Record', value: '4-2 (4 KOs)' },
-                    { title: 'Weight Class', value: 'Middleweight' },
-                    { title: 'Nationality', value: 'Philippines/UK' },
-                    { title: 'Instagram', value: '@theofficialsaltpapi' }
+                    { title: 'Audience', value: '~7M+' },
+                    { title: 'Platform', value: 'TikTok' },
+                    { title: 'Nationality', value: 'UK / Philippines' },
+                    { title: 'Content', value: 'Boxing/Comedy' }
                 ],
-                bio: 'Salt Papi is a rising star in the boxing world with knockout power and an entertaining fighting style. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.',
+                bio: 'Salt Papi, born Nathaniel Bustamante, is a British-Filipino influencer boxer and social media personality who rose to prominence through viral TikTok comedy videos before transitioning into boxing in 2022. Known for his dramatic physical transformation and highlight-reel knockouts, he quickly became one of the most recognizable figures in influencer boxing and a fan-favourite in the Misfits Boxing scene.',
                 socials: [
-                    { platform: 'instagram', url: 'https://www.instagram.com/theofficialsaltpapi?igsh=MTczMHg1cXdvN2kyYg==' },
-                    { platform: 'tiktok', url: 'https://www.tiktok.com/@theofficialsaltpapi?_t=8jodUovyVDF&_r=1' },
-                    { platform: 'youtube', url: 'https://www.youtube.com/@theofficialsaltpapi?si=Xw4QlOHRTzvKbCgD' },
-                    { platform: 'twitter', url: 'https://www.twitter.com/therealsaltpapi' }
+                    { platform: 'instagram', url: 'https://instagram.com/theofficialsaltpapi' },
+                    { platform: 'tiktok', url: 'https://tiktok.com/@saltpapi' },
+                    { platform: 'youtube', url: 'https://youtube.com/@theofficialsaltpapi' },
+                    { platform: 'twitter', url: 'https://x.com/therealsaltpapi' }
                 ]
             },
             {
-                id: 'fox',
-                name: 'FoxTheG',
-                category: 'Boxer',
-                image: 'foxpin.jpg',
+                id: 'walid-sharks',
+                name: 'Walid Sharks',
+                category: 'Boxer / Content Creator',
+                image: 'pinnaclepfp.jpg', // placeholder — use actual image later
                 stats: [
-                    { title: 'Record', value: '2-0 (1 KO)' },
-                    { title: 'Weight Class', value: 'Lightweight' },
-                    { title: 'Nationality', value: 'US' },
-                    { title: 'Instagram', value: '@foxtheg_' }
+                    { title: 'Audience', value: '~3M+' },
+                    { title: 'Platform', value: 'TikTok' },
+                    { title: 'Nationality', value: 'United States' },
+                    { title: 'Content', value: 'Boxing/Lifestyle' }
                 ],
-                bio: 'FoxTheG is a formidable boxer with an undefeated record. His technical skills and strategic approach to fights make him a rising star in the boxing world.',
+                bio: 'Walid Sharks is an influencer boxer and digital creator known for high-energy content and a rapidly growing online audience. Transitioning from viral social media clips into crossover boxing, Walid has become a recognizable personality within the influencer boxing community.',
                 socials: [
-                    { platform: 'instagram', url: 'https://www.instagram.com/foxtheg_/?hl=en' },
-                    { platform: 'youtube', url: 'https://www.youtube.com/channel/UCM4gjTBQyxonStfw1pIDk1Q' },
-                    { platform: 'twitter', url: 'https://x.com/foxtownley?lang=en' },
-                    { platform: 'tiktok', url: 'https://www.tiktok.com/@foxtheg' }
+                    { platform: 'instagram', url: 'https://instagram.com/walidsharks' },
+                    { platform: 'tiktok', url: 'https://tiktok.com/@walid_sharks' },
+                    { platform: 'youtube', url: 'https://youtube.com/@WalidSharks' },
+                    { platform: 'twitter', url: 'https://x.com/WalidSharks' }
                 ]
             },
             {
                 id: 'dawood-savage',
                 name: 'Dawood Savage',
-                category: 'Content Creator',
+                category: 'Content Creator / Entertainer',
                 image: 'dawoodpin.jpg',
                 stats: [
-                    { title: 'YouTube Followers', value: '1.1M+' },
-                    { title: 'YouTube Views', value: '196M+' },
-                    { title: 'Nationality', value: 'Turkey' },
-                    { title: 'Instagram', value: '@dawoodsavager' }
+                    { title: 'Audience', value: '~2M+' },
+                    { title: 'Platform', value: 'YouTube' },
+                    { title: 'Nationality', value: 'United Kingdom' },
+                    { title: 'Content', value: 'Comedy/Music' }
                 ],
-                bio: 'Dawood Savage is a massively popular content creator known for his engaging videos that have amassed hundreds of millions of views across platforms.',
+                bio: 'Dawood Savage is a British comedian and online entertainer best known for viral parody music and comedic characters, including his popular “Muslim Drake” persona. Through YouTube and social media, he has built a dedicated global audience and collaborated with numerous creators in the influencer entertainment scene.',
                 socials: [
-                    { platform: 'twitter', url: 'https://twitter.com/dawoodsavage' },
-                    { platform: 'instagram', url: 'https://www.instagram.com/dawoodsavager/' },
-                    { platform: 'tiktok', url: 'https://www.tiktok.com/@dawoodsavagee' },
-                    { platform: 'youtube', url: 'https://www.youtube.com/@dawoodsavager' }
+                    { platform: 'instagram', url: 'https://instagram.com/dawoodsavage' },
+                    { platform: 'tiktok', url: 'https://tiktok.com/@dawoodsavage' },
+                    { platform: 'youtube', url: 'https://youtube.com/@dawoodsavage' },
+                    { platform: 'twitter', url: 'https://x.com/dawoodsavage' }
                 ]
             },
             {
-                id: 'pully',
-                name: 'Pully Arif',
+                id: 'foxtheg',
+                name: 'FoxTheG',
                 category: 'Boxer',
+                image: 'foxpin.jpg',
+                stats: [
+                    { title: 'Audience', value: '~500K+' },
+                    { title: 'Platform', value: 'Instagram' },
+                    { title: 'Nationality', value: 'United States' },
+                    { title: 'Content', value: 'Boxing/Fitness' }
+                ],
+                bio: 'FoxTheG is an undefeated crossover boxer recognized for his technical style and disciplined training approach. Competing in the influencer boxing scene, he continues to build a growing audience through fight content, training footage, and boxing-focused social media posts.',
+                socials: [
+                    { platform: 'instagram', url: 'https://instagram.com/foxtheg_' },
+                    { platform: 'tiktok', url: 'https://tiktok.com/@foxtheg' },
+                    { platform: 'youtube', url: 'https://youtube.com/@FoxTheG' },
+                    { platform: 'twitter', url: 'https://x.com/foxtheg' }
+                ]
+            },
+            {
+                id: 'pully-arif',
+                name: 'Pully Arif',
+                category: 'Boxer / Content Creator',
                 image: 'pullypin.jpg',
                 stats: [
-                    { title: 'Record', value: '0-3 (0 KOs)' },
-                    { title: 'Weight Class', value: 'Lightweight' },
-                    { title: 'Nationality', value: 'UK' },
-                    { title: 'Instagram', value: '@pullyarif' }
+                    { title: 'Audience', value: '~350K+' },
+                    { title: 'Platform', value: 'TikTok' },
+                    { title: 'Nationality', value: 'United Kingdom' },
+                    { title: 'Content', value: 'Boxing/Lifestyle' }
                 ],
-                bio: 'Pully Arif is a determined boxer looking to turn his career around with improved performances in upcoming fights.',
+                bio: 'Pully Arif is a crossover boxer and digital creator who built his audience through engaging social media content before entering influencer boxing. Known for his energetic personality and competitive mindset, he continues expanding his platform through both combat sports and online entertainment.',
                 socials: [
-                    { platform: 'instagram', url: 'https://www.instagram.com/pullyarif/?hl=en' },
-                    { platform: 'twitter', url: 'https://x.com/pullyarif1?lang=en' },
-                    { platform: 'tiktok', url: 'https://www.tiktok.com/@pullyarif?lang=en' }
+                    { platform: 'instagram', url: 'https://instagram.com/pullyarif' },
+                    { platform: 'tiktok', url: 'https://tiktok.com/@pullyarif' },
+                    { platform: 'youtube', url: 'https://youtube.com/@pullyarif' },
+                    { platform: 'twitter', url: 'https://x.com/pullyarif' }
+                ]
+            },
+            {
+                id: 'chibu',
+                name: 'Chibu',
+                category: 'Boxer / Content Creator',
+                image: 'pinnaclepfp.jpg', // placeholder
+                stats: [
+                    { title: 'Audience', value: '~250K+' },
+                    { title: 'Platform', value: 'TikTok' },
+                    { title: 'Nationality', value: 'United Kingdom' },
+                    { title: 'Content', value: 'Boxing/Entertainment' }
+                ],
+                bio: 'Chibu is a crossover boxer and social media creator associated with Brand Risk Promotions. Through entertaining online content and appearances in influencer boxing events, he has developed a loyal audience and continues building his presence within the crossover combat sports community.',
+                socials: [
+                    { platform: 'instagram', url: 'https://instagram.com/chibuu_' },
+                    { platform: 'tiktok', url: 'https://tiktok.com/@chibuu' },
+                    { platform: 'youtube', url: 'https://youtube.com/@chibu' },
+                    { platform: 'twitter', url: 'https://x.com/chibu' }
                 ]
             },
             {
                 id: 'ginty',
                 name: 'Ginty',
-                category: 'Boxer',
+                category: 'Content Creator',
                 image: 'gintypin.jpg',
                 stats: [
-                    { title: 'Record', value: '2-2 (0 KOs)' },
-                    { title: 'Weight Class', value: 'Cruiserweight' },
-                    { title: 'Nationality', value: 'UK' },
-                    { title: 'Instagram', value: '@itsginty01' }
+                    { title: 'Audience', value: '~200K+' },
+                    { title: 'Platform', value: 'TikTok' },
+                    { title: 'Nationality', value: 'United Kingdom' },
+                    { title: 'Content', value: 'Comedy/Lifestyle' }
                 ],
-                bio: 'Ginty is a cruiserweight boxer known for his resilience and determination in the ring.',
+                bio: 'Ginty is a digital creator known for comedic short-form videos and personality-driven social media content. Through collaborations and viral clips, he has developed a growing following across TikTok and Instagram.',
                 socials: [
-                    { platform: 'instagram', url: 'https://www.instagram.com/itsginty01/' },
-                    { platform: 'twitter', url: 'https://x.com/itsginty01?lang=en' },
-                    { platform: 'tiktok', url: 'https://www.tiktok.com/@itsginty01?lang=en' },
-                    { platform: 'youtube', url: 'https://www.youtube.com/@ginty01' }
-                ]
-            },
-            {
-                id: 'charlessy',
-                name: 'Charlessy',
-                category: 'Content Creator',
-                image: 'charlessypin.jpg',
-                stats: [
-                    { title: 'Instagram Followers', value: '214K' },
-                    { title: 'TikTok Followers', value: '434K' },
-                    { title: 'Nationality', value: 'UK' },
-                    { title: 'Instagram', value: '@thecharlessy' }
-                ],
-                bio: 'Charlessy is a popular content creator with a substantial following across multiple social media platforms.',
-                socials: [
-                    { platform: 'instagram', url: 'https://www.instagram.com/thecharlessy/?hl=en' },
-                    { platform: 'youtube', url: 'https://www.youtube.com/@thecharlessy' },
-                    { platform: 'tiktok', url: 'https://www.tiktok.com/@thecharlessy' }
-                ]
-            },
-            {
-                id: 'lil-belsy',
-                name: 'Little Bellsy',
-                category: 'Boxer',
-                image: 'bellsypin.jpg',
-                stats: [
-                    { title: 'Record', value: '2-1 (0 KOs)' },
-                    { title: 'Weight Class', value: 'Featherweight' },
-                    { title: 'Nationality', value: 'Australia' },
-                    { title: 'Instagram', value: '@littlebellsy' }
-                ],
-                bio: 'Little Bellsy is a featherweight boxer from Australia known for her speed and technique in the ring.',
-                socials: [
-                    { platform: 'instagram', url: 'https://www.instagram.com/littlebellsy/' },
-                    { platform: 'tiktok', url: 'https://www.tiktok.com/@littlebellsy' }
+                    { platform: 'instagram', url: 'https://instagram.com/gintyy' },
+                    { platform: 'tiktok', url: 'https://tiktok.com/@gintyy' },
+                    { platform: 'youtube', url: 'https://youtube.com/@ginty' },
+                    { platform: 'twitter', url: 'https://x.com/ginty' }
                 ]
             },
             {
@@ -1079,50 +1083,92 @@
                 category: 'Boxer',
                 image: 'lukepin.jpg',
                 stats: [
-                    { title: 'BKFC Record', value: '3-2' },
-                    { title: 'Weight Class', value: 'Middleweight' },
-                    { title: 'Nationality', value: 'UK' },
-                    { title: 'Instagram', value: '@lnevin' }
+                    { title: 'Audience', value: '~150K+' },
+                    { title: 'Platform', value: 'Instagram' },
+                    { title: 'Nationality', value: 'Ireland' },
+                    { title: 'Content', value: 'Boxing/Fitness' }
                 ],
-                bio: 'Luke Nevin is a bare-knuckle boxer competing in the middleweight division with a respectable record.',
+                bio: 'Luke Nevin is a young boxer representing the next generation of crossover fighters. With a strong focus on training and competition, he shares boxing and fitness content while building a growing fanbase online.',
                 socials: [
-                    { platform: 'instagram', url: 'https://www.instagram.com/lnevin/?hl=en' },
-                    { platform: 'tiktok', url: 'https://www.tiktok.com/@luke.nevin' }
+                    { platform: 'instagram', url: 'https://instagram.com/lukenevin_' },
+                    { platform: 'tiktok', url: 'https://tiktok.com/@lukenevin' },
+                    { platform: 'twitter', url: 'https://x.com/lukenevin' }
                 ]
             },
             {
                 id: 'jordan-gayle',
                 name: 'Jordan Gayle',
-                category: 'Content Creator',
+                category: 'Content Creator / Athlete',
                 image: 'jordanpin.jpg',
                 stats: [
-                    { title: 'Instagram Followers', value: '67K' },
-                    { title: 'Nationality', value: 'UK' },
-                    { title: 'Instagram', value: '@jordanrmgayle' }
+                    { title: 'Audience', value: '~120K+' },
+                    { title: 'Platform', value: 'Instagram' },
+                    { title: 'Nationality', value: 'United Kingdom' },
+                    { title: 'Content', value: 'Lifestyle/Fitness' }
                 ],
-                bio: 'Jordan Gayle is a content creator with a growing following on Instagram and TikTok.',
+                bio: 'Jordan Gayle is a lifestyle creator and athlete producing fitness-focused and personality-driven content across social platforms. His content combines training, lifestyle, and collaborations within the creator community.',
                 socials: [
-                    { platform: 'instagram', url: 'https://www.instagram.com/jordanrmgayle/?hl=en' },
-                    { platform: 'tiktok', url: 'https://www.tiktok.com/@jordanrmgayle' }
+                    { platform: 'instagram', url: 'https://instagram.com/jordangayle' },
+                    { platform: 'tiktok', url: 'https://tiktok.com/@jordangayle' },
+                    { platform: 'youtube', url: 'https://youtube.com/@jordangayle' },
+                    { platform: 'twitter', url: 'https://x.com/jordangayle' }
                 ]
             },
             {
-                id: 'rants-bants',
-                name: 'Rants',
-                category: 'Content Creator',
+                id: 'rants-n-bants',
+                name: 'Rants n Bants',
+                category: 'Podcast / Media Platform',
                 image: 'rants.jpg',
                 stats: [
-                    { title: 'YouTube Subscribers', value: '122K' },
-                    { title: 'Nationality', value: 'UK' },
-                    { title: 'Instagram', value: '@rantsnbants__' }
+                    { title: 'Audience', value: '~100K+' },
+                    { title: 'Platform', value: 'YouTube' },
+                    { title: 'Nationality', value: 'United Kingdom' },
+                    { title: 'Content', value: 'Podcast/Sports' }
                 ],
-                bio: 'Rants is a content creator with a growing following on Instagram and TikTok.',
+                bio: 'Rants n Bants is a podcast and digital media platform known for humorous commentary on sports, internet culture, and trending topics. Through engaging discussions and creator collaborations, the show has built a dedicated audience online.',
                 socials: [
-                    { platform: 'instagram', url: 'https://www.instagram.com/rantsnbants__/' },
-                    { platform: 'twitter', url: 'https://www.twitter.com/rantsnbants' },
-                    { platform: 'tiktok', url: 'https://www.tiktok.com/@rantsnbants' },
-                    { platform: 'youtube', url: 'https://www.youtube.com/@RantsNBants' }
-
+                    { platform: 'instagram', url: 'https://instagram.com/rantsnbants' },
+                    { platform: 'tiktok', url: 'https://tiktok.com/@rantsnbants' },
+                    { platform: 'youtube', url: 'https://youtube.com/@rantsnbants' },
+                    { platform: 'twitter', url: 'https://x.com/rantsnbants' }
+                ]
+            },
+            {
+                id: 'charlessy',
+                name: 'Charlessy',
+                category: 'Content Creator',
+                image: 'charlessypin.jpg',
+                stats: [
+                    { title: 'Audience', value: '~80K+' },
+                    { title: 'Platform', value: 'TikTok' },
+                    { title: 'Nationality', value: 'United Kingdom' },
+                    { title: 'Content', value: 'Entertainment' }
+                ],
+                bio: 'Charlessy is an emerging social media creator producing lifestyle and entertainment content. With a growing audience across short-form platforms, he continues expanding his reach through collaborations and engaging online content.',
+                socials: [
+                    { platform: 'instagram', url: 'https://instagram.com/charlessy' },
+                    { platform: 'tiktok', url: 'https://tiktok.com/@charlessy' },
+                    { platform: 'youtube', url: 'https://youtube.com/@charlessy' },
+                    { platform: 'twitter', url: 'https://x.com/charlessy' }
+                ]
+            },
+            {
+                id: 'little-belsy',
+                name: 'Little Belsy',
+                category: 'Content Creator',
+                image: 'bellsypin.jpg',
+                stats: [
+                    { title: 'Audience', value: '~50K+' },
+                    { title: 'Platform', value: 'TikTok' },
+                    { title: 'Nationality', value: 'United Kingdom' },
+                    { title: 'Content', value: 'Lifestyle' }
+                ],
+                bio: 'Little Belsy is a rising online personality producing lifestyle-focused and personality-driven content across social media platforms. Through engaging videos and collaborations, Belsy continues building a loyal and growing audience.',
+                socials: [
+                    { platform: 'instagram', url: 'https://instagram.com/littlebelsy' },
+                    { platform: 'tiktok', url: 'https://tiktok.com/@littlebelsy' },
+                    { platform: 'youtube', url: 'https://youtube.com/@littlebelsy' },
+                    { platform: 'twitter', url: 'https://x.com/littlebelsy' }
                 ]
             }
         ];
@@ -1258,7 +1304,7 @@
                     <img src="${talent.image}" alt="${talent.name}" class="talent-image">
                     <div class="talent-overlay">
                         <h3 class="talent-name">${talent.name}</h3>
-                        <p class="talent-category">${talent.category}</p>
+                        <p class="talent-category">${talent.category.split('/')[0]}</p>
                     </div>
                 `;
                 
@@ -1282,7 +1328,7 @@
             
             // Set stats
             talent.stats.forEach((stat, index) => {
-                if (index < 4) { // We only have 4 stat slots
+                if (index < 4) {
                     document.getElementById(`stat${index+1}Title`).textContent = stat.title;
                     document.getElementById(`stat${index+1}Value`).textContent = stat.value;
                 }
