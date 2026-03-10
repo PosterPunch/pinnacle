@@ -12,12 +12,14 @@
             --primary: #000000;
             --secondary: #D2B48C;
             --accent: #C5A16F;
-            --light: #F8F5F0;
-            --dark: #1A1A1A;
-            --gray: #5A5A5A;
-            --white: #FFFFFF;
+            --bg-dark: #0a0a0a;
+            --surface-dark: #121212;
+            --card-dark: #1e1e1e;
+            --text-light: #ffffff;
+            --text-muted: #b0b0b0;
+            --border-dim: rgba(210, 180, 140, 0.15);
             --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             --radius: 8px;
         }
         
@@ -33,8 +35,8 @@
         
         body {
             font-family: 'Montserrat', sans-serif;
-            color: var(--dark);
-            background-color: var(--white);
+            color: var(--text-light);
+            background-color: var(--bg-dark);
             overflow-x: hidden;
             line-height: 1.6;
         }
@@ -43,6 +45,7 @@
             font-family: 'Inter', sans-serif;
             font-weight: 700;
             line-height: 1.2;
+            color: var(--text-light);
         }
         
         a {
@@ -111,7 +114,7 @@
         .btn:hover {
             color: var(--primary);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
         
         .btn-secondary {
@@ -129,12 +132,12 @@
         
         .btn-outline {
             background-color: transparent;
-            border: 2px solid var(--white);
-            color: var(--white);
+            border: 2px solid var(--text-light);
+            color: var(--text-light);
         }
         
         .btn-outline:before {
-            background: var(--white);
+            background: var(--text-light);
         }
         
         .btn-outline:hover {
@@ -147,7 +150,7 @@
             margin-bottom: 1.5rem;
             text-align: center;
             position: relative;
-            color: var(--primary);
+            color: var(--text-light);
         }
         
         .section-title:after {
@@ -164,7 +167,7 @@
             font-size: 1.2rem;
             text-align: center;
             margin-bottom: 4rem;
-            color: var(--gray);
+            color: var(--text-muted);
             font-weight: 400;
             max-width: 700px;
             margin-left: auto;
@@ -179,16 +182,16 @@
             left: 0;
             width: 100%;
             padding: 20px 0;
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             transition: var(--transition);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--border-dim);
         }
         
         header.scrolled {
             padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
         }
         
         .header-container {
@@ -200,6 +203,7 @@
         .logo {
             height: 50px;
             transition: var(--transition);
+            filter: brightness(0) invert(1);
         }
         
         .logo:hover {
@@ -224,6 +228,7 @@
             position: relative;
             display: inline-block;
             padding: 5px 0;
+            color: var(--text-light);
         }
         
         nav ul li a:after {
@@ -270,7 +275,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: var(--white);
+            color: var(--text-light);
             overflow: hidden;
             margin-top: 0;
         }
@@ -291,7 +296,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 100%);
             z-index: -1;
         }
         
@@ -343,7 +348,7 @@
             left: 50%;
             transform: translateX(-50%);
             animation: bounce 2s infinite;
-            color: var(--white);
+            color: var(--text-light);
             font-size: 1.5rem;
         }
         
@@ -361,7 +366,7 @@
         
         /* Talent Section */
         .talent-section {
-            background-color: var(--light);
+            background-color: var(--surface-dark);
             position: relative;
         }
         
@@ -380,11 +385,13 @@
             border-radius: var(--radius);
             transition: var(--transition);
             box-shadow: var(--shadow);
+            border: 1px solid var(--border-dim);
         }
         
         .talent-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            border-color: var(--secondary);
         }
         
         .talent-image {
@@ -400,8 +407,8 @@
             left: 0;
             width: 100%;
             padding: 30px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-            color: var(--white);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+            color: var(--text-light);
             transform: translateY(0);
             transition: var(--transition);
         }
@@ -414,6 +421,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 5px;
+            color: var(--text-light);
         }
         
         .talent-category {
@@ -421,6 +429,7 @@
             opacity: 0.8;
             text-transform: uppercase;
             letter-spacing: 1px;
+            color: var(--text-muted);
         }
         
         .view-all-btn {
@@ -434,7 +443,7 @@
             transition: var(--transition);
             position: relative;
             padding-bottom: 5px;
-            color: var(--primary);
+            color: var(--text-light);
         }
         
         .view-all-btn:after {
@@ -468,6 +477,7 @@
         .about-section {
             position: relative;
             overflow: hidden;
+            background-color: var(--bg-dark);
         }
         
         .about-container {
@@ -488,18 +498,20 @@
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
+            border: 1px solid var(--border-dim);
         }
         
         .about-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            filter: brightness(0.8);
         }
         
         .about-content h3 {
             font-size: 2.5rem;
             margin-bottom: 25px;
-            color: var(--primary);
+            color: var(--text-light);
             position: relative;
             display: inline-block;
         }
@@ -517,7 +529,7 @@
         
         .about-content p {
             margin-bottom: 25px;
-            color: var(--gray);
+            color: var(--text-muted);
             line-height: 1.8;
             font-size: 1.05rem;
         }
@@ -532,14 +544,16 @@
         .stat-item {
             text-align: center;
             padding: 25px 15px;
-            background: var(--light);
+            background: var(--card-dark);
             border-radius: var(--radius);
             transition: var(--transition);
+            border: 1px solid var(--border-dim);
         }
         
         .stat-item:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow);
+            border-color: var(--secondary);
         }
         
         .stat-number {
@@ -554,12 +568,12 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--primary);
+            color: var(--text-muted);
         }
         
         /* Merch Section */
         .merch-section {
-            background-color: var(--light);
+            background-color: var(--surface-dark);
             position: relative;
         }
         
@@ -569,7 +583,7 @@
         
         /* Services Section */
         .services-section {
-            background-color: var(--white);
+            background-color: var(--bg-dark);
         }
         
         .services-grid {
@@ -580,25 +594,27 @@
         }
         
         .service-card {
-            background: var(--white);
+            background: var(--card-dark);
             padding: 40px 30px;
             border-radius: var(--radius);
             text-align: center;
             transition: var(--transition);
             box-shadow: var(--shadow);
             border-top: 4px solid transparent;
+            border: 1px solid var(--border-dim);
         }
         
         .service-card:hover {
             transform: translateY(-10px);
             border-top: 4px solid var(--secondary);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+            border-color: var(--secondary);
         }
         
         .service-icon {
             width: 70px;
             height: 70px;
-            background: var(--light);
+            background: var(--surface-dark);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -606,27 +622,30 @@
             margin: 0 auto 25px;
             font-size: 1.8rem;
             color: var(--secondary);
+            border: 1px solid var(--border-dim);
         }
         
         .service-title {
             font-size: 1.4rem;
             margin-bottom: 15px;
-            color: var(--primary);
+            color: var(--text-light);
         }
         
         .service-description {
-            color: var(--gray);
+            color: var(--text-muted);
             line-height: 1.7;
         }
         
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
-            color: var(--white);
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: var(--text-light);
             text-align: center;
             padding: 100px 0;
             position: relative;
             overflow: hidden;
+            border-top: 1px solid var(--border-dim);
+            border-bottom: 1px solid var(--border-dim);
         }
         
         .cta-title {
@@ -641,14 +660,16 @@
             margin-left: auto;
             margin-right: auto;
             opacity: 0.9;
+            color: var(--text-muted);
         }
         
         /* Footer */
         footer {
-            background-color: var(--dark);
-            color: var(--white);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
             padding: 80px 0 30px;
             position: relative;
+            border-top: 1px solid var(--border-dim);
         }
         
         .footer-container {
@@ -668,6 +689,7 @@
             margin-bottom: 20px;
             opacity: 0.7;
             line-height: 1.8;
+            color: var(--text-muted);
         }
         
         .social-links {
@@ -681,15 +703,18 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: var(--card-dark);
             border-radius: 50%;
             transition: var(--transition);
+            border: 1px solid var(--border-dim);
+            color: var(--text-light);
         }
         
         .social-links a:hover {
             background: var(--secondary);
             color: var(--primary);
             transform: translateY(-3px);
+            border-color: var(--secondary);
         }
         
         .footer-links h4 {
@@ -700,6 +725,7 @@
             letter-spacing: 1px;
             position: relative;
             display: inline-block;
+            color: var(--text-light);
         }
         
         .footer-links h4:after {
@@ -721,6 +747,7 @@
             transition: var(--transition);
             display: inline-block;
             position: relative;
+            color: var(--text-muted);
         }
         
         .footer-links ul li a:after {
@@ -746,13 +773,15 @@
         .footer-newsletter p {
             opacity: 0.7;
             margin-bottom: 20px;
+            color: var(--text-muted);
         }
         
         .newsletter-form {
             display: flex;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--card-dark);
             border-radius: var(--radius);
             overflow: hidden;
+            border: 1px solid var(--border-dim);
         }
         
         .newsletter-form input {
@@ -760,12 +789,12 @@
             padding: 15px 20px;
             border: none;
             background: transparent;
-            color: var(--white);
+            color: var(--text-light);
             font-family: 'Montserrat', sans-serif;
         }
         
         .newsletter-form input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
+            color: var(--text-muted);
         }
         
         .newsletter-form button {
@@ -785,9 +814,10 @@
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--border-dim);
             font-size: 0.9rem;
             opacity: 0.7;
+            color: var(--text-muted);
         }
         
         /* Back to Top Button */
@@ -798,7 +828,7 @@
             width: 50px;
             height: 50px;
             background-color: var(--primary);
-            color: var(--white);
+            color: var(--text-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -808,7 +838,8 @@
             visibility: hidden;
             transition: var(--transition);
             z-index: 999;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-dim);
         }
         
         .back-to-top.visible {
@@ -830,20 +861,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.95);
             z-index: 2000;
             overflow-y: auto;
         }
         
         .modal-content {
-            background-color: var(--white);
+            background-color: var(--card-dark);
             max-width: 1000px;
             margin: 50px auto;
             position: relative;
             animation: modalFadeIn 0.3s ease;
             border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--border-dim);
         }
         
         @keyframes modalFadeIn {
@@ -865,7 +897,7 @@
             cursor: pointer;
             z-index: 1;
             background-color: rgba(0, 0, 0, 0.7);
-            color: white;
+            color: var(--text-light);
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -873,6 +905,7 @@
             align-items: center;
             justify-content: center;
             transition: var(--transition);
+            border: 1px solid var(--border-dim);
         }
         
         .close-modal:hover {
@@ -901,7 +934,7 @@
             font-weight: 800;
             margin-bottom: 10px;
             line-height: 1.1;
-            color: var(--primary);
+            color: var(--text-light);
         }
         
         .talent-modal-category {
@@ -924,37 +957,23 @@
             margin-bottom: 30px;
         }
         
-        .stat-item {
-            background-color: var(--light);
-            padding: 20px 15px;
-            border-radius: var(--radius);
-            text-align: center;
-            transition: var(--transition);
+        .talent-modal-stats .stat-item {
+            background-color: var(--surface-dark);
+            border: 1px solid var(--border-dim);
         }
         
-        .stat-item:hover {
-            transform: translateY(-5px);
+        .talent-modal-stats .stat-item h4 {
+            color: var(--text-muted);
         }
         
-        .stat-item h4 {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-            opacity: 0.7;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .stat-item p {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
+        .talent-modal-stats .stat-item p {
+            color: var(--secondary);
         }
         
         .talent-modal-bio {
             margin-bottom: 30px;
             line-height: 1.8;
-            color: var(--gray);
+            color: var(--text-muted);
         }
         
         .talent-modal-socials {
@@ -969,14 +988,18 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background-color: var(--light);
+            background-color: var(--surface-dark);
             border-radius: 50%;
             transition: var(--transition);
+            border: 1px solid var(--border-dim);
+            color: var(--text-light);
         }
         
         .talent-modal-socials a:hover {
             background: var(--secondary);
+            color: var(--primary);
             transform: translateY(-3px);
+            border-color: var(--secondary);
         }
         
         /* Mobile Navigation */
@@ -987,12 +1010,13 @@
             width: 80%;
             max-width: 350px;
             height: 100vh;
-            background-color: var(--white);
+            background-color: var(--card-dark);
             z-index: 1000;
             transition: right 0.3s ease;
             padding: 100px 30px 30px;
             overflow-y: auto;
-            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+            border-left: 1px solid var(--border-dim);
         }
         
         .mobile-nav.show {
@@ -1007,13 +1031,14 @@
         .mobile-nav ul li {
             margin: 0;
             padding: 15px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid var(--border-dim);
         }
         
         .mobile-nav ul li a {
             font-size: 18px;
             display: block;
             font-weight: 600;
+            color: var(--text-light);
         }
         
         .mobile-nav-overlay {
@@ -1022,7 +1047,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.8);
             z-index: 999;
             opacity: 0;
             visibility: hidden;
@@ -1257,7 +1282,7 @@
             <p class="hero-subtitle">Talent Management</p>
             <div class="hero-buttons">
                 <a href="talent.html" class="btn">Meet Our Talent</a>
-                <a href="contact.html" class="btn btn-outline">Get In Touch</a>
+                <a href="#" class="btn btn-outline" onclick="openContactEmail()">Get In Touch</a>
             </div>
         </div>
         
@@ -1266,7 +1291,7 @@
         </a>
     </section>
 
-    <!-- Talent Grid Section -->
+    <!-- Talent Grid Section (Dawood replaced with Walid) -->
     <section class="talent-section section-padding" id="talent">
         <div class="container">
             <h2 class="section-title">FEATURED TALENT</h2>
@@ -1274,16 +1299,16 @@
             
             <div class="talent-grid">
                 <!-- Salt Papi -->
-                <div class="talent-card" onclick="openTalentModal('saltpin', 'Salt Papi', 'Boxer', '5-0', 'Record', '4', 'KOs', '1.8M', 'Instagram', '500K', 'YouTube', 'Salt Papi is a rising star in the boxing world with an undefeated record and knockout power. Known for his technical precision and explosive power, he has quickly become a fan favorite in the combat sports community.')">
+                <div class="talent-card" onclick="openTalentModal('saltpin', 'Salt Papi', 'Boxer / Content Creator', '7M+', 'Audience', 'TikTok', 'Platform', 'UK/Philippines', 'Nationality', 'Boxing/Comedy', 'Content', 'Salt Papi, born Nathaniel Bustamante, is a British-Filipino influencer boxer and social media personality who rose to prominence through viral TikTok comedy videos before transitioning into boxing in 2022. Known for his dramatic physical transformation and highlight-reel knockouts, he quickly became one of the most recognizable figures in influencer boxing and a fan-favourite in the Misfits Boxing scene.')">
                     <img src="saltpin.jpg" alt="Salt Papi" class="talent-image">
                     <div class="talent-overlay">
                         <h3 class="talent-name">Salt Papi</h3>
-                        <p class="talent-category">Boxer</p>
+                        <p class="talent-category">Boxer / Creator</p>
                     </div>
                 </div>
                 
-                <!-- FoxtheG -->
-                <div class="talent-card" onclick="openTalentModal('foxpin', 'FoxTheG', 'Boxer', '2-0', 'Record', '1', 'KOs', 'US', 'Nationality', 'Lightweight', 'Weight Class', 'FoxTheG is a formidable boxer with an undefeated record. His technical skills and strategic approach to fights make him a rising star in the boxing world.')">
+                <!-- FoxTheG -->
+                <div class="talent-card" onclick="openTalentModal('foxpin', 'FoxTheG', 'Boxer', '500K+', 'Audience', 'Instagram', 'Platform', 'US', 'Nationality', 'Boxing/Fitness', 'Content', 'FoxTheG is an undefeated crossover boxer recognized for his technical style and disciplined training approach. Competing in the influencer boxing scene, he continues to build a growing audience through fight content, training footage, and boxing-focused social media posts.')">
                     <img src="foxpin.jpg" alt="FoxTheG" class="talent-image">
                     <div class="talent-overlay">
                         <h3 class="talent-name">FoxTheG</h3>
@@ -1291,12 +1316,12 @@
                     </div>
                 </div>
                 
-                <!-- Dawood Savage -->
-                <div class="talent-card" onclick="openTalentModal('dawoodpin', 'Dawood Savage', 'Influencer', '43.3K', 'TikTok', '160K', 'Instagram', '1.12M', 'YouTube', '196M+', 'YouTube Views', 'Dawood Savage is known for his viral comedy sketches and engaging personality. His ability to connect with audiences through humor and authenticity has made him one of the most recognizable digital creators today.')">
-                    <img src="dawoodpin.jpg" alt="Dawood Savage" class="talent-image">
+                <!-- Walid Sharks (replaced Dawood) -->
+                <div class="talent-card" onclick="openTalentModal('walidpin', 'Walid Sharks', 'Boxer / Content Creator', '3M+', 'Audience', 'TikTok', 'Platform', 'US', 'Nationality', 'Boxing/Lifestyle', 'Content', 'Walid Sharks is an influencer boxer and digital creator known for high-energy content and a rapidly growing online audience. Transitioning from viral social media clips into crossover boxing, Walid has become a recognizable personality within the influencer boxing community.')">
+                    <img src="walidpin.jpg" alt="Walid Sharks" class="talent-image">
                     <div class="talent-overlay">
-                        <h3 class="talent-name">Dawood Savage</h3>
-                        <p class="talent-category">Influencer</p>
+                        <h3 class="talent-name">Walid Sharks</h3>
+                        <p class="talent-category">Boxer / Creator</p>
                     </div>
                 </div>
             </div>
@@ -1311,15 +1336,15 @@
     <section class="services-section section-padding" id="services">
         <div class="container">
             <h2 class="section-title">OUR SERVICES</h2>
-            <p class="section-subtitle">Comprehensive talent management solutions designed to elevate careers and maximize potential</p>
+            <p class="section-subtitle">Comprehensive talent management solutions designed to elevate careers and maximize potential.</p>
             
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-bullseye"></i>
                     </div>
                     <h3 class="service-title">Brand Strategy</h3>
-                    <p class="service-description">Develop and execute comprehensive brand strategies that align with your vision and maximize market impact.</p>
+                    <p class="service-description">Develop and execute long-term brand strategies that position our talent for sustainable growth across social media, sport, and entertainment.</p>
                 </div>
                 
                 <div class="service-card">
@@ -1327,7 +1352,7 @@
                         <i class="fas fa-handshake"></i>
                     </div>
                     <h3 class="service-title">Partnerships & Deals</h3>
-                    <p class="service-description">Secure lucrative brand partnerships, sponsorships, and business opportunities that elevate your career.</p>
+                    <p class="service-description">Secure strategic brand partnerships, sponsorships, and commercial opportunities that expand visibility and create meaningful opportunities.</p>
                 </div>
                 
                 <div class="service-card">
@@ -1335,12 +1360,8 @@
                         <i class="fas fa-film"></i>
                     </div>
                     <h3 class="service-title">Content Development</h3>
-                    <p class="service-description">Create compelling content strategies and production support to grow your audience and engagement.</p>
+                    <p class="service-description">Support creators and athletes with content strategy, platform growth, and production guidance to maximize audience engagement.</p>
                 </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 50px;">
-                <a href="services.html" class="view-all-btn">View All Services <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
@@ -1351,32 +1372,28 @@
             <div class="about-container">
                 <div class="about-content">
                     <h3>ABOUT PINNACLE</h3>
-                    <p>Founded in 2025, Pinnacle Talent Management was born from a vision to bridge the gap between traditional talent representation and the rapidly evolving digital landscape.</p>
-                    <p>We recognized that the entertainment industry was changing, and the creators, athletes, and influencers of tomorrow needed a new kind of representation—one that understood both the creative and business sides of building a lasting brand.</p>
-                    <p>Today, we represent some of the most influential figures across social media, sports, and entertainment, helping them maximize their potential through strategic partnerships, brand development, and innovative content strategies.</p>
-                    <p>"Our mission is to elevate talent beyond the trends and build sustainable careers that transcend platforms."</p>
+                    <p>Founded in 2025, Pinnacle Talent Management was created to support the next generation of creators, athletes, and digital personalities navigating the rapidly evolving digital landscape.</p>
+                    <p>As the worlds of sports, social media, and entertainment continue to merge, emerging talent requires representation that understands both the creative and business sides of building a lasting career. Pinnacle works closely with its clients to build their brands, expand their audiences, and unlock new opportunities across multiple platforms.</p>
+                    <p>Today, Pinnacle represents a growing roster of talent across boxing, digital media, podcasting, and entertainment, helping them maximize their potential through strategic partnerships, brand development, and innovative content strategies.</p>
+                    <p><strong>"Our mission is to elevate talent beyond the trends and build sustainable careers that transcend platforms."</strong></p>
                     
                     <div class="stats-container">
                         <div class="stat-item">
-                            <div class="stat-number">15+</div>
+                            <div class="stat-number">12+</div>
                             <div class="stat-text">Talents Represented</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">50M+</div>
-                            <div class="stat-text">Combined Followers</div>
+                            <div class="stat-number">8M+</div>
+                            <div class="stat-text">Combined Audience Reach</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">100+</div>
-                            <div class="stat-text">Brand Deals</div>
+                            <div class="stat-number">20+</div>
+                            <div class="stat-text">Brand Collaborations</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">3</div>
-                            <div class="stat-text">Years of Excellence</div>
+                            <div class="stat-number">2025</div>
+                            <div class="stat-text">Founded</div>
                         </div>
-                    </div>
-                    
-                    <div style="margin-top: 40px;">
-                        <a href="about.html" class="view-all-btn">Learn More About Us <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="about-image">
@@ -1408,7 +1425,7 @@
         <div class="container">
             <h2 class="cta-title">Ready to Elevate Your Career?</h2>
             <p class="cta-subtitle">Join the Pinnacle family and let us help you reach new heights in your professional journey.</p>
-            <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+            <a href="#" class="btn btn-secondary" onclick="openContactEmail()">Get In Touch</a>
         </div>
     </section>
 
@@ -1447,7 +1464,7 @@
                     <h4>Stay Updated</h4>
                     <p>Subscribe to our newsletter for the latest talent signings, merch drops, and announcements.</p>
                     <form class="newsletter-form" action="https://formspree.io/f/xyzkqeao" method="POST">
-                        <input type="email" placeholder="Your email address" required>
+                        <input type="email" name="email" placeholder="Your email address" required>
                         <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
@@ -1490,7 +1507,7 @@
                     
                     <div class="talent-modal-bio" id="modalTalentBio"></div>
                     
-                    <div class="talent-modal-socials">
+                    <div class="talent-modal-socials" id="modalTalentSocials">
                         <a href="#" id="instagramLink" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="#" id="tiktokLink" target="_blank"><i class="fab fa-tiktok"></i></a>
                         <a href="#" id="youtubeLink" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -1610,28 +1627,28 @@
             twitterLink.style.display = 'none';
 
             if (id === 'saltpin') {
-                instagramLink.href = 'https://www.instagram.com/theofficialsaltpapi?igsh=MTczMHg1cXdvN2kyYg==';
-                tiktokLink.href = 'https://www.tiktok.com/@theofficialsaltpapi?_t=8jodUovyVDF&_r=1';
-                youtubeLink.href = 'https://www.youtube.com/@theofficialsaltpapi?si=Xw4QlOHRTzvKbCgD';
-                twitterLink.href = 'https://www.twitter.com/therealsaltpapi';
+                instagramLink.href = 'https://www.instagram.com/theofficialsaltpapi';
+                tiktokLink.href = 'https://www.tiktok.com/@saltpapi';
+                youtubeLink.href = 'https://www.youtube.com/@theofficialsaltpapi';
+                twitterLink.href = 'https://x.com/therealsaltpapi';
                 instagramLink.style.display = 'flex';
                 tiktokLink.style.display = 'flex';
                 youtubeLink.style.display = 'flex';
                 twitterLink.style.display = 'flex';
             } else if (id === 'foxpin') {
-                instagramLink.href = 'https://www.instagram.com/foxtheg_/?hl=en';
-                youtubeLink.href = 'https://www.youtube.com/channel/UCM4gjTBQyxonStfw1pIDk1Q';
-                twitterLink.href = 'https://x.com/foxtownley?lang=en';
+                instagramLink.href = 'https://www.instagram.com/foxtheg_/';
+                youtubeLink.href = 'https://www.youtube.com/@FoxTheG';
+                twitterLink.href = 'https://x.com/foxtheg';
                 tiktokLink.href = 'https://www.tiktok.com/@foxtheg';
                 instagramLink.style.display = 'flex';
                 tiktokLink.style.display = 'flex';
                 youtubeLink.style.display = 'flex';
                 twitterLink.style.display = 'flex';
-            } else if (id === 'dawoodpin') {
-                twitterLink.href = 'https://twitter.com/dawoodsavage';
-                instagramLink.href = 'https://www.instagram.com/dawoodsavager/';
-                tiktokLink.href = 'https://www.tiktok.com/@dawoodsavagee';
-                youtubeLink.href = 'https://www.youtube.com/@dawoodsavager';
+            } else if (id === 'walidpin') {
+                instagramLink.href = 'https://www.instagram.com/walidsharks/';
+                tiktokLink.href = 'https://www.tiktok.com/@walid_sharks';
+                youtubeLink.href = 'https://www.youtube.com/@WalidSharks';
+                twitterLink.href = 'https://x.com/WalidSharks';
                 instagramLink.style.display = 'flex';
                 tiktokLink.style.display = 'flex';
                 youtubeLink.style.display = 'flex';
@@ -1639,7 +1656,7 @@
             }
 
             document.getElementById('bookTalentBtn').onclick = function() {
-                window.location.href = `mailto:contact@pinnacletalentmanagement.com?subject=Request to book ${name}`;
+                window.location.href = `mailto:contact@pinnacletalentmanagement.com?subject=Booking Inquiry: ${name}`;
             };
 
             modal.style.display = 'block';
@@ -1664,6 +1681,11 @@
             alert(`Thank you for subscribing with ${emailInput.value}!`);
             emailInput.value = '';
         });
+
+        // Contact email function for Get In Touch buttons
+        function openContactEmail() {
+            window.location.href = 'mailto:contact@pinnacletalentmanagement.com?subject=General Inquiry&body=Hello Pinnacle Team, I would like to get in touch regarding...';
+        }
         
         // Responsive adjustments
         function handleResponsive() {
