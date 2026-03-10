@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pinnacle Talent Management | Elevating the Next Generation of Talent</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
-        /* Reset & Base Styles */
         :root {
-            --beige: #E5E5E5;
-            --tan: #D2B48C;
-            --black: #000000;
+            --primary: #000000;
+            --secondary: #D2B48C;
+            --accent: #C5A16F;
+            --light: #F8F5F0;
+            --dark: #1A1A1A;
+            --gray: #5A5A5A;
             --white: #FFFFFF;
-            --gray: #333333;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
         }
         
         * {
@@ -23,17 +27,28 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: 'Montserrat', sans-serif;
-            color: var(--black);
+            color: var(--dark);
             background-color: var(--white);
             overflow-x: hidden;
             line-height: 1.6;
         }
         
+        h1, h2, h3, h4, h5 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
         a {
             text-decoration: none;
             color: inherit;
+            transition: var(--transition);
         }
         
         ul {
@@ -52,25 +67,64 @@
             margin: 0 auto;
         }
         
+        .section-padding {
+            padding: 100px 0;
+        }
+        
         .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--black);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 32px;
+            background-color: var(--primary);
             color: var(--white);
             border: none;
             cursor: pointer;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
+            letter-spacing: 1.5px;
+            transition: var(--transition);
             font-size: 14px;
-            border-radius: 30px;
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .btn:hover:before {
+            left: 0;
         }
         
         .btn:hover {
-            background-color: var(--tan);
-            color: var(--black);
-            transform: translateY(-2px);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        
+        .btn-secondary:before {
+            background: var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            color: var(--secondary);
         }
         
         .btn-outline {
@@ -79,61 +133,21 @@
             color: var(--white);
         }
         
+        .btn-outline:before {
+            background: var(--white);
+        }
+        
         .btn-outline:hover {
-            background-color: var(--white);
-            color: var(--black);
+            color: var(--primary);
         }
         
-        .view-all-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 30px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            position: relative;
-            padding-bottom: 5px;
-        }
-        
-        .view-all-btn:hover {
-            color: var(--tan);
-        }
-        
-        .view-all-btn:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--tan);
-            transition: width 0.3s ease;
-        }
-        
-        .view-all-btn:hover:after {
-            width: 100%;
-        }
-        
-        .view-all-btn i {
-            transition: transform 0.3s ease;
-        }
-        
-        .view-all-btn:hover i {
-            transform: translateX(5px);
-        }
-        
-        /* Modern Section Titles */
         .section-title {
-            font-size: 2.8rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
             text-align: center;
             position: relative;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--black);
+            color: var(--primary);
         }
         
         .section-title:after {
@@ -141,8 +155,9 @@
             display: block;
             width: 80px;
             height: 4px;
-            background: var(--tan);
-            margin: 15px auto 0;
+            background: var(--secondary);
+            margin: 20px auto 0;
+            border-radius: 2px;
         }
         
         .section-subtitle {
@@ -154,24 +169,26 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.8;
         }
         
-        /* Header Styles */
+        /* Header */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 15px 0;
-            background-color: var(--white);
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         
         header.scrolled {
-            padding: 10px 0;
-            background-color: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
         }
         
         .header-container {
@@ -181,8 +198,12 @@
         }
         
         .logo {
-            height: 45px;
-            transition: transform 0.3s ease;
+            height: 50px;
+            transition: var(--transition);
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
         }
         
         nav ul {
@@ -191,7 +212,7 @@
         }
         
         nav ul li {
-            margin-left: 30px;
+            margin-left: 35px;
             position: relative;
         }
         
@@ -200,47 +221,24 @@
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: color 0.3s ease;
             position: relative;
             display: inline-block;
+            padding: 5px 0;
         }
         
         nav ul li a:after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--tan);
-            transition: width 0.3s ease;
+            background: var(--secondary);
+            transition: var(--transition);
         }
         
         nav ul li a:hover:after {
             width: 100%;
-        }
-        
-        .cart-icon {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background-color: var(--tan);
-            color: var(--black);
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            font-weight: 700;
         }
         
         .mobile-menu-btn {
@@ -248,48 +246,25 @@
             font-size: 1.5rem;
             cursor: pointer;
             z-index: 1001;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            background: var(--primary);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
         }
         
         .mobile-menu-btn:hover {
-            color: var(--tan);
-        }
-        
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--black);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            background: var(--tan);
-            color: var(--black);
-            transform: translateY(-3px);
+            background: var(--secondary);
+            color: var(--primary);
         }
         
         /* Hero Section */
         .hero {
             height: 100vh;
-            min-height: 700px;
+            min-height: 800px;
             position: relative;
             display: flex;
             align-items: center;
@@ -297,8 +272,7 @@
             text-align: center;
             color: var(--white);
             overflow: hidden;
-            margin-top: 80px;
-            background-color: var(--gray);
+            margin-top: 0;
         }
         
         .hero-video {
@@ -308,7 +282,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: -1;
+            z-index: -2;
         }
         
         .hero-overlay {
@@ -317,12 +291,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
             z-index: -1;
         }
         
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             padding: 0 20px;
             animation: fadeInUp 0.8s ease;
             width: 100%;
@@ -340,23 +314,20 @@
         }
         
         .hero-title {
-            font-size: 6rem;
-            font-weight: 900;
-            margin-bottom: 10px;
+            font-size: 5.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
             line-height: 1;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             letter-spacing: 2px;
-            width: 100%;
+            text-transform: uppercase;
         }
         
         .hero-subtitle {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 50px;
             font-weight: 400;
-            text-transform: uppercase;
             letter-spacing: 3px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            width: 100%;
+            opacity: 0.9;
         }
         
         .hero-buttons {
@@ -364,12 +335,6 @@
             justify-content: center;
             gap: 20px;
             width: 100%;
-        }
-        
-        .hero-buttons .btn {
-            min-width: 200px;
-            padding: 15px 30px;
-            font-size: 16px;
         }
         
         .scroll-down {
@@ -394,15 +359,15 @@
             }
         }
         
-        /* Talent Grid Section */
+        /* Talent Section */
         .talent-section {
-            padding: 100px 0;
-            background-color: var(--beige);
+            background-color: var(--light);
+            position: relative;
         }
         
         .talent-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
@@ -410,14 +375,16 @@
         .talent-card {
             position: relative;
             overflow: hidden;
-            height: 400px;
+            height: 450px;
             cursor: pointer;
-            border-radius: 10px;
-            transition: all 0.4s ease;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            box-shadow: var(--shadow);
         }
         
         .talent-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
         
         .talent-image {
@@ -433,14 +400,10 @@
             left: 0;
             width: 100%;
             padding: 30px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
             color: var(--white);
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .talent-card:hover .talent-overlay {
             transform: translateY(0);
+            transition: var(--transition);
         }
         
         .talent-card:hover .talent-image {
@@ -456,12 +419,53 @@
         .talent-category {
             font-size: 0.9rem;
             opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .view-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: var(--transition);
+            position: relative;
+            padding-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .view-all-btn:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .view-all-btn:hover {
+            color: var(--secondary);
+        }
+        
+        .view-all-btn:hover:after {
+            width: 100%;
+        }
+        
+        .view-all-btn i {
+            transition: transform 0.3s ease;
+        }
+        
+        .view-all-btn:hover i {
+            transform: translateX(5px);
         }
         
         /* About Section */
         .about-section {
-            padding: 100px 0;
-            background-color: var(--white);
             position: relative;
             overflow: hidden;
         }
@@ -469,20 +473,21 @@
         .about-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
             align-items: center;
             position: relative;
             z-index: 1;
         }
         
         .about-image {
-            height: 500px;
+            height: 550px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            border-radius: 10px;
+            border-radius: var(--radius);
             overflow: hidden;
+            box-shadow: var(--shadow);
         }
         
         .about-image img {
@@ -492,9 +497,9 @@
         }
         
         .about-content h3 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--black);
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: var(--primary);
             position: relative;
             display: inline-block;
         }
@@ -506,30 +511,141 @@
             left: 0;
             width: 60px;
             height: 4px;
-            background: var(--tan);
+            background: var(--secondary);
             border-radius: 2px;
         }
         
         .about-content p {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: var(--gray);
             line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 25px 15px;
+            background: var(--light);
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .stat-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
         }
         
         /* Merch Section */
         .merch-section {
-            padding: 100px 0;
-            background-color: var(--beige);
+            background-color: var(--light);
+            position: relative;
         }
         
-        /* Shopify Collection Container */
         .shopify-collection {
             margin-top: 50px;
         }
         
+        /* Services Section */
+        .services-section {
+            background-color: var(--white);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border-top: 4px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-top: 4px solid var(--secondary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+        
+        .service-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .service-description {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
         /* Footer */
         footer {
-            background-color: var(--black);
+            background-color: var(--dark);
             color: var(--white);
             padding: 80px 0 30px;
             position: relative;
@@ -545,6 +661,7 @@
         .footer-logo {
             margin-bottom: 20px;
             filter: brightness(0) invert(1);
+            height: 50px;
         }
         
         .footer-about p {
@@ -566,12 +683,12 @@
             height: 40px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
         
         .social-links a:hover {
-            background: var(--tan);
-            color: var(--black);
+            background: var(--secondary);
+            color: var(--primary);
             transform: translateY(-3px);
         }
         
@@ -592,7 +709,7 @@
             left: 0;
             width: 40px;
             height: 2px;
-            background: var(--tan);
+            background: var(--secondary);
         }
         
         .footer-links ul li {
@@ -601,7 +718,7 @@
         
         .footer-links ul li a {
             opacity: 0.7;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             display: inline-block;
             position: relative;
         }
@@ -613,13 +730,13 @@
             left: 0;
             width: 0;
             height: 1px;
-            background: var(--tan);
-            transition: width 0.3s ease;
+            background: var(--secondary);
+            transition: var(--transition);
         }
         
         .footer-links ul li a:hover {
             opacity: 1;
-            color: var(--tan);
+            color: var(--secondary);
         }
         
         .footer-links ul li a:hover:after {
@@ -633,26 +750,36 @@
         
         .newsletter-form {
             display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            overflow: hidden;
         }
         
         .newsletter-form input {
             flex: 1;
-            padding: 12px 15px;
+            padding: 15px 20px;
             border: none;
+            background: transparent;
+            color: var(--white);
             font-family: 'Montserrat', sans-serif;
         }
         
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
         .newsletter-form button {
-            padding: 0 20px;
-            background-color: var(--tan);
-            color: var(--black);
+            padding: 0 25px;
+            background-color: var(--secondary);
+            color: var(--primary);
             border: none;
             cursor: pointer;
             font-weight: 600;
+            transition: var(--transition);
         }
         
         .newsletter-form button:hover {
-            opacity: 0.9;
+            background: var(--accent);
         }
         
         .footer-bottom {
@@ -663,7 +790,39 @@
             opacity: 0.7;
         }
         
-        /* Talent Modal */
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -671,19 +830,20 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.9);
             z-index: 2000;
             overflow-y: auto;
         }
         
         .modal-content {
             background-color: var(--white);
-            max-width: 900px;
+            max-width: 1000px;
             margin: 50px auto;
             position: relative;
             animation: modalFadeIn 0.3s ease;
-            border-radius: 10px;
+            border-radius: var(--radius);
             overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
         
         @keyframes modalFadeIn {
@@ -704,7 +864,7 @@
             font-size: 1.5rem;
             cursor: pointer;
             z-index: 1;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.7);
             color: white;
             width: 40px;
             height: 40px;
@@ -712,15 +872,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
         
         .close-modal:hover {
-            background: var(--tan);
-            color: var(--black);
+            background: var(--secondary);
+            color: var(--primary);
         }
         
-        /* Talent Modal */
         .talent-modal {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -742,18 +901,18 @@
             font-weight: 800;
             margin-bottom: 10px;
             line-height: 1.1;
-            color: var(--black);
+            color: var(--primary);
         }
         
         .talent-modal-category {
             display: inline-block;
-            background: var(--tan);
-            color: var(--black);
-            padding: 5px 15px;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 8px 20px;
             font-size: 0.9rem;
             font-weight: 700;
             margin-bottom: 20px;
-            border-radius: 20px;
+            border-radius: 30px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -766,10 +925,15 @@
         }
         
         .stat-item {
-            background-color: var(--beige);
-            padding: 15px;
-            border-radius: 5px;
+            background-color: var(--light);
+            padding: 20px 15px;
+            border-radius: var(--radius);
             text-align: center;
+            transition: var(--transition);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
         }
         
         .stat-item h4 {
@@ -784,7 +948,7 @@
         .stat-item p {
             font-size: 1.5rem;
             font-weight: 800;
-            color: var(--black);
+            color: var(--primary);
         }
         
         .talent-modal-bio {
@@ -805,17 +969,17 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background-color: var(--beige);
+            background-color: var(--light);
             border-radius: 50%;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
         
         .talent-modal-socials a:hover {
-            background: var(--tan);
+            background: var(--secondary);
             transform: translateY(-3px);
         }
         
-        /* Mobile Menu Styles */
+        /* Mobile Navigation */
         .mobile-nav {
             position: fixed;
             top: 0;
@@ -826,8 +990,9 @@
             background-color: var(--white);
             z-index: 1000;
             transition: right 0.3s ease;
-            padding: 80px 30px 30px;
+            padding: 100px 30px 30px;
             overflow-y: auto;
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
         }
         
         .mobile-nav.show {
@@ -846,8 +1011,9 @@
         }
         
         .mobile-nav ul li a {
-            font-size: 16px;
+            font-size: 18px;
             display: block;
+            font-weight: 600;
         }
         
         .mobile-nav-overlay {
@@ -869,18 +1035,28 @@
         }
         
         /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 4.5rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+        }
+        
         @media (max-width: 1024px) {
             .hero-title {
-                font-size: 5rem;
+                font-size: 4rem;
             }
             
             .hero-subtitle {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
             
             .about-container {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 40px;
             }
             
             .about-image {
@@ -899,15 +1075,15 @@
         
         @media (max-width: 768px) {
             .section-title {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             .hero-title {
-                font-size: 4rem;
+                font-size: 3.2rem;
             }
             
             .hero-subtitle {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
             
             .hero-buttons {
@@ -917,6 +1093,8 @@
             
             .hero-buttons .btn {
                 width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
             }
             
             nav ul {
@@ -924,14 +1102,17 @@
             }
             
             .mobile-menu-btn {
-                display: block;
+                display: flex;
             }
             
             .talent-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
             
-            /* Footer Mobile Styles */
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .footer-container {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -943,7 +1124,7 @@
             }
 
             .footer-logo {
-                height: 90px;
+                height: 50px;
                 margin: 0 auto 20px;
             }
             
@@ -965,19 +1146,27 @@
             .newsletter-form {
                 max-width: 100%;
             }
+            
+            .cta-title {
+                font-size: 2.5rem;
+            }
         }
         
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
             
             .hero-subtitle {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .section-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
+            }
+            
+            .section-padding {
+                padding: 70px 0;
             }
             
             .talent-grid {
@@ -990,18 +1179,18 @@
             }
             
             .talent-modal-content {
-                padding: 30px;
+                padding: 30px 20px;
             }
             
             .back-to-top {
-                width: 40px;
-                height: 40px;
+                width: 45px;
+                height: 45px;
                 bottom: 20px;
                 right: 20px;
             }
             
             .footer-logo {
-                height: 80px;
+                height: 40px;
             }
             
             .footer-links {
@@ -1010,20 +1199,11 @@
             }
             
             .mobile-nav {
-                width: 90%;
+                width: 85%;
             }
             
-            .newsletter-form {
-                flex-direction: row;
-            }
-            
-            .newsletter-form input {
-                text-align: left;
-                padding: 12px 15px;
-            }
-            
-            .newsletter-form button {
-                padding: 0 20px;
+            .stats-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -1032,7 +1212,7 @@
     <!-- Header -->
     <header id="header">
         <div class="container header-container">
-            <a href="#home" class="logo">
+            <a href="index.html" class="logo">
                 <img src="pinnaclelogo.png" alt="Pinnacle Talent Management" class="logo">
             </a>
             
@@ -1076,8 +1256,8 @@
             <h1 class="hero-title">PINNACLE</h1>
             <p class="hero-subtitle">Talent Management</p>
             <div class="hero-buttons">
-                <a href="#talent" class="btn">Meet Our Talent</a>
-                <a href="#merch" class="btn btn-outline">Shop Merch</a>
+                <a href="talent.html" class="btn">Meet Our Talent</a>
+                <a href="contact.html" class="btn btn-outline">Get In Touch</a>
             </div>
         </div>
         
@@ -1087,7 +1267,7 @@
     </section>
 
     <!-- Talent Grid Section -->
-    <section class="talent-section" id="talent">
+    <section class="talent-section section-padding" id="talent">
         <div class="container">
             <h2 class="section-title">FEATURED TALENT</h2>
             <p class="section-subtitle">Discover the exceptional talent we represent across sports, entertainment, and digital media</p>
@@ -1103,16 +1283,16 @@
                 </div>
                 
                 <!-- FoxtheG -->
-                <div class="talent-card" onclick="openTalentModal('foxpin', 'FoxTheG', 'Content Creator', '2.1M', 'Instagram', '500K', 'YouTube', '1.2M', 'TikTok', '300K', 'Twitter', 'FoxTheG creates engaging lifestyle content that resonates with young audiences worldwide. His unique perspective and creative approach have earned him a dedicated following across multiple platforms.')">
+                <div class="talent-card" onclick="openTalentModal('foxpin', 'FoxTheG', 'Boxer', '2-0', 'Record', '1', 'KOs', 'US', 'Nationality', 'Lightweight', 'Weight Class', 'FoxTheG is a formidable boxer with an undefeated record. His technical skills and strategic approach to fights make him a rising star in the boxing world.')">
                     <img src="foxpin.jpg" alt="FoxTheG" class="talent-image">
                     <div class="talent-overlay">
                         <h3 class="talent-name">FoxTheG</h3>
-                        <p class="talent-category">Content Creator</p>
+                        <p class="talent-category">Boxer</p>
                     </div>
                 </div>
                 
                 <!-- Dawood Savage -->
-                <div class="talent-card" onclick="openTalentModal('dawoodpin', 'Dawood Savage', 'Influencer', '1.8M', 'TikTok', '800K', 'Instagram', '1.5M', 'YouTube', '400K', 'Twitter', 'Dawood Savage is known for his viral comedy sketches and engaging personality. His ability to connect with audiences through humor and authenticity has made him one of the most recognizable digital creators today.')">
+                <div class="talent-card" onclick="openTalentModal('dawoodpin', 'Dawood Savage', 'Influencer', '43.3K', 'TikTok', '160K', 'Instagram', '1.12M', 'YouTube', '196M+', 'YouTube Views', 'Dawood Savage is known for his viral comedy sketches and engaging personality. His ability to connect with audiences through humor and authenticity has made him one of the most recognizable digital creators today.')">
                     <img src="dawoodpin.jpg" alt="Dawood Savage" class="talent-image">
                     <div class="talent-overlay">
                         <h3 class="talent-name">Dawood Savage</h3>
@@ -1127,8 +1307,46 @@
         </div>
     </section>
 
+    <!-- Services Section -->
+    <section class="services-section section-padding" id="services">
+        <div class="container">
+            <h2 class="section-title">OUR SERVICES</h2>
+            <p class="section-subtitle">Comprehensive talent management solutions designed to elevate careers and maximize potential</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="service-title">Brand Strategy</h3>
+                    <p class="service-description">Develop and execute comprehensive brand strategies that align with your vision and maximize market impact.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="service-title">Partnerships & Deals</h3>
+                    <p class="service-description">Secure lucrative brand partnerships, sponsorships, and business opportunities that elevate your career.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="service-title">Content Development</h3>
+                    <p class="service-description">Create compelling content strategies and production support to grow your audience and engagement.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="services.html" class="view-all-btn">View All Services <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
-    <section class="about-section" id="about">
+    <section class="about-section section-padding" id="about">
         <div class="container">            
             <div class="about-container">
                 <div class="about-content">
@@ -1137,6 +1355,29 @@
                     <p>We recognized that the entertainment industry was changing, and the creators, athletes, and influencers of tomorrow needed a new kind of representation—one that understood both the creative and business sides of building a lasting brand.</p>
                     <p>Today, we represent some of the most influential figures across social media, sports, and entertainment, helping them maximize their potential through strategic partnerships, brand development, and innovative content strategies.</p>
                     <p>"Our mission is to elevate talent beyond the trends and build sustainable careers that transcend platforms."</p>
+                    
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-text">Talents Represented</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50M+</div>
+                            <div class="stat-text">Combined Followers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-text">Brand Deals</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3</div>
+                            <div class="stat-text">Years of Excellence</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 40px;">
+                        <a href="about.html" class="view-all-btn">Learn More About Us <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
                 <div class="about-image">
                     <img src="about.png" alt="Pinnacle Office">
@@ -1146,7 +1387,7 @@
     </section>
 
     <!-- Merch Section -->
-    <section class="merch-section" id="merch">
+    <section class="merch-section section-padding" id="merch">
         <div class="container">
             <h2 class="section-title">PINNACLE MERCH</h2>
             <p class="section-subtitle">Official merchandise from your favorite talents</p>
@@ -1162,6 +1403,15 @@
         </div>
     </section>
 
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2 class="cta-title">Ready to Elevate Your Career?</h2>
+            <p class="cta-subtitle">Join the Pinnacle family and let us help you reach new heights in your professional journey.</p>
+            <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -1171,7 +1421,7 @@
                     <p>Elevating the next generation of talent through innovative management and strategic brand partnerships.</p>
                     <div class="social-links">
                         <a href="https://www.instagram.com/pinnacle_talentmanagement/" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://x.com/Pinnacle_mgmt"><i class="fab fa-twitter"></i></a>
+                        <a href="https://x.com/Pinnacle_mgmt" target="_blank"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
@@ -1197,7 +1447,7 @@
                 <div class="footer-newsletter">
                     <h4>Stay Updated</h4>
                     <p>Subscribe to our newsletter for the latest talent signings, merch drops, and announcements.</p>
-                    <form class="newsletter-form">
+                    <form class="newsletter-form" action="https://formspree.io/f/xyzkqeao" method="POST">
                         <input type="email" placeholder="Your email address" required>
                         <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
@@ -1242,10 +1492,10 @@
                     <div class="talent-modal-bio" id="modalTalentBio"></div>
                     
                     <div class="talent-modal-socials">
-                        <a href="#" id="instagramLink"><i class="fab fa-instagram"></i></a>
-                        <a href="#" id="tiktokLink"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" id="youtubeLink"><i class="fab fa-youtube"></i></a>
-                        <a href="#" id="twitterLink"><i class="fab fa-twitter"></i></a>
+                        <a href="#" id="instagramLink" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" id="tiktokLink" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" id="youtubeLink" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="#" id="twitterLink" target="_blank"><i class="fab fa-twitter"></i></a>
                     </div>
                     
                     <button class="btn" id="bookTalentBtn">Book Talent</button>
@@ -1265,7 +1515,6 @@
             mobileNavOverlay.classList.toggle('show');
             document.body.style.overflow = mobileNav.classList.contains('show') ? 'hidden' : 'auto';
             
-            // Change icon
             if (mobileNav.classList.contains('show')) {
                 mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
             } else {
@@ -1280,7 +1529,6 @@
             mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
         });
         
-        // Close mobile menu when clicking on a link
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', function() {
                 mobileNav.classList.remove('show');
@@ -1299,7 +1547,6 @@
                 header.classList.remove('scrolled');
             }
         
-            // Back to top button visibility
             const backToTop = document.getElementById('backToTop');
             if (window.scrollY > 300) {
                 backToTop.classList.add('visible');
@@ -1338,11 +1585,9 @@
         function openTalentModal(id, name, category, stat1Value, stat1Title, stat2Value, stat2Title, stat3Value, stat3Title, stat4Value, stat4Title, bio) {
             const modal = document.getElementById('talentModal');
             const talentImage = document.getElementById('modalTalentImage');
-        
-            // Set talent image based on ID
+
             talentImage.style.backgroundImage = `url(${id}.jpg)`;
-        
-            // Set talent info
+
             document.getElementById('modalTalentName').textContent = name;
             document.getElementById('modalTalentCategory').textContent = category;
             document.getElementById('stat1Title').textContent = stat1Title;
@@ -1355,50 +1600,66 @@
             document.getElementById('stat4Value').textContent = stat4Value;
             document.getElementById('modalTalentBio').textContent = bio;
             
-            // Set book talent button
-            const bookBtn = document.getElementById('bookTalentBtn');
-            bookBtn.onclick = function() {
-                window.location.href = `mailto:pinnacletalentmanagement1@gmail.com?subject=Request to book ${name}`;
+            const instagramLink = document.getElementById('instagramLink');
+            const tiktokLink = document.getElementById('tiktokLink');
+            const youtubeLink = document.getElementById('youtubeLink');
+            const twitterLink = document.getElementById('twitterLink');
+
+            instagramLink.style.display = 'none';
+            tiktokLink.style.display = 'none';
+            youtubeLink.style.display = 'none';
+            twitterLink.style.display = 'none';
+
+            if (id === 'saltpin') {
+                instagramLink.href = 'https://www.instagram.com/theofficialsaltpapi?igsh=MTczMHg1cXdvN2kyYg==';
+                tiktokLink.href = 'https://www.tiktok.com/@theofficialsaltpapi?_t=8jodUovyVDF&_r=1';
+                youtubeLink.href = 'https://www.youtube.com/@theofficialsaltpapi?si=Xw4QlOHRTzvKbCgD';
+                twitterLink.href = 'https://www.twitter.com/therealsaltpapi';
+                instagramLink.style.display = 'flex';
+                tiktokLink.style.display = 'flex';
+                youtubeLink.style.display = 'flex';
+                twitterLink.style.display = 'flex';
+            } else if (id === 'foxpin') {
+                instagramLink.href = 'https://www.instagram.com/foxtheg_/?hl=en';
+                youtubeLink.href = 'https://www.youtube.com/channel/UCM4gjTBQyxonStfw1pIDk1Q';
+                twitterLink.href = 'https://x.com/foxtownley?lang=en';
+                tiktokLink.href = 'https://www.tiktok.com/@foxtheg';
+                instagramLink.style.display = 'flex';
+                tiktokLink.style.display = 'flex';
+                youtubeLink.style.display = 'flex';
+                twitterLink.style.display = 'flex';
+            } else if (id === 'dawoodpin') {
+                twitterLink.href = 'https://twitter.com/dawoodsavage';
+                instagramLink.href = 'https://www.instagram.com/dawoodsavager/';
+                tiktokLink.href = 'https://www.tiktok.com/@dawoodsavagee';
+                youtubeLink.href = 'https://www.youtube.com/@dawoodsavager';
+                instagramLink.style.display = 'flex';
+                tiktokLink.style.display = 'flex';
+                youtubeLink.style.display = 'flex';
+                twitterLink.style.display = 'flex';
+            }
+
+            document.getElementById('bookTalentBtn').onclick = function() {
+                window.location.href = `mailto:contact@pinnacletalentmanagement.com?subject=Request to book ${name}`;
             };
-        
-            // Show modal
+
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
     
         function closeModal() {
-            const talentModal = document.getElementById('talentModal');
-            talentModal.style.display = 'none';
+            document.getElementById('talentModal').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
     
-        // Close modal when clicking outside
         window.addEventListener('click', function(event) {
-            const talentModal = document.getElementById('talentModal');
-            
-            if (event.target === talentModal) {
+            if (event.target === document.getElementById('talentModal')) {
                 closeModal();
             }
         });
     
-        // Shopping Cart Functionality
-        let cartItems = 0;
-    
-        function updateCartCount() {
-            const cartCount = document.querySelector('.cart-count');
-            cartCount.textContent = cartItems;
-        
-            // Show/hide cart count
-            if (cartItems > 0) {
-                cartCount.style.display = 'flex';
-            } else {
-                cartCount.style.display = 'none';
-            }
-        }
-    
         // Newsletter Form Submission
-        const newsletterForm = document.querySelector('.newsletter-form');
-        newsletterForm.addEventListener('submit', function(e) {
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const emailInput = this.querySelector('input[type="email"]');
             alert(`Thank you for subscribing with ${emailInput.value}!`);
@@ -1407,11 +1668,8 @@
         
         // Responsive adjustments
         function handleResponsive() {
-            if (window.innerWidth > 768) {
-                document.querySelector('.desktop-nav').style.display = 'flex';
-            } else {
-                document.querySelector('.desktop-nav').style.display = 'none';
-            }
+            document.querySelector('.desktop-nav').style.display = 
+                window.innerWidth > 768 ? 'flex' : 'none';
         }
     
         window.addEventListener('resize', handleResponsive);
@@ -1450,268 +1708,268 @@
             node: document.getElementById('product-component-1753723513454'),
             moneyFormat: '%24%7B%7Bamount%7D%7D',
             options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0",
-          "margin-bottom": "50px"
-        },
-        "text-align": "left"
-      },
-      "title": {
-        "font-size": "34px"
-      },
-      "button": {
-        "font-family": "Montserrat, sans-serif",
-        "font-weight": "bold",
-        ":hover": {
-          "background-color": "#000000"
-        },
-        "background-color": "#000000",
-        ":focus": {
-          "background-color": "#000000"
-        },
-        "border-radius": "5px"
-      },
-      "price": {
-        "font-weight": "bold",
-        "font-size": "26px",
-        "color": "#d2b48c"
-      },
-      "compareAt": {
-        "font-weight": "bold",
-        "font-size": "22.099999999999998px",
-        "color": "#d2b48c"
-      },
-      "unitPrice": {
-        "font-weight": "bold",
-        "font-size": "22.099999999999998px",
-        "color": "#d2b48c"
-      },
-      "description": {
-        "font-size": "15px"
+              "product": {
+                "styles": {
+                  "product": {
+                    "@media (min-width: 601px)": {
+                      "max-width": "100%",
+                      "margin-left": "0",
+                      "margin-bottom": "50px"
+                    },
+                    "text-align": "left"
+                  },
+                  "title": {
+                    "font-size": "34px"
+                  },
+                  "button": {
+                    "font-family": "Montserrat, sans-serif",
+                    "font-weight": "bold",
+                    ":hover": {
+                      "background-color": "#000000"
+                    },
+                    "background-color": "#000000",
+                    ":focus": {
+                      "background-color": "#000000"
+                    },
+                    "border-radius": "5px"
+                  },
+                  "price": {
+                    "font-weight": "bold",
+                    "font-size": "26px",
+                    "color": "#d2b48c"
+                  },
+                  "compareAt": {
+                    "font-weight": "bold",
+                    "font-size": "22.099999999999998px",
+                    "color": "#d2b48c"
+                  },
+                  "unitPrice": {
+                    "font-weight": "bold",
+                    "font-size": "22.099999999999998px",
+                    "color": "#d2b48c"
+                  },
+                  "description": {
+                    "font-size": "15px"
+                  }
+                },
+                "layout": "horizontal",
+                "contents": {
+                  "img": false,
+                  "imgWithCarousel": true,
+                  "description": true
+                },
+                "width": "100%",
+                "text": {
+                  "button": "Add to cart"
+                },
+                "googleFonts": [
+                  "Montserrat"
+                ]
+              },
+              "productSet": {
+                "styles": {
+                  "products": {
+                    "@media (min-width: 601px)": {
+                      "margin-left": "-20px"
+                    }
+                  }
+                }
+              },
+              "modalProduct": {
+                "contents": {
+                  "img": false,
+                  "imgWithCarousel": true,
+                  "button": false,
+                  "buttonWithQuantity": true
+                },
+                "styles": {
+                  "product": {
+                    "@media (min-width: 601px)": {
+                      "max-width": "100%",
+                      "margin-left": "0px",
+                      "margin-bottom": "0px"
+                    }
+                  },
+                  "button": {
+                    "font-family": "Montserrat, sans-serif",
+                    "font-weight": "bold",
+                    ":hover": {
+                      "background-color": "#000000"
+                    },
+                    "background-color": "#000000",
+                    ":focus": {
+                      "background-color": "#000000"
+                    },
+                    "border-radius": "5px"
+                  },
+                  "title": {
+                    "font-family": "Helvetica Neue, sans-serif",
+                    "font-weight": "bold",
+                    "font-size": "26px",
+                    "color": "#4c4c4c"
+                  },
+                  "price": {
+                    "font-family": "Helvetica Neue, sans-serif",
+                    "font-weight": "normal",
+                    "font-size": "18px",
+                    "color": "#4c4c4c"
+                  },
+                  "compareAt": {
+                    "font-family": "Helvetica Neue, sans-serif",
+                    "font-weight": "normal",
+                    "font-size": "15.299999999999999px",
+                    "color": "#4c4c4c"
+                  },
+                  "unitPrice": {
+                    "font-family": "Helvetica Neue, sans-serif",
+                    "font-weight": "normal",
+                    "font-size": "15.299999999999999px",
+                    "color": "#4c4c4c"
+                  },
+                  "description": {
+                    "font-family": "Helvetica Neue, sans-serif",
+                    "font-weight": "normal",
+                    "font-size": "14px",
+                    "color": "#4c4c4c"
+                  }
+                },
+                "googleFonts": [
+                  "Montserrat"
+                ],
+                "text": {
+                  "button": "Add to cart"
+                }
+              },
+              "option": {},
+              "cart": {
+                "styles": {
+                  "button": {
+                    "font-family": "Montserrat, sans-serif",
+                    "font-weight": "bold",
+                    ":hover": {
+                      "background-color": "#000000"
+                    },
+                    "background-color": "#000000",
+                    ":focus": {
+                      "background-color": "#000000"
+                    },
+                    "border-radius": "5px"
+                  },
+                  "title": {
+                    "color": "#000000"
+                  },
+                  "header": {
+                    "color": "#000000"
+                  },
+                  "lineItems": {
+                    "color": "#000000"
+                  },
+                  "subtotalText": {
+                    "color": "#000000"
+                  },
+                  "subtotal": {
+                    "color": "#000000"
+                  },
+                  "notice": {
+                    "color": "#000000"
+                  },
+                  "currency": {
+                    "color": "#000000"
+                  },
+                  "close": {
+                    "color": "#000000",
+                    ":hover": {
+                      "color": "#000000"
+                    }
+                  },
+                  "empty": {
+                    "color": "#000000"
+                  },
+                  "noteDescription": {
+                    "color": "#000000"
+                  },
+                  "discountText": {
+                    "color": "#000000"
+                  },
+                  "discountIcon": {
+                    "fill": "#000000"
+                  },
+                  "discountAmount": {
+                    "color": "#000000"
+                  }
+                },
+                "text": {
+                  "total": "Subtotal",
+                  "button": "Checkout"
+                },
+                "contents": {
+                  "note": true
+                },
+                "googleFonts": [
+                  "Montserrat"
+                ]
+              },
+              "toggle": {
+                "styles": {
+                  "toggle": {
+                    "font-family": "Montserrat, sans-serif",
+                    "font-weight": "bold",
+                    "background-color": "#000000",
+                    ":hover": {
+                      "background-color": "#000000"
+                    },
+                    ":focus": {
+                      "background-color": "#000000"
+                    }
+                  }
+                },
+                "googleFonts": [
+                  "Montserrat"
+                ]
+              },
+              "lineItem": {
+                "styles": {
+                  "variantTitle": {
+                    "color": "#000000"
+                  },
+                  "title": {
+                    "color": "#000000"
+                  },
+                  "price": {
+                    "color": "#000000"
+                  },
+                  "fullPrice": {
+                    "color": "#000000"
+                  },
+                  "discount": {
+                    "color": "#000000"
+                  },
+                  "discountIcon": {
+                    "fill": "#000000"
+                  },
+                  "quantity": {
+                    "color": "#000000"
+                  },
+                  "quantityIncrement": {
+                    "color": "#000000",
+                    "border-color": "#000000"
+                  },
+                  "quantityDecrement": {
+                    "color": "#000000",
+                    "border-color": "#000000"
+                  },
+                  "quantityInput": {
+                    "color": "#000000",
+                    "border-color": "#000000"
+                  }
+                }
+              }
+            }
+          });
+        });
       }
-    },
-    "layout": "horizontal",
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "description": true
-    },
-    "width": "100%",
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Montserrat"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Montserrat, sans-serif",
-        "font-weight": "bold",
-        ":hover": {
-          "background-color": "#000000"
-        },
-        "background-color": "#000000",
-        ":focus": {
-          "background-color": "#000000"
-        },
-        "border-radius": "5px"
-      },
-      "title": {
-        "font-family": "Helvetica Neue, sans-serif",
-        "font-weight": "bold",
-        "font-size": "26px",
-        "color": "#4c4c4c"
-      },
-      "price": {
-        "font-family": "Helvetica Neue, sans-serif",
-        "font-weight": "normal",
-        "font-size": "18px",
-        "color": "#4c4c4c"
-      },
-      "compareAt": {
-        "font-family": "Helvetica Neue, sans-serif",
-        "font-weight": "normal",
-        "font-size": "15.299999999999999px",
-        "color": "#4c4c4c"
-      },
-      "unitPrice": {
-        "font-family": "Helvetica Neue, sans-serif",
-        "font-weight": "normal",
-        "font-size": "15.299999999999999px",
-        "color": "#4c4c4c"
-      },
-      "description": {
-        "font-family": "Helvetica Neue, sans-serif",
-        "font-weight": "normal",
-        "font-size": "14px",
-        "color": "#4c4c4c"
-      }
-    },
-    "googleFonts": [
-      "Montserrat"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Montserrat, sans-serif",
-        "font-weight": "bold",
-        ":hover": {
-          "background-color": "#000000"
-        },
-        "background-color": "#000000",
-        ":focus": {
-          "background-color": "#000000"
-        },
-        "border-radius": "5px"
-      },
-      "title": {
-        "color": "#000000"
-      },
-      "header": {
-        "color": "#000000"
-      },
-      "lineItems": {
-        "color": "#000000"
-      },
-      "subtotalText": {
-        "color": "#000000"
-      },
-      "subtotal": {
-        "color": "#000000"
-      },
-      "notice": {
-        "color": "#000000"
-      },
-      "currency": {
-        "color": "#000000"
-      },
-      "close": {
-        "color": "#000000",
-        ":hover": {
-          "color": "#000000"
-        }
-      },
-      "empty": {
-        "color": "#000000"
-      },
-      "noteDescription": {
-        "color": "#000000"
-      },
-      "discountText": {
-        "color": "#000000"
-      },
-      "discountIcon": {
-        "fill": "#000000"
-      },
-      "discountAmount": {
-        "color": "#000000"
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "contents": {
-      "note": true
-    },
-    "googleFonts": [
-      "Montserrat"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Montserrat, sans-serif",
-        "font-weight": "bold",
-        "background-color": "#000000",
-        ":hover": {
-          "background-color": "#000000"
-        },
-        ":focus": {
-          "background-color": "#000000"
-        }
-      }
-    },
-    "googleFonts": [
-      "Montserrat"
-    ]
-  },
-  "lineItem": {
-    "styles": {
-      "variantTitle": {
-        "color": "#000000"
-      },
-      "title": {
-        "color": "#000000"
-      },
-      "price": {
-        "color": "#000000"
-      },
-      "fullPrice": {
-        "color": "#000000"
-      },
-      "discount": {
-        "color": "#000000"
-      },
-      "discountIcon": {
-        "fill": "#000000"
-      },
-      "quantity": {
-        "color": "#000000"
-      },
-      "quantityIncrement": {
-        "color": "#000000",
-        "border-color": "#000000"
-      },
-      "quantityDecrement": {
-        "color": "#000000",
-        "border-color": "#000000"
-      },
-      "quantityInput": {
-        "color": "#000000",
-        "border-color": "#000000"
-      }
-    }
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
+    })();
+    /*]]>*/
+    </script>
 </body>
 </html>
